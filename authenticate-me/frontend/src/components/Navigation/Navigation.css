@@ -1,0 +1,8 @@
+.profile-dropdown{
+    flex-direction: column;
+    display:flex;
+    align-content: center;
+    border: solid grey;
+    border-width: 1px;
+    padding-left: 50px;
+}
