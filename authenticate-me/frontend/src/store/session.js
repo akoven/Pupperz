@@ -61,7 +61,7 @@ const setUser = (user) => {
     const data = await response.json();
     dispatch(setUser(data.user));
     return response;
-  }
+  };
 
   const initialState = { user: null };
 
