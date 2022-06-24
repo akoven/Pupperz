@@ -38,6 +38,14 @@ const setUser = (user) => {
     return response;
   };
 
+  //this thunk retains the current session across re-renders/refreshing the page
+  export const restoreUser = () => async dispatch => {
+    const response = await csrfFetch('/api/session');
+    const data = await response.json();
+    dispatch(setUser(data.user));
+    return response;
+  };
+
   const initialState = { user: null };
 
   const sessionReducer = (state = initialState, action) => {
