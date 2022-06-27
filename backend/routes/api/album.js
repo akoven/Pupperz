@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const {Albums} = require('../../db/models/album');
+const {Album} = require('../../db/models');
 // const { check } = require('express-validator');
 
 
@@ -14,9 +14,15 @@ const router = express.Router();
 
 router.post('/', asyncHandler(async (req,res) =>{
     const {userId, title} = req.body;
-    const newPhotoAlbum = await Albums.create({userId, title});
-    console.log(newPhotoAlbum);
+    const newPhotoAlbum = await Album.create({userId, title});
+    // console.log('Did I create a new album? ',newPhotoAlbum);
     return res.json(newPhotoAlbum);
 }));
 
-module.export = router;
+router.get('/', asyncHandler(async(req,res) =>{
+    const getAlbums = await Album.findAll();
+    return res.json(getAlbums);
+}));
+
+
+module.exports = router;
