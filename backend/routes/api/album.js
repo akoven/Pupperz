@@ -4,7 +4,14 @@ const {Albums} = require('../../db/models/album');
 
 const router = express.Router();
 
-router.get('/', asyncHandler(async (_req,res) =>{
-    const getAlbums = await Albums.findAll();
-    return res.json(getAlbums);
+const validator = [
+    check('title')
+        .exists({checkFalsy: true})
+        .withMessage('Please provide a title for your album')
+]
+
+router.post('/', validator, asyncHandler(async (req,res) =>{
+    const {userId, title} = req.body;
+    const newPhotoAlbum = await Albums.create({userId, title});
+    return res.json(newPhotoAlbum);
 }));

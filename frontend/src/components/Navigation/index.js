@@ -10,7 +10,13 @@ const Navigation = ({isLoaded}) =>{
     let sessionLinks;
     if(sessionUser){
 
-        sessionLinks = <ProfileButton user={sessionUser} />
+        sessionLinks = (
+            <>
+                <NavLink to='/create-album'>Create an Album</NavLink>
+                <ProfileButton user={sessionUser} />
+            </>
+        )
+
 
     }else{
         sessionLinks=(

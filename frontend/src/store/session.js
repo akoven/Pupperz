@@ -19,7 +19,7 @@ const setUser = (user) => {
 
   export const login = (user) => async (dispatch) => {
     const { credential, password } = user;
-    console.log('login function running ',credential,password);
+    // console.log('login function running ',credential,password);
     const response = await csrfFetch('/api/session', {
       method: 'POST',
       body: JSON.stringify({

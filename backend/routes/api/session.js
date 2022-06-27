@@ -24,7 +24,7 @@ router.post(
     validateLogin,
     asyncHandler(async (req, res, next) => {
       const { credential, password } = req.body;
-      console.log('credentials from backend route ', credential,password)
+      // console.log('credentials from backend route ', credential,password)
       const user = await User.login({ credential, password });
 
       if (!user) {

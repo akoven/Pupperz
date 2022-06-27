@@ -9,8 +9,11 @@ export const createNewAlbum = album =>({
 });
 
 export const createAlbum = (album) => async dispatch =>{
-    const response = await fetch(`/api/album`, {
+    const response = await fetch(`/api/albums`, {
         method:'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(album)
     });
 
