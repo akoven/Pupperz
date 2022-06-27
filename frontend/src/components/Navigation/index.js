@@ -9,13 +9,9 @@ const Navigation = ({isLoaded}) =>{
 
     let sessionLinks;
     if(sessionUser){
-        <div>
-            <div className="profile-dropdown">
-                sessionLinks = <ProfileButton user={sessionUser} />
 
-                {/* <NavLink to='/create-album'>Create an Album</NavLink> */}
-            </div>
-        </div>
+        sessionLinks = <ProfileButton user={sessionUser} />
+
     }else{
         sessionLinks=(
             <>
