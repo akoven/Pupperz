@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Album.associate = function(models) {
     // associations can be defined here
-    Album.hasOne(models.User,{foreignKey:'userId'})
+    Album.belongsTo(models.User,{foreignKey:'userId'})
   };
   return Album;
 };

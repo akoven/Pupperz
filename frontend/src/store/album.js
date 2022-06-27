@@ -3,7 +3,7 @@ const READ = 'album/READ';
 const EDIT = 'album/EDIT';
 const DELETE = 'album/DELETE';
 
-const createNewAlbum = album =>({
+export const createNewAlbum = album =>({
     type: CREATE,
     album
 });
@@ -16,7 +16,7 @@ export const createAlbum = (album) => async dispatch =>{
 
     if(response.ok){
         const newAlbum = await response.json();
-        dispatch(createAlbum(newAlbum));
+        dispatch(createNewAlbum(newAlbum));
         return newAlbum;
     }
     return null;
@@ -33,7 +33,7 @@ const albumReducer = (state = initialState, action) =>{
             console.log(newState);
             return newState;
         default:
-            return state
+            return state;
     }
 }
 

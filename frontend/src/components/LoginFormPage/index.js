@@ -16,6 +16,7 @@ function LoginFormPage() {
   );
 
   const handleSubmit = (e) => {
+    console.log('running handleSubmit function ', credential,password);
     e.preventDefault();
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password }))
@@ -27,7 +28,10 @@ function LoginFormPage() {
 
   return (
     <div>
-        <Link to='/'exact>Home</Link>
+        <button onClick={() =>{
+                setCredential('Demo-lition')
+                setPassword('password')
+            }}>Demo User</button>
         <form onSubmit={handleSubmit} className='background'>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
