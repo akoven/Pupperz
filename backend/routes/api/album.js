@@ -24,10 +24,12 @@ router.get('/', asyncHandler(async(req,res) =>{
     return res.json(getAlbums);
 }));
 
-// router.put('/',asyncHandler(asyc(req,res) =>{
-//     // const editAlbum = await Album
-//     return
-// }))
+router.put('/',asyncHandler(async(req,res) =>{
+    const {id,title} = req.body;
+    const editAlbum = await Album.findByPk(id);
+    await editAlbum.update({id,title});
+    return res.json(editAlbum);
+}));
 
 
 module.exports = router;

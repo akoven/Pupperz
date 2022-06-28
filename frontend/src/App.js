@@ -6,6 +6,7 @@ import SignupFormPage from './components/SignupFormPage';
 import Homepage from './components/Homepage';
 import Navigation from './components/Navigation';
 import CreateAlbumForm from './components/CreateAlbumForm';
+import EditAlbumForm from './components/CreateAlbumForm/EditAlbumForm';
 import * as sessionActions from './store/session';
 
 
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path='/create-album'>
             <CreateAlbumForm />
+          </Route>
+          <Route path='/edit-album/:id'>
+            <EditAlbumForm />
           </Route>
         </Switch>
       )}

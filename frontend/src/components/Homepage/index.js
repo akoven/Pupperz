@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import ProfileButton from "../Navigation/ProfileButton";
 // import Navigation from "../Navigation";
@@ -8,6 +8,7 @@ import { displayAllAlbums } from "../../store/album";
 const Homepage = () =>{
 
     const dispatch = useDispatch();
+    const history = useHistory();
     const userSession = useSelector(state => state.session.user);
     const albums = useSelector(state => state.albums);
     const albumArr = Object.values(albums||{});
@@ -24,7 +25,7 @@ const Homepage = () =>{
         <div>
             <NavLink to='/create-album'>Create an Album</NavLink>
             <h3>{userSession.username}'s Albums</h3>
-            {albumArr.map(album => <div><Link to={`/albums/${album.id}`}>{album.title}</Link></div>)}
+            {albumArr.map(album => <div><Link to={`/albums/${album.id}`}>{album.title}</Link><button onClick={() => history.push(`/edit-album/${album.id}`)}>Edit</button></div>)}
         </div>
 
     )

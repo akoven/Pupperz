@@ -36,7 +36,7 @@ export const createAlbum = (album) => async dispatch =>{
         return newAlbum;
     }
     return null;
-}
+};
 
 export const displayAllAlbums = () => async dispatch =>{
     const response = await csrfFetch(`/api/albums`);
@@ -46,7 +46,15 @@ export const displayAllAlbums = () => async dispatch =>{
         // return albums;
     }
     return null;
-}
+};
+
+// export const getOneAlbum = (album) => async dispatch =>{
+//     const response = await csrfFetch(`/api/albums/${album.id}`);
+//     if(response.ok){
+//         const album = await response.json();
+//         dispatch(displayAlbums(album));
+//     }
+// }
 
 export const editAlbum = (album) => async dispatch =>{
     const response = await csrfFetch(`/api/albums/${album.id}`,{

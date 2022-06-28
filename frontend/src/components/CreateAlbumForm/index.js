@@ -21,9 +21,13 @@ const CreateAlbumForm = () =>{
         errors.push('Title must be between 1 and 20 charactures long');
         setErrorValidation(errors);
     }
+    if(title.length === 0){
+        errors.push('Please provide a title!')
+        setErrorValidation(errors);
+    }
 
     if(newAlbum){
-        history.push('/');
+        history.push('/logged-in');
     }
  }
 
@@ -41,7 +45,7 @@ const CreateAlbumForm = () =>{
                 onChange={e=>setTitle(e.target.value)}
                 required/>
             </label>
-            <button type='submit'>Submit</button>
+            <button type='submit' disabled={errors.length > 0}>Submit</button>
         </form>
      )
  }
