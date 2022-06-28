@@ -16,6 +16,11 @@ export const displayAlbums = albums =>({
     albums
 });
 
+export const editAlbumAction = album =>({
+    type: EDIT,
+    album
+})
+
 export const createAlbum = (album) => async dispatch =>{
     const response = await csrfFetch(`/api/albums`, {
         method:'POST',
@@ -43,6 +48,20 @@ export const displayAllAlbums = () => async dispatch =>{
     return null;
 }
 
+export const editAlbum = (album) => async dispatch =>{
+    const response = await csrfFetch(`/api/albums/${album.id}`,{
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(album)
+    });
+    if(response.ok){
+        const editedAlbum = await response.json();
+        dispatch(editAlbum(editedAlbum));
+    }
+}
+
 const initialState = {};
 
 const albumReducer = (state = initialState, action) =>{
@@ -57,6 +76,11 @@ const albumReducer = (state = initialState, action) =>{
             newState = Object.assign({}, state);
             action.albums.forEach(album => newState[album.id] = album)
             return newState;
+        case EDIT:
+            newState = Object.assign({}, state);
+            action.albums.forEach(album => newState[album.id] = album)
+            return newState;
+
         default:
             return state;
     }

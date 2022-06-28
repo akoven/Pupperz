@@ -24,5 +24,10 @@ router.get('/', asyncHandler(async(req,res) =>{
     return res.json(getAlbums);
 }));
 
+router.put('/',asyncHandler(asyc(req,res) =>{
+    // const editAlbum = await Album
+    return
+}))
+
 
 module.exports = router;
