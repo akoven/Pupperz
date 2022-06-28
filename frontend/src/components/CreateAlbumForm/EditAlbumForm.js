@@ -8,12 +8,10 @@ const EditAlbumForm = () =>{
     const dispatch = useDispatch();
     const {id} = useParams();
 
-    const albums = useSelector(state => state.albums);
-    console.log(albums[id].title);
-    // const selectedAlbum = ;
-    // console.log(selectedAlbum);
-    console.log('selected Id: ',id);
-    const [newTitle, setNewTitle] = useState(albums[id].title);
+    const album = useSelector(state => state.albums[id]);
+    // console.log(album.title);
+    // console.log('selected Id: ',id);
+    const [newTitle, setNewTitle] = useState(album.title);
     const [errorValidation, setErrorValidation] = useState([]);
 
     let errors = [];
@@ -24,8 +22,12 @@ const EditAlbumForm = () =>{
 
     const handleSubmit = e =>{
         e.preventDefault();
-        const album = {id, newTitle};
-        const editedAlbum = dispatch(editAlbum(album));
+        const payload = {
+            ...album,
+            newTitle
+        };
+
+        const editedAlbum = dispatch(editAlbum(payload));
         if (newTitle.length > 20){
             errors.push('Title must be between 1 and 20 charactures long');
             setErrorValidation(errors);

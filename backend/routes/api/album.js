@@ -24,10 +24,9 @@ router.get('/', asyncHandler(async(req,res) =>{
     return res.json(getAlbums);
 }));
 
-router.put('/',asyncHandler(async(req,res) =>{
-    const {id,title} = req.body;
-    const editAlbum = await Album.findByPk(id);
-    await editAlbum.update({id,title});
+router.put('/:id',asyncHandler(async(req,res) =>{
+    const id = await Album.update(req.body);
+    const editAlbum = await Album.one(id);
     return res.json(editAlbum);
 }));
 
