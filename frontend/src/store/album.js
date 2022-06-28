@@ -67,8 +67,9 @@ export const editAlbum = (album) => async dispatch =>{
     if(response.ok){
         const editedAlbum = await response.json();
         dispatch(editAlbumAction(editedAlbum));
+        return editedAlbum;
     }
-}
+};
 
 const initialState = {};
 
