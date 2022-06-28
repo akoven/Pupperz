@@ -11,7 +11,7 @@ const EditAlbumForm = () =>{
     const album = useSelector(state => state.albums[id]);
     // console.log(album.title);
     // console.log('selected Id: ',id);
-    const [newTitle, setNewTitle] = useState(album.title);
+    const [title, setTitle] = useState(album.title);
     const [errorValidation, setErrorValidation] = useState([]);
 
     let errors = [];
@@ -24,16 +24,17 @@ const EditAlbumForm = () =>{
         e.preventDefault();
         const payload = {
             ...album,
-            newTitle
+            title
         };
+        console.log(payload);
 
         const editedAlbum = dispatch(editAlbum(payload));
-        if (newTitle.length > 20){
+        if (title.length > 20){
             errors.push('Title must be between 1 and 20 charactures long');
             setErrorValidation(errors);
         }
 
-        if(newTitle.length === 0){
+        if(title.length === 0){
             errors.push('Please provide a new title!');
             setErrorValidation(errors);
         }
@@ -55,11 +56,11 @@ const EditAlbumForm = () =>{
                 Album Title:
                 <input
                 type='string'
-                value={newTitle}
-                onChange={e => setNewTitle(e.target.value)}
+                value={title}
+                onChange={e => setTitle(e.target.value)}
                 required/>
             </label>
-            <button type='submit' disabled={errors.length > 0}>Submit Changes</button>
+            <button type='submit' disabled={errorValidation.length > 0}>Submit Changes</button>
             <button onClick={() => history.push('/logged-in')}>Cancel</button>
         </form>
     )
