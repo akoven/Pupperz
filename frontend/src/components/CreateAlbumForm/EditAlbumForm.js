@@ -42,9 +42,6 @@ const EditAlbumForm = () =>{
         if(editedAlbum){
             history.push('/logged-in');
         }
-        if(errorValidation){
-
-        }
     }
 
     return(

@@ -25,8 +25,9 @@ router.get('/', asyncHandler(async(req,res) =>{
 }));
 
 router.put('/:id',asyncHandler(async(req,res) =>{
-    const id = await Album.update(req.body);
-    const editAlbum = await Album.one(id);
+    console.log('made it to backend');
+    const {editAlbum} = await Album.update(req.body);
+    // const editAlbum = await Album.one(id);
     return res.json(editAlbum);
 }));
 
