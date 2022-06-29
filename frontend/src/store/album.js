@@ -19,7 +19,12 @@ export const displayAlbums = albums =>({
 export const editAlbumAction = album =>({
     type: EDIT,
     album
-})
+});
+
+export const deleteAlbumAction = album =>({
+    type: DELETE,
+    album
+});
 
 export const createAlbum = (album) => async dispatch =>{
     const response = await csrfFetch(`/api/albums`, {
@@ -71,6 +76,14 @@ export const editAlbum = (album) => async dispatch =>{
     }
 };
 
+export const deleteAlbum = (album) => async dispatch =>{
+    const response = await csrfFetch(`/api/albums/${album.id}`,{
+        method: 'DELETE'
+    });
+    dispatch(deleteAlbumAction(album));
+    return response;
+};
+
 const initialState = {};
 
 const albumReducer = (state = initialState, action) =>{
@@ -79,7 +92,7 @@ const albumReducer = (state = initialState, action) =>{
         case CREATE:
             newState = Object.assign({}, state);
             newState[action.album.id] = action.album;
-            console.log(newState);
+            // console.log(newState);
             return newState;
         case READ:
             newState = Object.assign({}, state);
@@ -92,6 +105,10 @@ const albumReducer = (state = initialState, action) =>{
 
             newState = Object.assign({},state);
             newState[action.album.id] = action.album;
+            return newState;
+        case DELETE:
+            newState = Object.assign({}, state);
+            delete newState[action.album.id];
             return newState;
 
         default:

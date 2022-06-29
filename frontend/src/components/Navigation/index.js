@@ -14,7 +14,7 @@ const Navigation = ({isLoaded}) =>{
 
         sessionLinks = (
             <>
-                {/* <NavLink to='/create-album'>Create an Album</NavLink> */}
+                <NavLink to='/logged-in'>Pupperz</NavLink>
                 {/* <Redirect to='/' /> */}
                 <ProfileButton user={sessionUser} />
             </>
@@ -22,6 +22,7 @@ const Navigation = ({isLoaded}) =>{
     }else{
         sessionLinks=(
             <>
+                <NavLink to='/'>Pupperz</NavLink>
                 <NavLink to='/login'><button>Log In</button></NavLink>
                 <NavLink to='/signup'><button>Sign Up!</button></NavLink>
             </>
@@ -31,12 +32,12 @@ const Navigation = ({isLoaded}) =>{
 
     return(
         <div>
-            <ul>
+            {isLoaded && sessionLinks}
+            {/* <ul>
                 <li>
-                    <NavLink to='/'>Pupperz</NavLink>
                     {isLoaded && sessionLinks}
                 </li>
-            </ul>
+            </ul> */}
         </div>
     )
 };

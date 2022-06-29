@@ -28,10 +28,26 @@ router.put('/:id',asyncHandler(async(req,res) =>{
     // console.log('made it to backend');
     const albumId = parseInt(req.params.id);
     const editAlbum = await Album.findByPk(albumId);
+    //or : await editAlbum.update({title: req.body.title}, {where:{id:albumId}})
 
     await editAlbum.update({title: req.body.title})
     return res.json(editAlbum);
 
+}));
+
+router.delete('/:id', asyncHandler(async (req,res) =>{
+    const albumId = parseInt(req.params.id);
+    const deletedAlbum = await Album.findByPk(albumId);
+    // const {userId,title} = req.body;
+    await deletedAlbum.destroy();
+    // return res.json(deletedAlbum);
+    res.status(204).end();
+
+
+
+    // await deleteAlbum.destroy();
+    // // res.status(204).end();
+    // res.end();
 }));
 
 

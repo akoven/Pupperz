@@ -32,17 +32,17 @@ const EditAlbumForm = () =>{
         if (title.length > 20){
             errors.push('Title must be between 1 and 20 charactures long');
             setErrorValidation(errors);
-        }
+        };
 
         if(title.length === 0){
             errors.push('Please provide a new title!');
             setErrorValidation(errors);
-        }
+        };
 
         if(editedAlbum){
             history.push('/logged-in');
-        }
-    }
+        };
+    };
 
     return(
         <form onSubmit={handleSubmit}>
