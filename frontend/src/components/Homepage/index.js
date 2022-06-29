@@ -13,6 +13,7 @@ const Homepage = () =>{
     const albums = useSelector(state => state.albums);
     const albumArr = Object.values(albums||{});
 
+    console.log('current user: ',userSession);
     useEffect(()=>{
         dispatch(displayAllAlbums(userSession.id))
     },[dispatch]);

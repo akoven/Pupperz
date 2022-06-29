@@ -29,9 +29,9 @@ export const deleteAlbumAction = album =>({
 export const createAlbum = (album,userId) => async dispatch =>{
     const response = await csrfFetch(`/api/albums/${userId}`, {
         method:'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
         body: JSON.stringify(album)
     });
 
@@ -64,9 +64,9 @@ export const displayAllAlbums = (userId) => async dispatch =>{
 export const editAlbum = (album) => async dispatch =>{
     const response = await csrfFetch(`/api/albums/${album.id}`,{
         method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
         body: JSON.stringify(album)
     });
     if(response.ok){

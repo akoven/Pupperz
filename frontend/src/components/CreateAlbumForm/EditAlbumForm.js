@@ -9,6 +9,7 @@ const EditAlbumForm = () =>{
     const {id} = useParams();
 
     const album = useSelector(state => state.albums[id]);
+    const sessionUser = useSelector(state => state.session.user);
     // console.log(album.title);
     // console.log('selected Id: ',id);
     const [title, setTitle] = useState(album.title);
@@ -28,7 +29,7 @@ const EditAlbumForm = () =>{
         };
         console.log(payload);
 
-        const editedAlbum = dispatch(editAlbum(payload));
+        const editedAlbum = dispatch(editAlbum(payload,{userId:sessionUser.id}));
         if (title.length > 20){
             errors.push('Title must be between 1 and 20 charactures long');
             setErrorValidation(errors);
@@ -40,7 +41,7 @@ const EditAlbumForm = () =>{
         };
 
         if(editedAlbum){
-            history.push('/logged-in');
+            history.push(`/logged-in/${sessionUser.id}`);
         };
     };
 
@@ -58,7 +59,7 @@ const EditAlbumForm = () =>{
                 required/>
             </label>
             <button type='submit' disabled={errorValidation.length > 0}>Submit Changes</button>
-            <button onClick={() => history.push('/logged-in')}>Cancel</button>
+            <button onClick={() => history.push(`/logged-in/${sessionUser.id}`)}>Cancel</button>
         </form>
     )
 }
