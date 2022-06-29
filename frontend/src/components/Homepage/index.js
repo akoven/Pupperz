@@ -25,7 +25,7 @@ const Homepage = () =>{
         <div>
             <NavLink to='/create-album'>Create an Album</NavLink>
             <h3>{userSession.username}'s Albums</h3>
-            {albumArr.map(album => <div><Link to={`/albums/${album.id}`}>{album.title}</Link><button onClick={() => history.push(`/edit-album/${album.id}`)}>Edit</button><button onClick={() => dispatch(deleteAlbum(album))}>Delete</button></div>)}
+            {albumArr.map(album => <div><Link to={`/albums/${album.id}/images`}>{album.title}</Link><button onClick={() => history.push(`/edit-album/${album.id}`)}>Edit</button><button onClick={() => dispatch(deleteAlbum(album))}>Delete</button></div>)}
         </div>
 
     )
