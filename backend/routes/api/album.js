@@ -4,14 +4,14 @@ const {Album} = require('../../db/models');
 
 const router = express.Router();
 
-router.post('/', asyncHandler(async (req,res) =>{
+router.post('/:userId', asyncHandler(async (req,res) =>{
     const {userId, title} = req.body;
     const newPhotoAlbum = await Album.create({userId, title});
     // console.log('Did I create a new album? ',newPhotoAlbum);
     return res.json(newPhotoAlbum);
 }));
 
-router.get('/', asyncHandler(async(req,res) =>{
+router.get('/:userId', asyncHandler(async(req,res) =>{
     const getAlbums = await Album.findAll();
     return res.json(getAlbums);
 }));

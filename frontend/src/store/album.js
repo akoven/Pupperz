@@ -13,7 +13,7 @@ export const createNewAlbum = album =>({
 
 export const displayAlbums = albums =>({
     type: READ,
-    albums
+    albums,
 });
 
 export const editAlbumAction = album =>({
@@ -26,8 +26,8 @@ export const deleteAlbumAction = album =>({
     album
 });
 
-export const createAlbum = (album) => async dispatch =>{
-    const response = await csrfFetch(`/api/albums`, {
+export const createAlbum = (album,userId) => async dispatch =>{
+    const response = await csrfFetch(`/api/albums/${userId}`, {
         method:'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -43,8 +43,8 @@ export const createAlbum = (album) => async dispatch =>{
     return null;
 };
 
-export const displayAllAlbums = () => async dispatch =>{
-    const response = await csrfFetch(`/api/albums`);
+export const displayAllAlbums = (userId) => async dispatch =>{
+    const response = await csrfFetch(`/api/albums/${userId}`);
     if(response.ok){
         const albums = await response.json();
         dispatch(displayAlbums(albums));

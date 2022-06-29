@@ -14,7 +14,7 @@ const Homepage = () =>{
     const albumArr = Object.values(albums||{});
 
     useEffect(()=>{
-        dispatch(displayAllAlbums())
+        dispatch(displayAllAlbums(userSession.id))
     },[dispatch]);
 
     if(userSession){

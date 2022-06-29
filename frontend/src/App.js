@@ -20,11 +20,12 @@ function App() {
   },[dispatch]);
 
   return (
+    // for logged-in try /logged-in/:userId
     <>
       <Navigation isLoaded={isLoaded}/>
       {isLoaded && (
         <Switch>
-          <Route path='/logged-in'>
+          <Route path='/logged-in/:userId'>
             <Homepage />
           </Route>
           <Route path="/login">
