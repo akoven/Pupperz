@@ -57,6 +57,7 @@ export const editImage = (image) => async dispatch =>{
     });
     if(response.ok){
         const editedImage = await response.json();
+        console.log('editedImage ',editedImage);
         dispatch(editImageAction(editedImage));
         return editedImage;
     }

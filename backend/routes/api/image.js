@@ -26,8 +26,9 @@ router.put('/:id',asyncHandler(async(req,res) =>{
     //const editImage = await Image.findByPk(imageId) becomes unnecessary if the code above is
     //used instead
     console.log('REQUEST BODY: ',req.body);
-    // await editImage.update({imageUrl: req.body.imageUrl});
-    await editImage.update();
+    await editImage.update({imageUrl: req.body.imageUrl});
+    await editImage.update({content: req.body.content});
+    // await editImage.update();
     return res.json(editImage);
 
 }));
