@@ -16,7 +16,7 @@ const Homepage = () =>{
     // const imageArr = Object.values(images||{});
 
 
-    console.log('current user: ',userSession);
+    // console.log('current user: ',userSession);
     useEffect(()=>{
         if(userSession){//this sets the userSession for a specific user instead of all users
             dispatch(displayAllAlbums(userSession.id));

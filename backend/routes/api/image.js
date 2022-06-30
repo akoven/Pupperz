@@ -6,13 +6,14 @@ const router = express.Router();
 
 router.post('/', asyncHandler(async (req,res) =>{
     const {userId,albumId,imageUrl,content} = req.body;
-    const newImage = await Image.create({userId, albumId, imageUrl, content});
+    const newImage = await Image.create({userId, albumId, imageUrl, content}, {where:{albumId:18}});
     // console.log('Did I create a new album? ',newPhotoAlbum);
     return res.json(newImage);
 }));
 
 router.get('/', asyncHandler(async(req,res) =>{
     const getImages = await Image.findAll();
+    // console.log(res.body);
     return res.json(getImages);
 }));
 
@@ -21,6 +22,8 @@ router.put('/:id',asyncHandler(async(req,res) =>{
     const imageId = parseInt(req.params.id, 10);
     const editImage = await Image.findByPk(imageId);
     //or : await editAlbum.update({title: req.body.title}, {where:{id:albumId}})
+    //const editImage = await Image.findByPk(imageId) becomes unnecessary if the code above is
+    //used instead
 
     await editImage.update({imageUrl: req.body.imageUrl});
     return res.json(editImage);
