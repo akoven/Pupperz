@@ -11,10 +11,10 @@ const Navigation = ({isLoaded}) =>{
 
     let sessionLinks;
     if(sessionUser){
-
+        //try `/logged-in/${sessionUser.id}`
         sessionLinks = (
             <>
-                <NavLink to='/logged-in'>Pupperz</NavLink>
+                <NavLink to={`/logged-in/${sessionUser.id}`}>Pupperz</NavLink>
                 {/* <Redirect to='/' /> */}
                 <ProfileButton user={sessionUser} />
             </>

@@ -4,15 +4,19 @@ const {Album} = require('../../db/models');
 
 const router = express.Router();
 
-router.post('/', asyncHandler(async (req,res) =>{
+router.post('/:userId', asyncHandler(async (req,res) =>{
     const {userId, title} = req.body;
-    const newPhotoAlbum = await Album.create({userId, title});
+    const newPhotoAlbum = await Album.create({userId, title});//we use userId here because that is what
+    //the backend database is expecting when we create a new album
     // console.log('Did I create a new album? ',newPhotoAlbum);
     return res.json(newPhotoAlbum);
 }));
 
-router.get('/', asyncHandler(async(req,res) =>{
-    const getAlbums = await Album.findAll();
+router.get('/:userId', asyncHandler(async(req,res) =>{
+    const userId = parseInt(req.params.userId, 10);
+    const getAlbums = await Album.findAll({where:{userId}});
+    // console.log('this is the current userId: ', userId);
+    // console.log('this is the current album: ', getAlbums);
     return res.json(getAlbums);
 }));
 

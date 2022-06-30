@@ -13,7 +13,7 @@ export const createNewAlbum = album =>({
 
 export const displayAlbums = albums =>({
     type: READ,
-    albums
+    albums,
 });
 
 export const editAlbumAction = album =>({
@@ -26,12 +26,12 @@ export const deleteAlbumAction = album =>({
     album
 });
 
-export const createAlbum = (album) => async dispatch =>{
-    const response = await csrfFetch(`/api/albums`, {
+export const createAlbum = (album,userId) => async dispatch =>{
+    const response = await csrfFetch(`/api/albums/${userId}`, {
         method:'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
         body: JSON.stringify(album)
     });
 
@@ -43,8 +43,8 @@ export const createAlbum = (album) => async dispatch =>{
     return null;
 };
 
-export const displayAllAlbums = () => async dispatch =>{
-    const response = await csrfFetch(`/api/albums`);
+export const displayAllAlbums = (userId) => async dispatch =>{
+    const response = await csrfFetch(`/api/albums/${userId}`);
     if(response.ok){
         const albums = await response.json();
         dispatch(displayAlbums(albums));
@@ -64,9 +64,9 @@ export const displayAllAlbums = () => async dispatch =>{
 export const editAlbum = (album) => async dispatch =>{
     const response = await csrfFetch(`/api/albums/${album.id}`,{
         method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
         body: JSON.stringify(album)
     });
     if(response.ok){
@@ -95,8 +95,9 @@ const albumReducer = (state = initialState, action) =>{
             // console.log(newState);
             return newState;
         case READ:
-            newState = Object.assign({}, state);
-            action.albums.forEach(album => newState[album.id] = album)
+            // newState = Object.assign({}, state);
+            newState = {};
+            action.albums.forEach(album => newState[album.id] = album);
             return newState;
         case EDIT:
             // newState = Object.assign({}, state);
