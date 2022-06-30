@@ -27,15 +27,16 @@ router.put('/:id',asyncHandler(async(req,res) =>{
 
 }));
 
-// router.delete('/:id', asyncHandler(async (req,res) =>{
-//     const albumId = parseInt(req.params.id);
-//     const deletedAlbum = await Album.findByPk(albumId);
-//     // const {userId,title} = req.body;
-//     await deletedAlbum.destroy();
-//     // return res.json(deletedAlbum);
-//     res.status(204).end();
+router.delete('/:id', asyncHandler(async (req,res) =>{
+    const imageId = parseInt(req.params.id);
+    console.log(imageId);
+    const deletedImage = await Image.findByPk(imageId);
+    console.log(deletedImage);
+    await deletedImage.destroy();
+    // return res.json(deletedAlbum);
+    res.status(204).end();
 
-// }));
+}));
 
 
 module.exports = router;

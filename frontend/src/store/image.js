@@ -62,13 +62,13 @@ export const editImage = (image) => async dispatch =>{
     }
 };
 
-// export const deleteAlbum = (album) => async dispatch =>{
-//     const response = await csrfFetch(`/api/albums/${album.id}`,{
-//         method: 'DELETE'
-//     });
-//     dispatch(deleteAlbumAction(album));
-//     return response;
-// };
+export const deleteImage = (image) => async dispatch =>{
+    const response = await csrfFetch(`/api/albums/${image.id}`,{
+        method: 'DELETE'
+    });
+    dispatch(deleteImageAction(image));
+    return response;
+};
 
 const initialState = {};
 
@@ -88,10 +88,10 @@ const imageReducer = (state = initialState, action) =>{
             newState = Object.assign({},state);
             newState[action.image.id] = action.image;
             return newState;
-        // case DELETE:
-        //     newState = Object.assign({}, state);
-        //     delete newState[action.album.id];
-        //     return newState;
+        case DELETE:
+            newState = Object.assign({}, state);
+            delete newState[action.image.id];
+            return newState;
 
         default:
             return state;

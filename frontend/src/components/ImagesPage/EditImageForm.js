@@ -24,15 +24,15 @@ const EditImageForm = () =>{
             imageUrl,
             content
         };
-        console.log(payload);
-        console.log('image object ',image);
-        console.log('album object', album);
-        console.log('userId: ', sessionUser.id);
-        console.log('albumId: ',album.id);
-        console.log('imageId: ',image.id);
-        console.log('editImage thunk not dispatched');
+        // console.log(payload);
+        // console.log('image object ',image);
+        // console.log('album object', album);
+        // console.log('userId: ', sessionUser.id);
+        // console.log('albumId: ',album.id);
+        // console.log('imageId: ',image.id);
+        // console.log('editImage thunk not dispatched');
         const editedImage = await dispatch(editImage(payload, {userId:sessionUser.id}, {albumId:album.id}));
-        console.log('editImage thunk dispatched');
+        // console.log('editImage thunk dispatched');
         if(editedImage){
             history.push(`/albums/${albumId}/images`);
         };

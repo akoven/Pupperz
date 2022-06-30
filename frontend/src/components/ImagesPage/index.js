@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import * as imageEvents from '../../store/image';
 import { displayAllImages } from "../../store/image";
+import {deleteImage} from '../../store/image';
 import './images.css';
 
 const ImagesPage = () =>{
@@ -66,7 +67,10 @@ const ImagesPage = () =>{
                 </label>
                 <button type='submit'>Upload That!</button>
             </form>
-            {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/><button onClick={() => history.push(`/edit-image/${albumId}/${image.id}`)}>Edit</button><button onClick={() => null}>Delete</button></div>)}
+            {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/><button onClick={() => history.push(`/edit-image/${albumId}/${image.id}`)}>Edit</button><button onClick={() => {
+                console.log('current image ',image);
+                dispatch(deleteImage(image));
+}}>Delete</button></div>)}
         </div>
     )
 }
