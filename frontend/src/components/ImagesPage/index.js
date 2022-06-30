@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory,Link,NavLink } from "react-router-dom";
 import * as imageEvents from '../../store/image';
 import { displayAllImages } from "../../store/image";
 import {deleteImage} from '../../store/image';
@@ -58,6 +58,7 @@ const ImagesPage = () =>{
 
     return(
         <div className="imagePage">
+            <div><NavLink to={`/logged-in/${sessionUser.id}`}>{'<< Back to your albums'}</NavLink></div>
             <h1>Let's upload some images!</h1>
             <form onSubmit={handleSubmit}>
                 <ul>

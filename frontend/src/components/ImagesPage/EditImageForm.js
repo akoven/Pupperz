@@ -35,7 +35,7 @@ const EditImageForm = () =>{
         // console.log('imageId: ',image.id);
         // console.log('editImage thunk not dispatched');
         const editedImage = await dispatch(editImage(payload, {userId:sessionUser.id}, {albumId:album.id}));
-        // console.log('editImage thunk dispatched');
+        console.log('sessionUser: ', sessionUser);
         if(imageUrl.length === 0){
             errors.push('Image URL is required!');
             setErrorValidation(errors);

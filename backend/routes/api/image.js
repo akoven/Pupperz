@@ -25,8 +25,9 @@ router.put('/:id',asyncHandler(async(req,res) =>{
     //or : await editAlbum.update({title: req.body.title}, {where:{id:albumId}})
     //const editImage = await Image.findByPk(imageId) becomes unnecessary if the code above is
     //used instead
-
-    await editImage.update({imageUrl: req.body.imageUrl});
+    console.log('REQUEST BODY: ',req.body);
+    // await editImage.update({imageUrl: req.body.imageUrl});
+    await editImage.update();
     return res.json(editImage);
 
 }));
