@@ -20,10 +20,10 @@ export const editImageAction = image =>({
     image
 });
 
-// export const deleteImageAction = image =>({
-//     type: DELETE,
-//     image
-// });
+export const deleteImageAction = image =>({
+    type: DELETE,
+    image
+});
 
 export const createNewImage = (image) => async dispatch =>{
     const response = await csrfFetch(`/api/images`, {
