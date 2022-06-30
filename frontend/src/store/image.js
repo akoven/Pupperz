@@ -63,10 +63,14 @@ export const editImage = (image) => async dispatch =>{
 };
 
 export const deleteImage = (image) => async dispatch =>{
+    console.log('made it to thunk for deleteImage');
+    console.log('image object passed into thunk: ', image);
     const response = await csrfFetch(`/api/albums/${image.id}`,{
         method: 'DELETE'
     });
+    console.log('deleteImageAction not reached');
     dispatch(deleteImageAction(image));
+    console.log('deleteImageAction reached');
     return response;
 };
 
