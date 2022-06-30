@@ -15,10 +15,10 @@ export const displayImages = images =>({
     images
 });
 
-// export const editImage = image =>({
-//     type: EDIT,
-//     image
-// });
+export const editImageAction = image =>({
+    type: EDIT,
+    image
+});
 
 // export const deleteImageAction = image =>({
 //     type: DELETE,
@@ -28,52 +28,39 @@ export const displayImages = images =>({
 export const createNewImage = (image) => async dispatch =>{
     const response = await csrfFetch(`/api/images`, {
         method:'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
         body: JSON.stringify(image)
     });
 
     if(response.ok){
         const newImage = await response.json();
-        dispatch(createNewImage(newImage));
+        dispatch(uploadImage(newImage));
         return newImage;
     }
     return null;
 };
 
-// export const displayAllAlbums = () => async dispatch =>{
-//     const response = await csrfFetch(`/api/images`);
-//     if(response.ok){
-//         const albums = await response.json();
-//         dispatch(displayAlbums(albums));
-//         // return albums;
-//     }
-//     return null;
-// };
+export const displayAllImages = () => async dispatch =>{
+    const response = await csrfFetch(`/api/images`);
+    if(response.ok){
+        const images = await response.json();
+        dispatch(displayImages(images));
+        return images;
+    }
+    return null;
+};
 
-// export const getOneAlbum = (album) => async dispatch =>{
-//     const response = await csrfFetch(`/api/albums/${album.id}`);
-//     if(response.ok){
-//         const album = await response.json();
-//         dispatch(displayAlbums(album));
-//     }
-// }
 
-// export const editAlbum = (album) => async dispatch =>{
-//     const response = await csrfFetch(`/api/albums/${album.id}`,{
-//         method: 'PUT',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(album)
-//     });
-//     if(response.ok){
-//         const editedAlbum = await response.json();
-//         dispatch(editAlbumAction(editedAlbum));
-//         return editedAlbum;
-//     }
-// };
+export const editImage = (image) => async dispatch =>{
+    const response = await csrfFetch(`/api/images/${image.id}`,{
+        method: 'PUT',
+        body: JSON.stringify(image)
+    });
+    if(response.ok){
+        const editedImage = await response.json();
+        dispatch(editImageAction(editedImage));
+        return editedImage;
+    }
+};
 
 // export const deleteAlbum = (album) => async dispatch =>{
 //     const response = await csrfFetch(`/api/albums/${album.id}`,{
@@ -89,19 +76,18 @@ const imageReducer = (state = initialState, action) =>{
     let newState;
     switch(action.type){
         case CREATE:
-            newState = Object.assign({}, state);
-            newState[action.album.id] = action.album;
+            newState = {};
+            newState[action.image.id] = action.image;
             // console.log(newState);
             return newState;
         case READ:
             newState = Object.assign({}, state);
-            action.albums.forEach(album => newState[album.id] = album)
+            action.images.forEach(image => newState[image.id] = image)
             return newState;
-        // case EDIT:
-
-            // newState = Object.assign({},state);
-            // newState[action.album.id] = action.album;
-            // return newState;
+        case EDIT:
+            newState = Object.assign({},state);
+            newState[action.image.id] = action.image;
+            return newState;
         // case DELETE:
         //     newState = Object.assign({}, state);
         //     delete newState[action.album.id];

@@ -12,7 +12,7 @@ function LoginFormPage() {
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return (
-    <Redirect to="/logged-in" />
+    <Redirect to={`/logged-in/${sessionUser.id}`} />
   );
 
   const handleSubmit = (e) => {

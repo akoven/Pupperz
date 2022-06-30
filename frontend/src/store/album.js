@@ -95,8 +95,9 @@ const albumReducer = (state = initialState, action) =>{
             // console.log(newState);
             return newState;
         case READ:
-            newState = Object.assign({}, state);
-            action.albums.forEach(album => newState[album.id] = album)
+            // newState = Object.assign({}, state);
+            newState = {};
+            action.albums.forEach(album => newState[album.id] = album);
             return newState;
         case EDIT:
             // newState = Object.assign({}, state);

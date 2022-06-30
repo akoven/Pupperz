@@ -15,8 +15,8 @@ router.post('/:userId', asyncHandler(async (req,res) =>{
 router.get('/:userId', asyncHandler(async(req,res) =>{
     const userId = parseInt(req.params.userId, 10);
     const getAlbums = await Album.findAll({where:{userId}});
-    console.log('this is the current userId: ', userId);
-    console.log('this is the current album: ', getAlbums);
+    // console.log('this is the current userId: ', userId);
+    // console.log('this is the current album: ', getAlbums);
     return res.json(getAlbums);
 }));
 

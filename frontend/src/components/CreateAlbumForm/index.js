@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 // import { createAlbum } from '../../store/album';
 import * as albumEvents from '../../store/album';
 
@@ -11,6 +11,7 @@ const CreateAlbumForm = () =>{
 
  const [title, setTitle] = useState('');
  const [errorValidation, setErrorValidation] = useState([]);
+ const {id} = useParams();
 
  let errors = [];
 
@@ -46,6 +47,7 @@ const CreateAlbumForm = () =>{
                 required/>
             </label>
             <button type='submit' disabled={errors.length > 0}>Submit</button>
+            <button onClick={() => history.push(`/logged-in/${id}`)}>Cancel</button>
         </form>
      )
  }

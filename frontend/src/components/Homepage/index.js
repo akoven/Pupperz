@@ -11,15 +11,22 @@ const Homepage = () =>{
     const history = useHistory();
     const userSession = useSelector(state => state.session.user);
     const albums = useSelector(state => state.albums);
+    const images = useSelector(state => state.images);
     const albumArr = Object.values(albums||{});
+    // const imageArr = Object.values(images||{});
+
 
     console.log('current user: ',userSession);
     useEffect(()=>{
-        dispatch(displayAllAlbums(userSession.id))
-    },[dispatch]);
+        if(userSession){//this sets the userSession for a specific user instead of all users
+            dispatch(displayAllAlbums(userSession.id));
+        }
+    },[dispatch, userSession]);
 
     if(userSession){
         <ProfileButton user={userSession}/>
+        // dispatch(displayAllAlbums(userSession.id));
+
     }
 
     return(
