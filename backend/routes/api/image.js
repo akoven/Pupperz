@@ -29,9 +29,9 @@ router.put('/:id',asyncHandler(async(req,res) =>{
 
 router.delete('/:id', asyncHandler(async (req,res) =>{
     const imageId = parseInt(req.params.id, 10);
-    console.log(imageId);
+    // console.log(imageId);
     const deletedImage = await Image.findByPk(imageId);
-    console.log(deletedImage);
+    // console.log(deletedImage);
     await deletedImage.destroy();
     // return res.json(deletedAlbum);
     res.status(204).end();
