@@ -7,7 +7,9 @@ import Homepage from './components/Homepage';
 import Navigation from './components/Navigation';
 import CreateAlbumForm from './components/CreateAlbumForm';
 import EditAlbumForm from './components/CreateAlbumForm/EditAlbumForm';
-import UploadImagesForm from './components/UploadImagesForm';
+import ImagesPage from './components/ImagesPage';
+import EditImageForm from './components/ImagesPage/EditImageForm';
+// import WhatTheFuck from './components/WhatTheFuck';
 import * as sessionActions from './store/session';
 
 
@@ -20,11 +22,12 @@ function App() {
   },[dispatch]);
 
   return (
+    // for logged-in try /logged-in/:userId
     <>
       <Navigation isLoaded={isLoaded}/>
       {isLoaded && (
         <Switch>
-          <Route path='/logged-in'>
+          <Route path='/logged-in/:userId'>
             <Homepage />
           </Route>
           <Route path="/login">
@@ -36,11 +39,14 @@ function App() {
           <Route path='/create-album'>
             <CreateAlbumForm />
           </Route>
-          <Route path='/edit-album/:id'>
+          <Route path='/edit-album/:albumId'>
             <EditAlbumForm />
           </Route>
-          <Route path='/albums/:id/images'>
-            <UploadImagesForm />
+          <Route path='/albums/:albumId/images'>
+            <ImagesPage />
+          </Route>
+          <Route path='/edit-image/:albumId/:imageId'>
+            <EditImageForm />
           </Route>
         </Switch>
       )}
