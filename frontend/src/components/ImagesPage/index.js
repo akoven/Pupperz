@@ -21,17 +21,17 @@ const ImagesPage = () =>{
     console.log('images: ', images);
     console.log('Ids match?: ', albumId === images.albumId);
 
-        useEffect(() => {
-            if(sessionUser){
-                dispatch(displayAllImages())
-            }
-        }, [dispatch, sessionUser]);
-
-        // useEffect(() =>{
-        //     if(images.albumId === 18){
+        // useEffect(() => {
+        //     if(sessionUser){
         //         dispatch(displayAllImages())
         //     }
-        // }, [dispatch]);
+        // }, [dispatch, sessionUser]);
+
+        useEffect(() =>{
+            if(albumId){
+                dispatch(displayAllImages(albumId))
+            }
+        }, [dispatch]);
 
     const handleSubmit = async e =>{
         e.preventDefault();

@@ -39,8 +39,8 @@ export const createNewImage = (image) => async dispatch =>{
     return null;
 };
 
-export const displayAllImages = () => async dispatch =>{
-    const response = await csrfFetch(`/api/images`);
+export const displayAllImages = (albumId) => async dispatch =>{
+    const response = await csrfFetch(`/api/images/${albumId}`);
     if(response.ok){
         const images = await response.json();
         dispatch(displayImages(images));

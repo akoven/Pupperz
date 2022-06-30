@@ -6,13 +6,14 @@ const router = express.Router();
 
 router.post('/', asyncHandler(async (req,res) =>{
     const {userId,albumId,imageUrl,content} = req.body;
-    const newImage = await Image.create({userId, albumId, imageUrl, content}, {where:{albumId:18}});
+    const newImage = await Image.create({userId, albumId, imageUrl, content});
     // console.log('Did I create a new album? ',newPhotoAlbum);
     return res.json(newImage);
 }));
 
-router.get('/', asyncHandler(async(req,res) =>{
-    const getImages = await Image.findAll({where:{albumId:18}});
+router.get('/:albumId', asyncHandler(async(req,res) =>{
+    const albumId = parseInt(req.params.albumId, 10);
+    const getImages = await Image.findAll({where:{albumId}});
     // console.log(res.body);
     return res.json(getImages);
 }));
