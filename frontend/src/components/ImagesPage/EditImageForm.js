@@ -14,8 +14,11 @@ const EditImageForm = () =>{
     const sessionUser = useSelector(state => state.session.user);
 
     // console.log('id: ', image.id);
-    const [imageUrl, setImageUrl] = useState('');
-    const [content, setContent] = useState('');
+    const [imageUrl, setImageUrl] = useState(image.imageUrl);
+    const [content, setContent] = useState(image.content);
+    const [errorValidation, setErrorValidation] = useState([]);
+
+    let errors = [];
 
     const handleSubmit = async e =>{
         e.preventDefault();
@@ -33,6 +36,10 @@ const EditImageForm = () =>{
         // console.log('editImage thunk not dispatched');
         const editedImage = await dispatch(editImage(payload, {userId:sessionUser.id}, {albumId:album.id}));
         // console.log('editImage thunk dispatched');
+        if(imageUrl.length === 0){
+            errors.push('Image URL is required!');
+            setErrorValidation(errors);
+        }
         if(editedImage){
             history.push(`/albums/${albumId}/images`);
         };
@@ -41,6 +48,9 @@ const EditImageForm = () =>{
     return(
         <>
             <form onSubmit={handleSubmit}>
+                <ul>
+                    {errorValidation.map((error,id) => <li key={id}>{error}</li>)}
+                </ul>
                 <label>
                     Image Url:
                     <input
