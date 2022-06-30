@@ -81,12 +81,13 @@ const imageReducer = (state = initialState, action) =>{
     let newState;
     switch(action.type){
         case CREATE:
-            newState = {};
+            newState = Object.assign({},state);
             newState[action.image.id] = action.image;
             // console.log(newState);
             return newState;
         case READ:
-            newState = Object.assign({}, state);
+            // newState = Object.assign({}, state);
+            newState = {};
             action.images.forEach(image => newState[image.id] = image)
             return newState;
         case EDIT:

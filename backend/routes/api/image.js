@@ -12,7 +12,7 @@ router.post('/', asyncHandler(async (req,res) =>{
 }));
 
 router.get('/', asyncHandler(async(req,res) =>{
-    const getImages = await Image.findAll();
+    const getImages = await Image.findAll({where:{albumId:18}});
     // console.log(res.body);
     return res.json(getImages);
 }));

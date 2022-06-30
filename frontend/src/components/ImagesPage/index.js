@@ -18,13 +18,20 @@ const ImagesPage = () =>{
     const {albumId} = useParams();
     const imageArr = Object.values(images||{});
 
-    // console.log('current album id: ', albumId);
+    console.log('images: ', images);
+    console.log('Ids match?: ', albumId === images.albumId);
 
         useEffect(() => {
             if(sessionUser){
                 dispatch(displayAllImages())
             }
         }, [dispatch, sessionUser]);
+
+        // useEffect(() =>{
+        //     if(images.albumId === 18){
+        //         dispatch(displayAllImages())
+        //     }
+        // }, [dispatch]);
 
     const handleSubmit = async e =>{
         e.preventDefault();
