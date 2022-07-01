@@ -12,8 +12,15 @@
 .contentBox{
     border: solid;
     border-color: black;
+<<<<<<< HEAD
     width: 500px;
     height: 100px;
     color: black;
     background-color:burlywood;
+=======
+    width: 600px;
+    height: 100px;
+    color: black;
+    background-color: burlywood;
+>>>>>>> new_CSS
 }

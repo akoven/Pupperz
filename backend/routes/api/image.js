@@ -18,6 +18,12 @@ router.get('/:albumId', asyncHandler(async(req,res) =>{
     return res.json(getImages);
 }));
 
+router.get('/:userId', asyncHandler(async(req,res) =>{
+    const userId = parseInt(req.params.userId);
+    const getImages = await Image.findAll({where:{userId}});
+    return res.json(getImages);
+}));
+
 router.put('/:id',asyncHandler(async(req,res) =>{
     // console.log('made it to backend');
     const imageId = parseInt(req.params.id, 10);
