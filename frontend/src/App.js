@@ -9,7 +9,7 @@ import Navigation from './components/Navigation';
 import CreateAlbumForm from './components/CreateAlbumForm';
 import EditAlbumForm from './components/CreateAlbumForm/EditAlbumForm';
 import ImagesPage from './components/ImagesPage';
-import AllImages from './components/ImagesPage/AllImages';
+import AllUserImages from './components/ImagesPage/AllUserImages';
 import EditImageForm from './components/ImagesPage/EditImageForm';
 import * as sessionActions from './store/session';
 
@@ -38,7 +38,7 @@ function App() {
             <AlbumsPage />
           </Route>
           <Route path='/user/:userId/all-images'>
-            <AllImages />
+            <AllUserImages />
           </Route>
           <Route path='/signup'>
             <SignupFormPage />

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { displayAllImagesUserPage } from "../../store/image";
 
-const AllImages = () =>{
+const AllUserImages = () =>{
     const dispatch = useDispatch();
     const userSession = useSelector(state => state.session.user);
     const images = useSelector(state => state.images);
@@ -25,4 +25,4 @@ const AllImages = () =>{
     )
 }
 
-export default AllImages;
+export default AllUserImages;
