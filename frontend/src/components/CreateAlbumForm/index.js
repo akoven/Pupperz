@@ -12,7 +12,6 @@ const CreateAlbumForm = () =>{
  const [title, setTitle] = useState('');
  const [errorValidation, setErrorValidation] = useState([]);
  const {userId} = useParams();
-
  let errors = [];
 
  const handleSubmit = async (e) =>{
