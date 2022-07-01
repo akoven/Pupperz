@@ -10,7 +10,7 @@ const AlbumsPage = () =>{
     const history = useHistory();
     const userSession = useSelector(state => state.session.user);
     const albums = useSelector(state => state.albums);
-    const images = useSelector(state => state.images);
+    // const images = useSelector(state => state.images);
     const albumArr = Object.values(albums||{});
 
     useEffect(()=>{
@@ -23,10 +23,12 @@ const AlbumsPage = () =>{
     if(userSession){
         <ProfileButton user={userSession}/>
         // dispatch(displayAllAlbums(userSession.id));
+
     };
 
     return(
         <div>
+            {<div><NavLink to={`/logged-in/${userSession.id}`}>{'<< Back To Home'}</NavLink></div>}
             <h3>{userSession.username}'s Albums</h3>
             {albumArr?.map(album => <div><Link to={`/albums/${album.id}/images`}>{album.title}</Link><button onClick={() => history.push(`/edit-album/${album.id}`)}>Edit</button><button onClick={() => dispatch(deleteAlbum(album))}>Delete</button></div>)}
         </div>
