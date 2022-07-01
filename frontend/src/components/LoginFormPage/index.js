@@ -29,10 +29,7 @@ function LoginFormPage() {
 
   return (
     <div>
-        <button onClick={() =>{
-                setCredential('Demo-lition')
-                setPassword('password')
-            }}>Demo User</button>
+
         <form onSubmit={handleSubmit} className='background'>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -55,7 +52,13 @@ function LoginFormPage() {
                 required
                 />
             </label>
-            <button type="submit">Log In</button>
+            <span>
+              <button type="submit">Log In</button>
+              <button onClick={() =>{
+                  setCredential('Demo-lition')
+                  setPassword('password')
+              }}>Demo User</button>
+            </span>
         </form>
     </div>
 
