@@ -6,3 +6,8 @@
     border-width: 1px;
     padding-left: 800px;
 }
+
+.title, .active{
+    font-family: 'Titan One', cursive;
+    /* font-size: large; */
+}
