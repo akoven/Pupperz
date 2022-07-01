@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { displayAllImagesUserPage } from "../../store/image";
 
 const AllUserImages = () =>{
@@ -19,6 +19,7 @@ const AllUserImages = () =>{
 
     return(
         <div>
+            {<div><NavLink to={`/logged-in/${userSession.id}`}>{'<< Back To Home'}</NavLink></div>}
             <h3>{userSession.username}'s Images</h3>
             {imageArr?.map(image => <img src={image.imageUrl} alt='image?' />)}
         </div>

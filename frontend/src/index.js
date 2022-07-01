@@ -25,7 +25,7 @@ function Root() {
         <BrowserRouter>
           <App />
         </BrowserRouter>
-    </ReduxProvider>
+      </ReduxProvider>
     </div>
 
   );
