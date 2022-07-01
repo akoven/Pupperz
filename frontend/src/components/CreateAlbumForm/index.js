@@ -46,7 +46,7 @@ const CreateAlbumForm = () =>{
                 onChange={e=>setTitle(e.target.value)}
                 required/>
             </label>
-            <button type='submit' disabled={errors.length > 0}>Submit</button>
+            <button type='submit'>Submit</button>
             <button onClick={() => history.push(`/logged-in/${userId}`)}>Cancel</button>
         </form>
      )

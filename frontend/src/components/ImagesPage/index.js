@@ -19,6 +19,8 @@ const ImagesPage = () =>{
     const {albumId} = useParams();
     const imageArr = Object.values(images||{});
 
+    // const regexUrl = /https:\\(\w|\W)+(jpeg|jpg)$/;
+
     // console.log('images: ', images);
     // console.log('Ids match?: ', albumId === images.albumId);
 
@@ -44,17 +46,33 @@ const ImagesPage = () =>{
             imageUrl,
             content
         };
+        // const newImage = await dispatch(imageEvents.createNewImage(payload));
         console.log(payload);
         // console.log('current user id: ',{userId:sessionUser.id})
-        const newImage = await dispatch(imageEvents.createNewImage(payload));
-        if(imageUrl.length === 0){
-            errors.push('An image URL is required!');
-            setErrorValidation(errors);
-        }
+        // if(imageUrl.length === 0){
+            //     errors.push('An image URL is required!');
+            //     setErrorValidation(errors);
+            // };
+            // if(regexUrl.test(imageUrl) === false){
+                //     errors.push('You need to provide a proper URL');
+                //     setErrorValidation(errors);
+                // };
+
         setImageUrl('');
         setContent('');
-        return newImage;
-    }
+
+        if(imageUrl.length < 4 || (!imageUrl.includes('jpeg') && !imageUrl.includes('jpg'))){
+            errors.push('A valid image URL is required!');
+            // console.log(imageUrl.length < 4 || !imageUrl.includes('jpeg') || !imageUrl.includes('jpg'));
+            setErrorValidation(errors);
+        }else{
+            const newImage = await dispatch(imageEvents.createNewImage(payload));
+            return newImage;
+        };
+
+
+
+    };
 
     return(
         <div className="imagePage">
@@ -83,7 +101,7 @@ const ImagesPage = () =>{
                     rows='3'
                     ></textarea>
                 </label>
-                <button type='submit'>Upload That!</button>
+                <button type='submit' onClick={handleSubmit}>Upload That!</button>
             </form>
             {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/><div className="contentBox">{image.content}</div><button onClick={() => history.push(`/edit-image/${albumId}/${image.id}`)}>Edit</button><button onClick={() => dispatch(deleteImage(image))}>Delete</button></div>)}
         </div>
