@@ -107,11 +107,11 @@ const imageReducer = (state = initialState, action) =>{
             // newState = Object.assign({}, state);
             newState = {};
             action.images.forEach(albumImage => newState[albumImage.id] = albumImage);
-            console.log('made it to the imageReducer');
             return newState;
-        case READ_ALL:
-            newState = Object.assign({},state);
-            action.images.forEach(userImage => newState[userImage.id] = userImage);
+            case READ_ALL:
+                newState = Object.assign({},state);
+                action.images.forEach(userImage => newState[userImage.id] = userImage);
+                console.log('made it to the imageReducer');
             return newState;
         case EDIT:
             newState = Object.assign({},state);

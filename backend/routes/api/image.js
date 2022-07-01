@@ -21,6 +21,7 @@ router.get('/:albumId', asyncHandler(async(req,res) =>{
 router.get('/:userId', asyncHandler(async(req,res) =>{
     console.log('get route for displaying logged in user images!!!');
     const userId = parseInt(req.params.userId);
+    console.log('user id from backend: ', userId);
     const getImages = await Image.findAll({where:{userId}});
     console.log('images from api route!!! ', getImages);
     return res.json(getImages);
