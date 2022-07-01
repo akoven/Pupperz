@@ -61,7 +61,7 @@ const ImagesPage = () =>{
         setImageUrl('');
         setContent('');
 
-        if(imageUrl.length < 4 || (!imageUrl.includes('jpeg') && !imageUrl.includes('jpg'))){
+        if((imageUrl.length < 4 && imageUrl.includes('jpg')) || (imageUrl.length < 5 && imageUrl.includes('jpeg')) || (!imageUrl.includes('jpeg') && !imageUrl.includes('jpg'))){
             errors.push('A valid image URL is required!');
             // console.log(imageUrl.length < 4 || !imageUrl.includes('jpeg') || !imageUrl.includes('jpg'));
             setErrorValidation(errors);
@@ -101,7 +101,7 @@ const ImagesPage = () =>{
                     rows='3'
                     ></textarea>
                 </label>
-                <button type='submit' onClick={handleSubmit}>Upload That!</button>
+                <button type='submit'>Upload That!</button>
             </form>
             {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/><div className="contentBox">{image.content}</div><button onClick={() => history.push(`/edit-image/${albumId}/${image.id}`)}>Edit</button><button onClick={() => dispatch(deleteImage(image))}>Delete</button></div>)}
         </div>
