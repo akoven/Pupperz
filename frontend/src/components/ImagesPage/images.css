@@ -10,10 +10,10 @@
 }
 
 .contentBox{
-    border: 50px;
+    border: solid;
     border-color: black;
-    width: 20px;
-    height: 20px;
+    width: 500px;
+    height: 100px;
     color: black;
-    background-color: white;
+    background-color:burlywood;
 }
