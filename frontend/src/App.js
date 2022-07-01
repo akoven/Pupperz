@@ -4,12 +4,13 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import Homepage from './components/Homepage';
+import AlbumsPage from './components/AlbumsPage';
 import Navigation from './components/Navigation';
 import CreateAlbumForm from './components/CreateAlbumForm';
 import EditAlbumForm from './components/CreateAlbumForm/EditAlbumForm';
 import ImagesPage from './components/ImagesPage';
+import AllImages from './components/ImagesPage/AllImages';
 import EditImageForm from './components/ImagesPage/EditImageForm';
-// import WhatTheFuck from './components/WhatTheFuck';
 import * as sessionActions from './store/session';
 
 
@@ -27,11 +28,17 @@ function App() {
       <Navigation isLoaded={isLoaded}/>
       {isLoaded && (
         <Switch>
+          <Route path="/login">
+            <LoginFormPage />
+          </Route>
           <Route path='/logged-in/:userId'>
             <Homepage />
           </Route>
-          <Route path="/login">
-            <LoginFormPage />
+          <Route path='/user/:userId/albums'>
+            <AlbumsPage />
+          </Route>
+          <Route path='/user/:userId/all-images'>
+            <AllImages />
           </Route>
           <Route path='/signup'>
             <SignupFormPage />

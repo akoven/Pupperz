@@ -12,8 +12,8 @@
 .contentBox{
     border: 50px;
     border-color: black;
-    width: 20px;
-    height: 20px;
+    width: 600px;
+    height: 100px;
     color: black;
-    background-color: white;
+    background-color: burlywood;
 }
