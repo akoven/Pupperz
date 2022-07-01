@@ -11,7 +11,7 @@ const CreateAlbumForm = () =>{
 
  const [title, setTitle] = useState('');
  const [errorValidation, setErrorValidation] = useState([]);
- const {id} = useParams();
+ const {userId} = useParams();
 
  let errors = [];
 
@@ -23,12 +23,12 @@ const CreateAlbumForm = () =>{
         setErrorValidation(errors);
     }
     if(title.length === 0){
-        errors.push('Please provide a title!')
+        errors.push('Please provide a title!');
         setErrorValidation(errors);
     }
 
     if(newAlbum){
-        history.push('/logged-in');
+        history.push(`/logged-in/${userId}`);
     }
  }
 
@@ -46,8 +46,8 @@ const CreateAlbumForm = () =>{
                 onChange={e=>setTitle(e.target.value)}
                 required/>
             </label>
-            <button type='submit' disabled={errors.length > 0}>Submit</button>
-            <button onClick={() => history.push(`/logged-in/${id}`)}>Cancel</button>
+            <button type='submit'>Submit</button>
+            <button onClick={() => history.push(`/logged-in/${userId}`)}>Cancel</button>
         </form>
      )
  }
