@@ -12,8 +12,10 @@
 .contentBox{
     border: solid;
     border-color: black;
+
     width: 500px;
     height: 100px;
     color: black;
     background-color:burlywood;
+
 }

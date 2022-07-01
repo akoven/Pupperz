@@ -49,6 +49,15 @@ export const displayAllImages = (albumId) => async dispatch =>{
     return null;
 };
 
+export const displayAllImagesUserPage = (userId) => async dispatch =>{
+    const response = await csrfFetch(`/api/images/${userId}`);
+    if(response.ok){
+        const images = await response.json();
+        dispatch(displayImages(images));
+        return images;
+    }
+    return null;
+}
 
 export const editImage = (image) => async dispatch =>{
     const response = await csrfFetch(`/api/images/${image.id}`,{

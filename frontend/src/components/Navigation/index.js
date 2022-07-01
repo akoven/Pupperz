@@ -17,6 +17,10 @@ const Navigation = ({isLoaded}) =>{
                 <NavLink to={`/logged-in/${sessionUser.id}`}>Pupperz</NavLink>
                 {/* <Redirect to='/' /> */}
                 <ProfileButton user={sessionUser} />
+                <span className="albumSpan"><NavLink to={`/create-album/${sessionUser.id}`}>Create an Album</NavLink></span>
+                <span className="imageSpan"><NavLink to={`/`}>Upload an Image</NavLink></span>
+                <div><NavLink to={`/logged-in/${sessionUser.id}`}>{'<< Back To Home'}</NavLink></div>
+
             </>
         )
     }else{
@@ -28,7 +32,11 @@ const Navigation = ({isLoaded}) =>{
             </>
         )
 
-    }
+    };
+
+
+
+
 
     return(
         <div>

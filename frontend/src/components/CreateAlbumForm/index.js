@@ -12,7 +12,6 @@ const CreateAlbumForm = () =>{
  const [title, setTitle] = useState('');
  const [errorValidation, setErrorValidation] = useState([]);
  const {userId} = useParams();
-
  let errors = [];
 
  const handleSubmit = async (e) =>{
@@ -28,7 +27,7 @@ const CreateAlbumForm = () =>{
     }
 
     if(newAlbum){
-        history.push(`/logged-in/${userId}`);
+        history.push(`/user/${userId}/albums`);
     }
  }
 
@@ -47,7 +46,7 @@ const CreateAlbumForm = () =>{
                 required/>
             </label>
             <button type='submit'>Submit</button>
-            <button onClick={() => history.push(`/logged-in/${userId}`)}>Cancel</button>
+            <button onClick={() => history.push(`/user/${userId}/albums`)}>Cancel</button>
         </form>
      )
  }
