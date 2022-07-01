@@ -16,10 +16,11 @@ const Homepage = () =>{
     // const imageArr = Object.values(images||{});
 
 
-    console.log('current user: ',userSession);
+    // console.log('current user: ',userSession);
     useEffect(()=>{
         if(userSession){//this sets the userSession for a specific user instead of all users
             dispatch(displayAllAlbums(userSession.id));
+            console.log('current user ',userSession.id)
         }
     },[dispatch, userSession]);
 
@@ -31,8 +32,10 @@ const Homepage = () =>{
 
     return(
         <div>
-            <NavLink to='/create-album'>Create an Album</NavLink>
-            <h3>{userSession.username}'s Albums</h3>
+            <NavLink to={`/create-album/${userSession.id}`}>Create an Album</NavLink>
+            {/* <NavLink to={`/`}></NavLink> */}
+            <h3>Welcome back {userSession.username}!</h3>
+            {/* <span><NavLink to='/'>See your albums</NavLink><NavLink to='/'>See your images</NavLink></span> */}
             {albumArr.map(album => <div><Link to={`/albums/${album.id}/images`}>{album.title}</Link><button onClick={() => history.push(`/edit-album/${album.id}`)}>Edit</button><button onClick={() => dispatch(deleteAlbum(album))}>Delete</button></div>)}
         </div>
 

@@ -36,7 +36,7 @@ function App() {
           <Route path='/signup'>
             <SignupFormPage />
           </Route>
-          <Route path='/create-album'>
+          <Route path='/create-album/:userId'>
             <CreateAlbumForm />
           </Route>
           <Route path='/edit-album/:albumId'>

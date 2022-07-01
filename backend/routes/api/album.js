@@ -38,10 +38,7 @@ router.delete('/:id', asyncHandler(async (req,res) =>{
     await deletedAlbum.destroy();
     // return res.json(deletedAlbum);
     res.status(204).end();
-<<<<<<< HEAD
-=======
 
->>>>>>> debugger
 }));
 
 

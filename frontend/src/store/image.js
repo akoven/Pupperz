@@ -39,8 +39,8 @@ export const createNewImage = (image) => async dispatch =>{
     return null;
 };
 
-export const displayAllImages = () => async dispatch =>{
-    const response = await csrfFetch(`/api/images`);
+export const displayAllImages = (albumId) => async dispatch =>{
+    const response = await csrfFetch(`/api/images/${albumId}`);
     if(response.ok){
         const images = await response.json();
         dispatch(displayImages(images));
@@ -57,18 +57,24 @@ export const editImage = (image) => async dispatch =>{
     });
     if(response.ok){
         const editedImage = await response.json();
+        console.log('editedImage ',editedImage);
         dispatch(editImageAction(editedImage));
         return editedImage;
     }
 };
 
-// export const deleteAlbum = (album) => async dispatch =>{
-//     const response = await csrfFetch(`/api/albums/${album.id}`,{
-//         method: 'DELETE'
-//     });
-//     dispatch(deleteAlbumAction(album));
-//     return response;
-// };
+export const deleteImage = (image) => async dispatch =>{
+    // console.log('made it to thunk for deleteImage');
+    // console.log('image object passed into thunk: ', image);
+    // console.log('image Id ', image.id);
+    const response = await csrfFetch(`/api/images/${image.id}`,{
+        method: 'DELETE'
+    });
+    // console.log('deleteImageAction not reached');
+    dispatch(deleteImageAction(image));
+    // console.log('deleteImageAction reached');
+    return response;
+};
 
 const initialState = {};
 
@@ -76,22 +82,23 @@ const imageReducer = (state = initialState, action) =>{
     let newState;
     switch(action.type){
         case CREATE:
-            newState = {};
+            newState = Object.assign({},state);
             newState[action.image.id] = action.image;
             // console.log(newState);
             return newState;
         case READ:
-            newState = Object.assign({}, state);
+            // newState = Object.assign({}, state);
+            newState = {};
             action.images.forEach(image => newState[image.id] = image)
             return newState;
         case EDIT:
             newState = Object.assign({},state);
             newState[action.image.id] = action.image;
             return newState;
-        // case DELETE:
-        //     newState = Object.assign({}, state);
-        //     delete newState[action.album.id];
-        //     return newState;
+        case DELETE:
+            newState = Object.assign({}, state);
+            delete newState[action.image.id];
+            return newState;
 
         default:
             return state;

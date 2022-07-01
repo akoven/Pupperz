@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory,Link,NavLink } from "react-router-dom";
 import * as imageEvents from '../../store/image';
 import { displayAllImages } from "../../store/image";
+import {deleteImage} from '../../store/image';
 import './images.css';
 
 const ImagesPage = () =>{
 
     const [imageUrl, setImageUrl] = useState('');
     const [content, setContent] = useState('');
+    const [errorValidation, setErrorValidation] = useState([]);
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -17,13 +19,24 @@ const ImagesPage = () =>{
     const {albumId} = useParams();
     const imageArr = Object.values(images||{});
 
-    // console.log('current album id: ', albumId);
+    // const regexUrl = /https:\\(\w|\W)+(jpeg|jpg)$/;
 
-        useEffect(() => {
-            if(sessionUser){
-                dispatch(displayAllImages())
+    // console.log('images: ', images);
+    // console.log('Ids match?: ', albumId === images.albumId);
+
+        // useEffect(() => {
+        //     if(sessionUser){
+        //         dispatch(displayAllImages())
+        //     }
+        // }, [dispatch, sessionUser]);
+
+        useEffect(() =>{
+            if(albumId){
+                dispatch(displayAllImages(albumId))
             }
-        }, [dispatch, sessionUser]);
+        }, [dispatch]);
+
+    let errors = [];
 
     const handleSubmit = async e =>{
         e.preventDefault();
@@ -33,18 +46,42 @@ const ImagesPage = () =>{
             imageUrl,
             content
         };
+        // const newImage = await dispatch(imageEvents.createNewImage(payload));
         console.log(payload);
         // console.log('current user id: ',{userId:sessionUser.id})
-        const newImage = await dispatch(imageEvents.createNewImage(payload));
+        // if(imageUrl.length === 0){
+            //     errors.push('An image URL is required!');
+            //     setErrorValidation(errors);
+            // };
+            // if(regexUrl.test(imageUrl) === false){
+                //     errors.push('You need to provide a proper URL');
+                //     setErrorValidation(errors);
+                // };
+
         setImageUrl('');
         setContent('');
-        return newImage;
-    }
+
+        if((imageUrl.length < 4 && imageUrl.includes('jpg')) || (imageUrl.length < 5 && imageUrl.includes('jpeg')) || (!imageUrl.includes('jpeg') && !imageUrl.includes('jpg'))){
+            errors.push('A valid image URL is required!');
+            // console.log(imageUrl.length < 4 || !imageUrl.includes('jpeg') || !imageUrl.includes('jpg'));
+            setErrorValidation(errors);
+        }else{
+            const newImage = await dispatch(imageEvents.createNewImage(payload));
+            return newImage;
+        };
+
+
+
+    };
 
     return(
         <div className="imagePage">
+            <div><NavLink to={`/logged-in/${sessionUser.id}`}>{'<< Back to your albums'}</NavLink></div>
             <h1>Let's upload some images!</h1>
             <form onSubmit={handleSubmit}>
+                <ul>
+                    {errorValidation.map((error,id) => <li key={id}>{error}</li>)}
+                </ul>
                 <label>
                     Image Url
                     <input
@@ -66,7 +103,7 @@ const ImagesPage = () =>{
                 </label>
                 <button type='submit'>Upload That!</button>
             </form>
-            {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/><button onClick={() => history.push(`/edit-image/${albumId}/${image.id}`)}>Edit</button><button onClick={() => null}>Delete</button></div>)}
+            {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/><div className="contentBox">{image.content}</div><button onClick={() => history.push(`/edit-image/${albumId}/${image.id}`)}>Edit</button><button onClick={() => dispatch(deleteImage(image))}>Delete</button></div>)}
         </div>
     )
 }

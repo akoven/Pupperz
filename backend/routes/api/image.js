@@ -11,8 +11,10 @@ router.post('/', asyncHandler(async (req,res) =>{
     return res.json(newImage);
 }));
 
-router.get('/', asyncHandler(async(req,res) =>{
-    const getImages = await Image.findAll();
+router.get('/:albumId', asyncHandler(async(req,res) =>{
+    const albumId = parseInt(req.params.albumId, 10);
+    const getImages = await Image.findAll({where:{albumId}});
+    // console.log(res.body);
     return res.json(getImages);
 }));
 
@@ -21,21 +23,26 @@ router.put('/:id',asyncHandler(async(req,res) =>{
     const imageId = parseInt(req.params.id, 10);
     const editImage = await Image.findByPk(imageId);
     //or : await editAlbum.update({title: req.body.title}, {where:{id:albumId}})
-
+    //const editImage = await Image.findByPk(imageId) becomes unnecessary if the code above is
+    //used instead
+    console.log('REQUEST BODY: ',req.body);
     await editImage.update({imageUrl: req.body.imageUrl});
+    await editImage.update({content: req.body.content});
+    // await editImage.update();
     return res.json(editImage);
 
 }));
 
-// router.delete('/:id', asyncHandler(async (req,res) =>{
-//     const albumId = parseInt(req.params.id);
-//     const deletedAlbum = await Album.findByPk(albumId);
-//     // const {userId,title} = req.body;
-//     await deletedAlbum.destroy();
-//     // return res.json(deletedAlbum);
-//     res.status(204).end();
+router.delete('/:id', asyncHandler(async (req,res) =>{
+    const imageId = parseInt(req.params.id, 10);
+    // console.log(imageId);
+    const deletedImage = await Image.findByPk(imageId);
+    // console.log(deletedImage);
+    await deletedImage.destroy();
+    // return res.json(deletedAlbum);
+    res.status(204).end();
 
-// }));
+}));
 
 
 module.exports = router;
