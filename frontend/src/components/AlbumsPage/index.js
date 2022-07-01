@@ -34,5 +34,4 @@ const AlbumsPage = () =>{
 }
 
 
-
 export default AlbumsPage;
