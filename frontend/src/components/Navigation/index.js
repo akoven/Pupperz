@@ -18,7 +18,7 @@ const Navigation = ({isLoaded}) =>{
                 {/* <Redirect to='/' /> */}
                 <ProfileButton user={sessionUser} />
                 <span className="albumSpan"><NavLink to={`/create-album/${sessionUser.id}`}>Create an Album</NavLink></span>
-                <span className="imageSpan"><NavLink to={`/`}>Upload an Image</NavLink></span>
+                {/* <span className="imageSpan"><NavLink to={`/`}>Upload an Image</NavLink></span> */}
 
             </>
         )

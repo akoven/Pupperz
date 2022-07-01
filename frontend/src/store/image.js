@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const CREATE = 'image/CREATE';
 const READ = 'image/READ';
+const READ_ALL = 'image/READ_ALL';
 const EDIT = 'image/EDIT';
 const DELETE = 'image/DELETE';
 
@@ -14,6 +15,11 @@ export const displayImages = images =>({
     type: READ,
     images
 });
+
+export const displayAllImagesAction = images =>({
+    type: READ_ALL,
+    images
+})
 
 export const editImageAction = image =>({
     type: EDIT,
@@ -50,10 +56,12 @@ export const displayAllImages = (albumId) => async dispatch =>{
 };
 
 export const displayAllImagesUserPage = (userId) => async dispatch =>{
+    console.log('made it to displayAllImagesUserPage thunk');
     const response = await csrfFetch(`/api/images/${userId}`);
     if(response.ok){
         const images = await response.json();
-        dispatch(displayImages(images));
+        console.log('images from thunk ',images);
+        dispatch(displayAllImagesAction(images));
         return images;
     }
     return null;
@@ -66,7 +74,7 @@ export const editImage = (image) => async dispatch =>{
     });
     if(response.ok){
         const editedImage = await response.json();
-        console.log('editedImage ',editedImage);
+        // console.log('editedImage ',editedImage);
         dispatch(editImageAction(editedImage));
         return editedImage;
     }
@@ -98,7 +106,12 @@ const imageReducer = (state = initialState, action) =>{
         case READ:
             // newState = Object.assign({}, state);
             newState = {};
-            action.images.forEach(image => newState[image.id] = image)
+            action.images.forEach(albumImage => newState[albumImage.id] = albumImage);
+            console.log('made it to the imageReducer');
+            return newState;
+        case READ_ALL:
+            newState = Object.assign({},state);
+            action.images.forEach(userImage => newState[userImage.id] = userImage);
             return newState;
         case EDIT:
             newState = Object.assign({},state);
