@@ -10,9 +10,23 @@
 .title, .active{
     font-family: 'Titan One', cursive;
     text-decoration: none;
+    padding-bottom: 10px;
 }
 
+.nav-button{
+    border-radius: 25%;
+    color: blue;
+    border-color: blue;
 
+}
+
+button:hover{
+    background-color: white;
+}
+
+#nav-button{
+    padding-top: 10px;
+}
 
 
     /* display: flex;

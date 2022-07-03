@@ -24,8 +24,8 @@ const Navigation = ({isLoaded}) =>{
         sessionLinks=(
             <>
                 <NavLink to='/' exact><div className="title">Pupperz</div></NavLink>
-                <NavLink to='/login'><button>Log In</button></NavLink>
-                <NavLink to='/signup'><button>Sign Up!</button></NavLink>
+                <span id="nav-button"><NavLink to='/login'><button className="nav-button">Log In</button></NavLink></span>
+                <span id="nav-button"><NavLink to='/signup'><button className="nav-button">Sign Up!</button></NavLink></span>
                 <SplashPage />
             </>
         )
