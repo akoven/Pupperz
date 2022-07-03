@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const CREATE = 'image/CREATE';
 const READ = 'image/READ';
+const READ_ALL = 'image/READ_ALL';
 const EDIT = 'image/EDIT';
 const DELETE = 'image/DELETE';
 
@@ -14,6 +15,11 @@ export const displayImages = images =>({
     type: READ,
     images
 });
+
+// export const displayAllImagesAction = images =>({
+//     type: READ_ALL,
+//     images
+// })
 
 export const editImageAction = image =>({
     type: EDIT,
@@ -39,8 +45,21 @@ export const createNewImage = (image) => async dispatch =>{
     return null;
 };
 
+// export const createNewImageOnly = (image) => async dispatch =>{
+//     const response = await csrfFetch(`/api/images/`, {
+//         method: 'POST',
+//         body: JSON.stringify(image)
+//     });
+
+//     if(response.ok){
+//         const newImage = await response.json();
+//         dispatch(uploadImage(newImage))
+//     }
+// }
+
 export const displayAllImages = (albumId) => async dispatch =>{
     const response = await csrfFetch(`/api/images/${albumId}`);
+    console.log(response);
     if(response.ok){
         const images = await response.json();
         dispatch(displayImages(images));
@@ -49,15 +68,18 @@ export const displayAllImages = (albumId) => async dispatch =>{
     return null;
 };
 
-export const displayAllImagesUserPage = (userId) => async dispatch =>{
-    const response = await csrfFetch(`/api/images/${userId}`);
-    if(response.ok){
-        const images = await response.json();
-        dispatch(displayImages(images));
-        return images;
-    }
-    return null;
-}
+// export const displayAllImagesUserPage = (userId) => async dispatch =>{
+//     console.log('made it to displayAllImagesUserPage thunk');
+//     const response = await csrfFetch(`/api/images/${userId}`);
+//     console.log(response);
+//     if(response.ok){
+//         const images = await response.json();
+//         console.log('images from thunk ',images);
+//         dispatch(displayAllImagesAction(images));
+//         return images;
+//     }
+//     return null;
+// }
 
 export const editImage = (image) => async dispatch =>{
     const response = await csrfFetch(`/api/images/${image.id}`,{
@@ -66,7 +88,7 @@ export const editImage = (image) => async dispatch =>{
     });
     if(response.ok){
         const editedImage = await response.json();
-        console.log('editedImage ',editedImage);
+        // console.log('editedImage ',editedImage);
         dispatch(editImageAction(editedImage));
         return editedImage;
     }
@@ -98,8 +120,14 @@ const imageReducer = (state = initialState, action) =>{
         case READ:
             // newState = Object.assign({}, state);
             newState = {};
-            action.images.forEach(image => newState[image.id] = image)
+            action.images.forEach(albumImage => newState[albumImage.id] = albumImage);
             return newState;
+        // case READ_ALL:
+        //     newState = Object.assign({},state);
+        //     action.images.forEach(userImage => newState[userImage.id] = userImage);
+        //     console.log('made it to the imageReducer');
+        //     console.log(newState);
+        //     return newState;
         case EDIT:
             newState = Object.assign({},state);
             newState[action.image.id] = action.image;
