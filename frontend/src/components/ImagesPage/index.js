@@ -32,7 +32,8 @@ const ImagesPage = () =>{
 
         useEffect(() =>{
             if(albumId){
-                dispatch(displayAllImages(albumId))
+                dispatch(displayAllImages(albumId));
+                console.log('current images state from ImagesPage: ',images);
             }
         }, [dispatch]);
 
@@ -47,7 +48,7 @@ const ImagesPage = () =>{
             content
         };
         // const newImage = await dispatch(imageEvents.createNewImage(payload));
-        console.log(payload);
+        // console.log(payload);
         // console.log('current user id: ',{userId:sessionUser.id})
         // if(imageUrl.length === 0){
             //     errors.push('An image URL is required!');

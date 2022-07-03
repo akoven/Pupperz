@@ -1,6 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const {Image} = require('../../db/models');
+// const {UserImage} = require('../../db/models');
 
 const router = express.Router();
 
@@ -11,6 +12,12 @@ router.post('/', asyncHandler(async (req,res) =>{
     return res.json(newImage);
 }));
 
+// router.post('/', asyncHandler(async(req,res) =>{
+//     const {userId, imageUrl, content} = req.body;
+//     const newImage = await UserImage.create({userId,imageUrl,content});
+//     return res.json(newImage);
+// }))
+
 router.get('/:albumId', asyncHandler(async(req,res) =>{
     const albumId = parseInt(req.params.albumId, 10);
     const getImages = await Image.findAll({where:{albumId}});
@@ -18,14 +25,14 @@ router.get('/:albumId', asyncHandler(async(req,res) =>{
     return res.json(getImages);
 }));
 
-router.get('/:userId', asyncHandler(async(req,res) =>{
-    console.log('get route for displaying logged in user images!!!');
-    const userId = parseInt(req.params.userId);
-    console.log('user id from backend: ', userId);
-    const getImages = await Image.findAll({where:{userId}});
-    console.log('images from api route!!! ', getImages);
-    return res.json(getImages);
-}));
+// router.get('/:userId', asyncHandler(async(req,res) =>{
+//     console.log('get route for displaying logged in user images!!!');
+//     const userId = parseInt(req.params.userId, 10);
+//     console.log('user id from backend: ', userId);
+//     const getImages = await UserImage.findAll();
+//     console.log('images from api route!!! ', getImages);
+//     return res.json(getImages);
+// }));
 
 router.put('/:id',asyncHandler(async(req,res) =>{
     // console.log('made it to backend');

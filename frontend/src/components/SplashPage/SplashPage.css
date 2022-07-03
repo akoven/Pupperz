@@ -1,0 +1,19 @@
+
+.main-page{
+    background-image: url('https://nypost.com/wp-content/uploads/sites/2/2019/01/boo-dog.jpg?quality=75&strip=all');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1039px;
+}
+
+.content{
+    height: 500px;
+}
+
+
+.footer{
+    /* margin-top: 50px; */
+    background-color: blue;
+    height: 40px;
+
+ }

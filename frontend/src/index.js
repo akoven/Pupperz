@@ -20,7 +20,7 @@ if (process.env.NODE_ENV !== "production") {
 
 function Root() {
   return (
-    <div className='entireWebpage'>
+    <div>
       <ReduxProvider store={store}>
         <BrowserRouter>
           <App />
