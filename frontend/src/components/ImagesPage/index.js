@@ -33,7 +33,7 @@ const ImagesPage = () =>{
         useEffect(() =>{
             if(albumId){
                 dispatch(displayAllImages(albumId));
-                console.log('current images state from ImagesPage: ',images);
+                // console.log('current images state from ImagesPage: ',images);
             }
         }, [dispatch]);
 
@@ -70,9 +70,6 @@ const ImagesPage = () =>{
             const newImage = await dispatch(imageEvents.createNewImage(payload));
             return newImage;
         };
-
-
-
     };
 
     return(

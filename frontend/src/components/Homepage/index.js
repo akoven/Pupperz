@@ -34,7 +34,7 @@ const Homepage = () =>{
         <div>
             {/* <NavLink to={`/create-album/${userSession.id}`}>Create an Album</NavLink> */}
             {/* <NavLink to={`/`}></NavLink> */}
-            <h3>Welcome back {userSession.username}!</h3>
+            <h3 className="intro-message">Welcome back {userSession.username}!</h3>
             <span><NavLink to={`/user/${userSession.id}/albums`} className='albums'>See your albums</NavLink><NavLink to={`/user/${userSession.id}/all-images`} className='images'>See your images</NavLink></span>
             {/* {albumArr.map(album => <div><Link to={`/albums/${album.id}/images`}>{album.title}</Link><button onClick={() => history.push(`/edit-album/${album.id}`)}>Edit</button><button onClick={() => dispatch(deleteAlbum(album))}>Delete</button></div>)} */}
             <div>
@@ -54,8 +54,6 @@ const Homepage = () =>{
                 <img src="https://chico.ca.us/sites/main/files/ihttps://images.dog.ceo/breeds/husky/n02110185_1511.jpgmagecache/lightbox/main-images/dog_license.jpg" alt=''/>
                 <img src="https://images.dog.ceo/breeds/mastiff-tibetan/n02108551_1240.jpg" alt=''/>
             </div>
-
-
         </div>
 
     )

@@ -36,7 +36,7 @@ const EditAlbumForm = () =>{
         };
 
         if(editedAlbum){
-            history.push(`/logged-in/${sessionUser.id}`);
+            history.push(`/user/${sessionUser.id}/albums`);
         };
     };
 
@@ -54,7 +54,7 @@ const EditAlbumForm = () =>{
                 required/>
             </label>
             <button type='submit' disabled={errorValidation.length > 0}>Submit Changes</button>
-            <button onClick={() => history.push(`/logged-in/${sessionUser.id}`)}>Cancel</button>
+            <button onClick={() => history.push(`/user/${sessionUser.id}/albums`)}>Cancel</button>
         </form>
     );
 };
