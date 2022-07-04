@@ -2,9 +2,9 @@
     flex-direction: column;
     display:flex;
     align-content: center;
-    border: solid grey;
+    border: solid aliceblue;
     border-width: 1px;
-    padding-left: 800px;
+    padding-left: 600px;
 }
 
 .title, .active{
@@ -26,6 +26,10 @@ button:hover{
 
 #nav-button{
     padding-top: 10px;
+}
+
+.albumSpan{
+    text-decoration: none;
 }
 
 

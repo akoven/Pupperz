@@ -34,8 +34,8 @@ function LoginFormPage() {
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-            <label>
-                Username or Email
+            <label className='credential-input'>
+                Username or Email:
                 <input
                 type="text"
                 value={credential}
@@ -43,8 +43,8 @@ function LoginFormPage() {
                 required
                 />
             </label>
-            <label>
-                Password
+            <label className='password-input'>
+                Password:
                 <input
                 type="password"
                 value={password}
@@ -53,11 +53,15 @@ function LoginFormPage() {
                 />
             </label>
             <span>
+            <span className='login-button'>
               <button type="submit">Log In</button>
+            </span>
+            <span>
               <button onClick={() =>{
                   setCredential('Demo-lition')
                   setPassword('password')
               }}>Demo User</button>
+            </span>
             </span>
         </form>
     </div>

@@ -11,6 +11,17 @@ import EditAlbumForm from './components/CreateAlbumForm/EditAlbumForm';
 import ImagesPage from './components/ImagesPage';
 import AllUserImages from './components/ImagesPage/AllUserImages';
 import EditImageForm from './components/ImagesPage/EditImageForm';
+import AboutMePage from './components/AboutMePage';
+import JobsPage from './components/JobsPage';
+import BlogPage from './components/BlogPage';
+import DevelopersPage from './components/DevelopersPage';
+import GuidelinesPage from './components/GuidelinesPage';
+import PrivacyPage from './components/PrivacyPage';
+import TermsPage from './components/TermsPage';
+import HelpPage from './components/HelpPage';
+import LanguagePage from './components/LanguagePage';
+
+
 import * as sessionActions from './store/session';
 
 function App() {
@@ -54,6 +65,35 @@ function App() {
           <Route path='/edit-image/:albumId/:imageId'>
             <EditImageForm />
           </Route>
+          <Route path='/about-me' exact>
+            <AboutMePage />
+          </Route>
+          <Route path='/jobs' exact>
+            <JobsPage />
+          </Route>
+          <Route path='/blog' exact>
+            <BlogPage />
+          </Route>
+          <Route path='/developers' exact>
+            <DevelopersPage />
+          </Route>
+          <Route path='/guidelines' exact>
+            <GuidelinesPage />
+          </Route>
+          <Route path='/privacy' exact>
+            <PrivacyPage />
+          </Route>
+          <Route path='/terms' exact>
+            <TermsPage />
+          </Route>
+          <Route path='/help' exact>
+            <HelpPage />
+          </Route>
+          <Route path='/language' exact>
+            <LanguagePage />
+          </Route>
+
+
         </Switch>
       )}
     </>

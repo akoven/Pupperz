@@ -6,7 +6,7 @@
 } */
 
 .imagePage{
-    background-color: beige;
+    background-color: aliceblue;
 }
 
 .contentBox{
@@ -16,6 +16,6 @@
     width: 600px;
     height: 100px;
     color: black;
-    background-color: burlywood;
+    background-color: blueviolet;
 
 }
