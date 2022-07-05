@@ -38,7 +38,9 @@ Pupperz is a clone of Flickr, an online photo management site that allows people
     ![image](https://user-images.githubusercontent.com/89858837/177226603-cd323aea-16d7-4bc4-b26c-400bd572a2a6.png)
     ![image](https://user-images.githubusercontent.com/89858837/177226629-d228e824-7be0-4c8f-863d-a8298801bc48.png)
 
-
+*** Possible features in the future:
+  * Favorites features
+  * Ability for any user to make comments on the photos of a user they are following
 
 
 
