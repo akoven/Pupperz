@@ -2,7 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const CREATE = 'image/CREATE';
 const READ = 'image/READ';
-const READ_ALL = 'image/READ_ALL';
+// const READ_ALL = 'image/READ_ALL';
 const EDIT = 'image/EDIT';
 const DELETE = 'image/DELETE';
 
