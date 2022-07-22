@@ -9,7 +9,7 @@ import Navigation from './components/Navigation';
 import CreateAlbumForm from './components/CreateAlbumForm';
 import EditAlbumForm from './components/CreateAlbumForm/EditAlbumForm';
 import ImagesPage from './components/ImagesPage';
-import AllUserImages from './components/ImagesPage/AllUserImages';
+import AllUserImages from './components/AllUserImages';
 import EditImageForm from './components/ImagesPage/EditImageForm';
 import AboutMePage from './components/AboutMePage';
 import JobsPage from './components/JobsPage';
@@ -61,6 +61,9 @@ function App() {
           </Route>
           <Route path='/albums/:albumId/images'>
             <ImagesPage />
+          </Route>
+          <Route path='/user/:userId/all-images'>
+            <AllUserImages />
           </Route>
           <Route path='/edit-image/:albumId/:imageId'>
             <EditImageForm />
