@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory,Link,NavLink } from "react-router-dom";
 import * as imageEvents from '../../store/userImage';
 import { displayAllImagesUserPage } from "../../store/userImage";
-// import {deleteImage} from '../../store/image';
+import {deleteUserImage} from '../../store/userImage';
 import '../ImagesPage/images.css';
 
 const AllUserImages = () =>{
 
     const [imageUrl, setImageUrl] = useState('');
-    const [content, setContent] = useState('');
+    // const [content, setContent] = useState('');
     const [errorValidation, setErrorValidation] = useState([]);
 
     const dispatch = useDispatch();
@@ -36,10 +36,10 @@ const AllUserImages = () =>{
             const payload = {
                 userId: sessionUser.id,
                 imageUrl,
-                content
+                // content
             };
             setImageUrl('');
-            setContent('');
+            // setContent('');
 
             if((imageUrl.length < 4 && imageUrl.includes('jpg')) || (imageUrl.length < 5 && imageUrl.includes('jpeg')) || (!imageUrl.includes('jpeg') && !imageUrl.includes('jpg'))){
                 errors.push('A valid image URL is required!');
@@ -88,7 +88,7 @@ const AllUserImages = () =>{
                     required
                     />
                 </label>
-                <label>
+                {/* <label>
                     Content
                     <textarea
                     type='text'
@@ -97,11 +97,11 @@ const AllUserImages = () =>{
                     placeholder='Optional'
                     rows='3'
                     ></textarea>
-                </label>
+                </label> */}
                 <button type='submit'>Upload That!</button>
             </form>
-            {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/></div>)}
-            {/* <button onClick={() => dispatch(deleteImage(image))}>Delete</button>
+            {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/><button onClick={() => dispatch(deleteUserImage(image))}>Delete</button></div>)}
+            {/*
             <div className="contentBox">{image.content}</div>
             <button onClick={() => history.push(`/`)}>Edit</button> */}
         </div>

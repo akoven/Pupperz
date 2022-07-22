@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const CREATE = 'userImage/CREATE';
 const READ_ALL = 'userImage/READ_ALL';
+const DELETE = 'userImage/DELETE';
 
 export const uploadUserImage = image =>({
     type: CREATE,
@@ -11,6 +12,11 @@ export const uploadUserImage = image =>({
 export const displayAllImagesAction = images =>({
     type: READ_ALL,
     images
+});
+
+export const deleteUserImageAction = image =>({
+    type: DELETE,
+    image
 });
 
 export const createNewImageOnly = (image) => async dispatch =>{
@@ -38,6 +44,13 @@ export const displayAllImagesUserPage = (userId) => async dispatch =>{
     return null;
 };
 
+export const deleteUserImage = (image) => async dispatch =>{
+    const response = await csrfFetch(`/api/userImages/${image.id}`,{
+        method: 'DELETE'
+    });
+    dispatch(deleteUserImageAction(image));
+    return response;
+}
 const initialState = {};
 
 const allImagesReducer = (state = initialState,action) =>{
@@ -52,6 +65,10 @@ const allImagesReducer = (state = initialState,action) =>{
             action.images.forEach(userImage => newState[userImage.id] = userImage);
             console.log('made it to the imageReducer');
             console.log(newState);
+            return newState;
+        case DELETE:
+            newState = Object.assign({},state);
+            delete newState[action.image.id];
             return newState;
         default:
             return state;

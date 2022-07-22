@@ -19,4 +19,11 @@ router.get('/:userId', asyncHandler(async(req,res) =>{
     return res.json(getImages);
 }));
 
+router.delete('/:id', asyncHandler(async(req,res) =>{
+    const imageId = Number(req.params.id);
+    const deletedImage = await UserImage.findByPk(imageId);
+    await deletedImage.destroy();
+    res.status(204).end();
+}))
+
 module.exports = router;
