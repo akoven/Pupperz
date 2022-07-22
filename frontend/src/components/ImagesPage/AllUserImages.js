@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory,Link,NavLink } from "react-router-dom";
 import * as imageEvents from '../../store/image';
-import { displayAllImagesUserPage } from "../../store/image";
+import { displayImages } from "../../store/image";
 import {deleteImage} from '../../store/image';
 import './images.css';
 
@@ -23,33 +23,33 @@ const AllUserImages = () =>{
 
     // useEffect(() =>{
     //     if(userId){
-    //         dispatch(displayAllImagesUserPage(userId));
+    //         dispatch(displayImages(userId));
     //     }
-    // }, [dispatch]);
+    // }, [userId]);
 
-        // console.log(payload);
+    //     // console.log(payload);
 
-        // let errors = [];
+    //     let errors = [];
 
-        // const handleSubmit = async e =>{
-        //     e.preventDefault();
-        //     const payload = {
-        //         userId: sessionUser.id,
-        //         imageUrl,
-        //         content
-        //     };
-        //     setImageUrl('');
-        //     setContent('');
+    //     const handleSubmit = async e =>{
+    //         e.preventDefault();
+    //         const payload = {
+    //             userId: sessionUser.id,
+    //             imageUrl,
+    //             content
+    //         };
+    //         setImageUrl('');
+    //         setContent('');
 
-        //     if((imageUrl.length < 4 && imageUrl.includes('jpg')) || (imageUrl.length < 5 && imageUrl.includes('jpeg')) || (!imageUrl.includes('jpeg') && !imageUrl.includes('jpg'))){
-        //         errors.push('A valid image URL is required!');
-        //         // console.log(imageUrl.length < 4 || !imageUrl.includes('jpeg') || !imageUrl.includes('jpg'));
-        //         setErrorValidation(errors);
-        //     }else{
-        //         const newImage = await dispatch(imageEvents.createNewImageOnly(payload));
-        //         return newImage;
-        //     };
-        // };
+    //         if((imageUrl.length < 4 && imageUrl.includes('jpg')) || (imageUrl.length < 5 && imageUrl.includes('jpeg')) || (!imageUrl.includes('jpeg') && !imageUrl.includes('jpg'))){
+    //             errors.push('A valid image URL is required!');
+    //             // console.log(imageUrl.length < 4 || !imageUrl.includes('jpeg') || !imageUrl.includes('jpg'));
+    //             setErrorValidation(errors);
+    //         }else{
+    //             const newImage = await dispatch(imageEvents.createNewImage(payload));
+    //             return newImage;
+    //         };
+    //     };
 
     return(
         <div className="userImagePage">
@@ -73,7 +73,8 @@ const AllUserImages = () =>{
             <img src="https://images.dog.ceo/breeds/beagle/n02088364_12440.jpg" alt=''/>
 
 
-            {/* <h1>Let's upload some images!</h1>
+        {/* <h1>Let's upload some images!</h1>
+            <Link to={`/logged-in/${userId}`}>{'<<Back To Home'}</Link>
             <form onSubmit={handleSubmit}>
                 <ul>
                     {errorValidation.map((error,id) => <li key={id}>{error}</li>)}
@@ -99,7 +100,7 @@ const AllUserImages = () =>{
                 </label>
                 <button type='submit'>Upload That!</button>
             </form>
-            {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/><div className="contentBox">{image.content}</div><button onClick={() => history.push(`/`)}>Edit</button><button onClick={() => dispatch(deleteImage(image))}>Delete</button></div>)} */}
+            {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/><div className="contentBox">{image.content}</div><button onClick={() => history.push(`/edit-image/${image.id}`)}>Edit</button><button onClick={() => dispatch(deleteImage(image))}>Delete</button></div>)} */}
 
         </div>
     )
