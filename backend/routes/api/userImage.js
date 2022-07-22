@@ -19,6 +19,12 @@ router.get('/:userId', asyncHandler(async(req,res) =>{
     return res.json(getImages);
 }));
 
+router.get('/', asyncHandler(async(req,res) =>{
+    const getAllImages = await UserImage.findAll();
+    console.log('images from api route!!! ', getAllImages);
+    return res.json(getAllImages);
+}))
+
 router.delete('/:id', asyncHandler(async(req,res) =>{
     const imageId = Number(req.params.id);
     const deletedImage = await UserImage.findByPk(imageId);

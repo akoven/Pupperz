@@ -15,8 +15,8 @@ const Navigation = ({isLoaded}) =>{
         sessionLinks = (
             <>
                 <span className="title"><Link to={`/logged-in/${sessionUser.id}`}>Pupperz</Link></span>
-                <ProfileButton user={sessionUser} />
                 <span className="albumSpan"><NavLink to={`/create-album/${sessionUser.id}`}>Create an Album</NavLink></span>
+                <ProfileButton user={sessionUser} />
 
             </>
         )
