@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory,Link,NavLink } from "react-router-dom";
 import * as imageEvents from '../../store/userImage';
 import { displayAllImagesUserPage } from "../../store/userImage";
-import {deleteImage} from '../../store/image';
+// import {deleteImage} from '../../store/image';
 import '../ImagesPage/images.css';
 
 const AllUserImages = () =>{
@@ -15,7 +15,7 @@ const AllUserImages = () =>{
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const images = useSelector(state => state.images);
+    const images = useSelector(state => state.userImages);
     const imageArr = Object.values(images || {});
     const {userId} = useParams();
 
@@ -100,8 +100,10 @@ const AllUserImages = () =>{
                 </label>
                 <button type='submit'>Upload That!</button>
             </form>
-            {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/><div className="contentBox">{image.content}</div><button onClick={() => history.push(`/`)}>Edit</button><button onClick={() => dispatch(deleteImage(image))}>Delete</button></div>)}
-
+            {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/></div>)}
+            {/* <button onClick={() => dispatch(deleteImage(image))}>Delete</button>
+            <div className="contentBox">{image.content}</div>
+            <button onClick={() => history.push(`/`)}>Edit</button> */}
         </div>
     )
 }
