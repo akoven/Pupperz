@@ -18,7 +18,7 @@ export const displayAllImagesAction = images =>({
 export const displayAllUsersImages = images => ({
     type: READ_ALL,
     images
-})
+});
 
 export const deleteUserImageAction = image =>({
     type: DELETE,
@@ -26,7 +26,7 @@ export const deleteUserImageAction = image =>({
 });
 
 export const createNewImageOnly = (image) => async dispatch =>{
-    const response = await csrfFetch(`/api/userImages/`, {
+    const response = await csrfFetch(`/api/userImages`, {
         method: 'POST',
         body: JSON.stringify(image)
     });

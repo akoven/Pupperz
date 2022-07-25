@@ -1,10 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink, useHistory } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ProfileButton from "../Navigation/ProfileButton";
 // import Navigation from "../Navigation";
 // import { displayAllAlbums } from "../../store/album";
 import { displayAllImagesHomePage } from "../../store/userImage";
+import { createLikedImage } from "../../store/favorite";
 import './homepage.css';
 
 const Homepage = () =>{
@@ -17,7 +18,9 @@ const Homepage = () =>{
     // const albumArr = Object.values(albums||{});
     const imageArr = Object.values(images||{});
 
-    console.log('imageArr for homepage: ', imageArr);
+    // console.log('imageArr for homepage: ', imageArr);
+    const [liked, setLiked] = useState(false);
+
 
 
     // console.log('current user: ',userSession);
@@ -37,7 +40,23 @@ const Homepage = () =>{
     if(userSession){
         <ProfileButton user={userSession}/>
         // dispatch(displayAllAlbums(userSession.id));
-    }
+    };
+
+    // const handleLike = () =>{
+    //     const payload ={
+    //         userId: userSession.id,
+    //         images,
+    //         liked
+    //     };
+
+    //     dispatch(createLikedImage(payload));
+
+
+    // }
+
+
+
+
 
     return(
         <div>
@@ -63,7 +82,19 @@ const Homepage = () =>{
                 <img src="https://images.dog.ceo/breeds/mastiff-tibetan/n02108551_1240.jpg" alt=''/>
             </div> */}
 
-            {imageArr.map(image =><div className="images"><img src={image.imageUrl} alt='image-here'/></div>)}
+            {imageArr.map(image =><div className="images" key={image.id}><img src={image.imageUrl} alt='image-here'/><button onClick={() =>{
+                setLiked(true);
+
+                const payload ={
+                    userId: image.userId,
+                    imageId: image.id,
+                    imageUrl: image.imageUrl,
+                    liked
+                };
+
+                dispatch(createLikedImage(payload));
+
+            }}>Like!</button></div>)}
         </div>
 
     )

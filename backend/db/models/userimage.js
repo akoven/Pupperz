@@ -1,12 +1,22 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const UserImage = sequelize.define('UserImage', {
-    imageUrl: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    imageUrl:{
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    liked:{
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   }, {});
   UserImage.associate = function(models) {
     // associations can be defined here
-    UserImage.belongsTo(models.User, {foreignKey:'userId'})
+    UserImage.belongsTo(models.User,{foreignKey:'userId'})
   };
   return UserImage;
 };

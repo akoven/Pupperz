@@ -20,7 +20,7 @@ const AllUserImages = () =>{
     const {userId} = useParams();
 
 
-
+    console.log(imageArr);
     useEffect(() =>{
         if(userId){
             dispatch(displayAllImagesUserPage(userId));
@@ -36,7 +36,7 @@ const AllUserImages = () =>{
             const payload = {
                 userId: sessionUser.id,
                 imageUrl,
-                // content
+                liked: false
             };
             setImageUrl('');
             // setContent('');
