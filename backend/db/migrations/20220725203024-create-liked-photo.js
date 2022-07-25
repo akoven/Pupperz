@@ -1,30 +1,24 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Favorites', {
+    return queryInterface.createTable('LikedPhotos', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
+      userImageId: {
         type: Sequelize.INTEGER,
         references:{
-          model:'Users'
+          model:'UserImages'
         }
       },
-      // imageId: {
-      //   type: Sequelize.INTEGER,
-      //   references:{
-      //     model:'UserImages'
-      //   }
-      // },
-      imageUrl: {
-        type: Sequelize.STRING,
-      },
-      liked: {
-        type: Sequelize.BOOLEAN
+      favId: {
+        type: Sequelize.INTEGER,
+        references:{
+          model:'Favorites'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +31,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Favorites');
+    return queryInterface.dropTable('LikedPhotos');
   }
 };

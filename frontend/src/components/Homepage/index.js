@@ -87,7 +87,6 @@ const Homepage = () =>{
 
                 const payload ={
                     userId: image.userId,
-                    imageId: image.id,
                     imageUrl: image.imageUrl,
                     liked
                 };
