@@ -5,7 +5,7 @@ import ProfileButton from "../Navigation/ProfileButton";
 // import Navigation from "../Navigation";
 // import { displayAllAlbums } from "../../store/album";
 import { displayAllImagesHomePage } from "../../store/userImage";
-import { createLikedImage } from "../../store/favorite";
+// import { createLikedImage } from "../../store/favorite";
 import './homepage.css';
 
 const Homepage = () =>{
@@ -19,7 +19,7 @@ const Homepage = () =>{
     const imageArr = Object.values(images||{});
 
     // console.log('imageArr for homepage: ', imageArr);
-    const [liked, setLiked] = useState(false);
+    // const [liked, setLiked] = useState(false);
 
 
 
@@ -63,7 +63,7 @@ const Homepage = () =>{
             {/* <NavLink to={`/create-album/${userSession.id}`}>Create an Album</NavLink> */}
             {/* <NavLink to={`/`}></NavLink> */}
             <h3 className="intro-message">Welcome back {userSession.username}!</h3>
-            <span><NavLink to={`/user/${userSession.id}/albums`} className='albums'>See your albums</NavLink><NavLink to={`/user/${userSession.id}/all-images`} className='images'>See your images</NavLink><NavLink to={`/user/${userSession.id}/my-faves`} className='images'>See your favorites</NavLink></span>
+            <span><NavLink to={`/user/${userSession.id}/albums`} className='albums'>See your albums</NavLink><NavLink to={`/user/${userSession.id}/all-images`} className='images'>See your images</NavLink></span>
             {/* {albumArr.map(album => <div><Link to={`/albums/${album.id}/images`}>{album.title}</Link><button onClick={() => history.push(`/edit-album/${album.id}`)}>Edit</button><button onClick={() => dispatch(deleteAlbum(album))}>Delete</button></div>)} */}
             {/* <div>
                 <img src="https://media.nature.com/lw800/magazine-assets/d41586-020-01443-0/d41586-020-01443-0_17985512.jpg" alt=''/>
@@ -82,18 +82,7 @@ const Homepage = () =>{
                 <img src="https://images.dog.ceo/breeds/mastiff-tibetan/n02108551_1240.jpg" alt=''/>
             </div> */}
 
-            {imageArr.map(image =><div className="images" key={image.id}><img src={image.imageUrl} alt='image-here'/><button onClick={() =>{
-                setLiked(true);
-
-                const payload ={
-                    userId: image.userId,
-                    imageUrl: image.imageUrl,
-                    liked
-                };
-
-                dispatch(createLikedImage(payload));
-
-            }}>Like!</button></div>)}
+            {imageArr.map(image =><div className="images" key={image.id}><img src={image.imageUrl} alt='image-here'/></div>)}
         </div>
 
     )

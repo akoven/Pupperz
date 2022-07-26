@@ -1,37 +1,37 @@
 import { csrfFetch } from "./csrf";
 
 const CREATE = 'favorite/CREATE';
-export const uploadLiked = image =>({
+export const createFolder = payload =>({
     type: CREATE,
-    image
+    payload
 });
 
 const READ ='favorite/READ';
-export const loadAllLikedImages = images =>({
+export const loadFavoritesFolder = images =>({
     type: READ,
     images
 })
 
-export const createLikedImage = image => async dispatch =>{
+export const createFavoritesFolder = payload => async dispatch =>{
     const response = await csrfFetch(`/api/favorites`, {
         method: 'POST',
-        body: JSON.stringify(image)
+        body: JSON.stringify(payload)
     });
 
     if(response.ok){
-        const newFave = await response.json();
-        dispatch(uploadLiked(newFave));
-        return newFave
+        const newFolder = await response.json();
+        dispatch(createFolder(newFolder));
+        return newFolder
     }
     return null;
 };
 
-export const loadAllLiked = () => async dispatch =>{
+export const loadFavorites = () => async dispatch =>{
     const response = await csrfFetch('/api/favorites');
     if(response.ok){
-        const images = await response.json();
-        dispatch(loadAllLikedImages(images));
-        return images;
+        const folder = await response.json();
+        dispatch(loadFavoritesFolder(folder));
+        return folder;
     }
 }
 
@@ -40,7 +40,7 @@ const favoritesReducer = (state = {},action)=>{
     switch(action.type){
         case CREATE:
             newState = Object.assign({},state);
-            newState[action.image.id] = action.image;
+            newState[action.payload.id] = action.payload;
             return newState;
         case READ:
             newState = Object.assign({},state);

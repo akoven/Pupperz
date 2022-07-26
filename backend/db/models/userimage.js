@@ -5,25 +5,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    imageUrl:{
-      type: DataTypes.STRING,
-      allowNull: false
+    favoritesId:{
+      type: DataTypes.INTEGER,
+      allowNull: true
     },
-    // favoriteId:DataTypes.INTEGER,
-    liked:{
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
-    }
+    imageUrl: DataTypes.STRING,
+    liked: DataTypes.BOOLEAN
   }, {});
   UserImage.associate = function(models) {
     // associations can be defined here
-    UserImage.belongsTo(models.User,{foreignKey:'userId'});
-    const columnMapping = {
-      through: 'LikedPhoto',
-      otherKey: 'favId',
-      foreignKey:'userImageId'
-    }
-    UserImage.belongsToMany(models.Favorite,columnMapping);
+    UserImage.belongsTo(models.User, {foreignKey:'userId'})
+    UserImage.belongsTo(models.Favorite,{foreignKey:'favoritesId'})
   };
   return UserImage;
 };
