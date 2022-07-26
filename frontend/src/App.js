@@ -9,8 +9,9 @@ import Navigation from './components/Navigation';
 import CreateAlbumForm from './components/CreateAlbumForm';
 import EditAlbumForm from './components/CreateAlbumForm/EditAlbumForm';
 import ImagesPage from './components/ImagesPage';
-import AllUserImages from './components/ImagesPage/AllUserImages';
+import AllUserImages from './components/AllUserImages';
 import EditImageForm from './components/ImagesPage/EditImageForm';
+// import Favorites from './components/Favorites';
 import AboutMePage from './components/AboutMePage';
 import JobsPage from './components/JobsPage';
 import BlogPage from './components/BlogPage';
@@ -62,9 +63,15 @@ function App() {
           <Route path='/albums/:albumId/images'>
             <ImagesPage />
           </Route>
+          <Route path='/user/:userId/all-images'>
+            <AllUserImages />
+          </Route>
           <Route path='/edit-image/:albumId/:imageId'>
             <EditImageForm />
           </Route>
+          {/* <Route path='/user/:userId/my-faves'>
+            <Favorites />
+          </Route> */}
           <Route path='/about-me' exact>
             <AboutMePage />
           </Route>

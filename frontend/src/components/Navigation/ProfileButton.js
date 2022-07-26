@@ -3,11 +3,13 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
+import { useSelector } from "react-redux";
 
 const ProfileButton = ({user}) =>{
     const dispatch = useDispatch();
     const history = useHistory();
     const [showMenu, setShowMenu] = useState(false);
+    // const faveImages = useSelector(state => state.Favorite);
 
     const openMenu = () =>{
         if(showMenu) return;

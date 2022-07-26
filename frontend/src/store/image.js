@@ -19,7 +19,7 @@ export const displayImages = images =>({
 // export const displayAllImagesAction = images =>({
 //     type: READ_ALL,
 //     images
-// })
+// });
 
 export const editImageAction = image =>({
     type: EDIT,
