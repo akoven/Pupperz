@@ -3,15 +3,23 @@ const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const albumRouter = require('./album.js');
 const imageRouter = require('./image.js');
+<<<<<<< HEAD
 const userImageRouter = require('./userImage.js');
 const favoriteRouter = require('./favorite.js');
+=======
+// const userImageRouter = require('./userimage.js');
+>>>>>>> main
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/albums', albumRouter);
 router.use('/images', imageRouter);
+<<<<<<< HEAD
 router.use('/userImages', userImageRouter);
 router.use('/favorites', favoriteRouter);
+=======
+// router.use('/userimages', userImageRouter);
+>>>>>>> main
 
 router.post('/test', function(req, res) {
     res.json({ requestBody: req.body });

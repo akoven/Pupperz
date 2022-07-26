@@ -3,15 +3,22 @@ import thunk from "redux-thunk";
 import sessionReducer from "./session";
 import albumReducer from "./album";
 import imageReducer from "./image";
+<<<<<<< HEAD
 import allImagesReducer from "./userImage";
 import favoritesReducer from "./favorite";
+=======
+// import userImageReducer from "./userimage";
+>>>>>>> main
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   albums: albumReducer,
   images: imageReducer,
+<<<<<<< HEAD
   userImages: allImagesReducer,
   favorites: favoritesReducer
+=======
+>>>>>>> main
 });
 
 let enhancer;
