@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import SignUpModal from "../SignUpModal";
+import ProfileModal from "../ProfileModal";
 import { NavLink, Link, Redirect } from "react-router-dom";
 import SplashPage from "../SplashPage";
 import './Navigation.css';
@@ -20,6 +21,7 @@ const Navigation = ({isLoaded}) =>{
                 <span className="title"><Link to={`/logged-in/${sessionUser.id}`}>Pupperz</Link></span>
                 <span className="albumSpan"><NavLink to={`/create-album/${sessionUser.id}`}>Create an Album</NavLink></span>
                 <ProfileButton user={sessionUser} />
+                {/* <ProfileModal user={sessionUser}/> */}
                 <Redirect to={`/logged-in/${sessionUser.id}`} />
             </>
         );

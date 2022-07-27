@@ -2,7 +2,7 @@
     flex-direction: column;
     display:flex;
     align-content: center;
-    border: solid aliceblue;
+    border: solid none;
     border-width: 1px;
     padding-left: 600px;
 }
