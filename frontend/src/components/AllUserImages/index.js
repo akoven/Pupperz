@@ -37,7 +37,7 @@ const AllUserImages = () =>{
                 userId: sessionUser.id,
                 // favoritesId,
                 imageUrl,
-                liked: false
+                // liked: false
             };
             setImageUrl('');
             // setContent('');
