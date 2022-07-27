@@ -14,17 +14,8 @@ module.exports = {
           model:'Users'
         }
       },
-      favoritesId: {
-        type: Sequelize.INTEGER,
-        references:{
-          model:'Favorites'
-        }
-      },
       imageUrl: {
         type: Sequelize.STRING
-      },
-      liked: {
-        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
