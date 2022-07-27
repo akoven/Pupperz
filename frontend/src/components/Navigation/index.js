@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import ProfileButton from "./ProfileButton";
 import { NavLink, Link, Redirect } from "react-router-dom";
-import Homepage from '../Homepage';
 import LoginFormModal from '../LoginFormModal';
 import SplashPage from "../SplashPage";
 import './Navigation.css';
