@@ -1,17 +1,10 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory,Link,NavLink } from "react-router-dom";
-<<<<<<< HEAD:frontend/src/components/AllUserImages/index.js
 import * as imageEvents from '../../store/userImage';
 import { displayAllImagesUserPage } from "../../store/userImage";
 import {deleteUserImage} from '../../store/userImage';
 import '../ImagesPage/images.css';
-=======
-import * as imageEvents from '../../store/image';
-import { displayImages } from "../../store/image";
-import {deleteImage} from '../../store/image';
-import './images.css';
->>>>>>> main:frontend/src/components/ImagesPage/AllUserImages.js
 
 const AllUserImages = () =>{
 
@@ -34,7 +27,6 @@ const AllUserImages = () =>{
         }
     }, [dispatch]);
 
-<<<<<<< HEAD:frontend/src/components/AllUserImages/index.js
 
 
         let errors = [];
@@ -59,37 +51,6 @@ const AllUserImages = () =>{
                 return newImage;
             };
         };
-=======
-    // useEffect(() =>{
-    //     if(userId){
-    //         dispatch(displayImages(userId));
-    //     }
-    // }, [userId]);
-
-    //     // console.log(payload);
-
-    //     let errors = [];
-
-    //     const handleSubmit = async e =>{
-    //         e.preventDefault();
-    //         const payload = {
-    //             userId: sessionUser.id,
-    //             imageUrl,
-    //             content
-    //         };
-    //         setImageUrl('');
-    //         setContent('');
-
-    //         if((imageUrl.length < 4 && imageUrl.includes('jpg')) || (imageUrl.length < 5 && imageUrl.includes('jpeg')) || (!imageUrl.includes('jpeg') && !imageUrl.includes('jpg'))){
-    //             errors.push('A valid image URL is required!');
-    //             // console.log(imageUrl.length < 4 || !imageUrl.includes('jpeg') || !imageUrl.includes('jpg'));
-    //             setErrorValidation(errors);
-    //         }else{
-    //             const newImage = await dispatch(imageEvents.createNewImage(payload));
-    //             return newImage;
-    //         };
-    //     };
->>>>>>> main:frontend/src/components/ImagesPage/AllUserImages.js
 
     return(
         <div className="userImagePage">
@@ -113,13 +74,8 @@ const AllUserImages = () =>{
             <img src="https://images.dog.ceo/breeds/beagle/n02088364_12440.jpg" alt=''/> */}
 
 
-<<<<<<< HEAD:frontend/src/components/AllUserImages/index.js
             <h1>{sessionUser.username}'s Photos</h1>
             <h2>Let's upload some images!</h2>
-=======
-        {/* <h1>Let's upload some images!</h1>
-            <Link to={`/logged-in/${userId}`}>{'<<Back To Home'}</Link>
->>>>>>> main:frontend/src/components/ImagesPage/AllUserImages.js
             <form onSubmit={handleSubmit}>
                 <ul>
                     {errorValidation.map((error,id) => <li key={id}>{error}</li>)}
@@ -145,15 +101,10 @@ const AllUserImages = () =>{
                 </label> */}
                 <button type='submit'>Upload That!</button>
             </form>
-<<<<<<< HEAD:frontend/src/components/AllUserImages/index.js
             {imageArr.map(image =><div key={image.id}><img src={image.imageUrl} alt='image here'/><button onClick={() => dispatch(deleteUserImage(image))}>Delete</button></div>)}
             {/*
             <div className="contentBox">{image.content}</div>
             <button onClick={() => history.push(`/`)}>Edit</button> */}
-=======
-            {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/><div className="contentBox">{image.content}</div><button onClick={() => history.push(`/edit-image/${image.id}`)}>Edit</button><button onClick={() => dispatch(deleteImage(image))}>Delete</button></div>)} */}
-
->>>>>>> main:frontend/src/components/ImagesPage/AllUserImages.js
         </div>
     )
 }
