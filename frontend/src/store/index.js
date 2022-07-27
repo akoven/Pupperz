@@ -4,14 +4,14 @@ import sessionReducer from "./session";
 import albumReducer from "./album";
 import imageReducer from "./image";
 import allImagesReducer from "./userImage";
-import favoritesReducer from "./favorite";
+// import favoritesReducer from "./favorite";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   albums: albumReducer,
   images: imageReducer,
   userImages: allImagesReducer,
-  favorites: favoritesReducer
+  // favorites: favoritesReducer
 });
 
 let enhancer;
