@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
+import SignUpModal from "../SignUpModal";
 import { NavLink, Link, Redirect } from "react-router-dom";
 import SplashPage from "../SplashPage";
 import './Navigation.css';
@@ -27,8 +28,8 @@ const Navigation = ({isLoaded}) =>{
             <>
                 <NavLink to='/' exact><div className="title">Pupperz</div></NavLink>
                 {/* <span id="nav-button"><NavLink to='/login'><button className="nav-button">Log In</button></NavLink></span> */}
-
-                <span id="nav-button"><LoginFormModal /><NavLink to='/signup'><button className="nav-button">Sign Up!</button></NavLink></span>
+                {/* <NavLink to='/signup'><button className="nav-button">Sign Up!</button></NavLink> */}
+                <span id="nav-button"><LoginFormModal /><SignUpModal /></span>
                 <SplashPage />
             </>
         )
