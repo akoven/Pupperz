@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 const ProfileButton = ({user}) =>{
     const dispatch = useDispatch();

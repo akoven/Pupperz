@@ -13,14 +13,15 @@ const Navigation = ({isLoaded}) =>{
     let sessionLinks;
     if(sessionUser){
         //try `/logged-in/${sessionUser.id}`
-        <Redirect to={`/logged-in/${sessionUser.id}`} />
+        // <Redirect to={`/logged-in/${sessionUser.id}`} />
         sessionLinks = (
             <>
                 <span className="title"><Link to={`/logged-in/${sessionUser.id}`}>Pupperz</Link></span>
                 <span className="albumSpan"><NavLink to={`/create-album/${sessionUser.id}`}>Create an Album</NavLink></span>
                 <ProfileButton user={sessionUser} />
+                <Redirect to={`/logged-in/${sessionUser.id}`} />
             </>
-        )
+        );
     }else{
         sessionLinks=(
             <>
@@ -41,8 +42,8 @@ const Navigation = ({isLoaded}) =>{
     return(
         <div className="header">
             {isLoaded && sessionLinks}
-
             {/* https://nypost.com/wp-content/uploads/sites/2/2019/01/boo-dog.jpg?quality=75&strip=all */}
+
             {/* <ul>
                 <li>
                 {isLoaded && sessionLinks}
