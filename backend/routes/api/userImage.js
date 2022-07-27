@@ -5,8 +5,8 @@ const {UserImage} = require('../../db/models');
 const router = express.Router();
 
 router.post('/', asyncHandler(async(req,res) =>{
-    const {userId, imageUrl, liked} = req.body;
-    const newImage = await UserImage.create({userId,imageUrl,liked});
+    const {userId, imageUrl} = req.body;
+    const newImage = await UserImage.create({userId,imageUrl});
     return res.json(newImage);
 }));
 

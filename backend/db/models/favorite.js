@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   Favorite.associate = function(models) {
     // associations can be defined here
     Favorite.belongsTo(models.User,{foreignKey:'userId'})
-    Favorite.hasMany(models.UserImage,{foreignKey:'favoritesId'})
+    // Favorite.hasMany(models.UserImage,{foreignKey:'favoritesId'})
   };
   return Favorite;
 };
