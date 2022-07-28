@@ -7,6 +7,8 @@
 
 .imagePage{
     background-color: linear-gradient(100deg,aliceblue,rgb(84, 84, 218));
+    border-radius: 20%;
+    padding-top: 10px;
 }
 
 .contentBox{

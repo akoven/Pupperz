@@ -1,8 +1,9 @@
 .albums, .images{
-    padding: 25px;
+    padding: 15px;
     font-size: 30px;
     font-family: 'Titan One', cursive;
     text-decoration: none;
+    border-radius: 20%;
 }
 
 h3{
@@ -15,4 +16,8 @@ h3{
 
 header{
     text-decoration: none;
+}
+
+#images{
+    padding-left: 50px;
 }
