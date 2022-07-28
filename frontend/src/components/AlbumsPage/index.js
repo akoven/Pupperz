@@ -3,6 +3,7 @@ import { useHistory, NavLink, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ProfileButton from "../Navigation/ProfileButton";
 import { displayAllAlbums, deleteAlbum } from "../../store/album";
+import './AlbumsPage.css';
 
 const AlbumsPage = () =>{
 
@@ -28,9 +29,9 @@ const AlbumsPage = () =>{
 
     return(
         <div>
-            {<div><NavLink to={`/logged-in/${userSession.id}`}>{'<< Back To Home'}</NavLink></div>}
+            {<div className="home-nav"><NavLink to={`/logged-in/${userSession.id}`}>{'<< Back To Home'}</NavLink></div>}
             <h3>{userSession.username}'s Albums</h3>
-            {albumArr?.map(album => <div><Link to={`/albums/${album.id}/images`}>{album.title}</Link><button onClick={() => history.push(`/edit-album/${album.id}`)}>Edit</button><button onClick={() => dispatch(deleteAlbum(album))}>Delete</button></div>)}
+            {albumArr?.map(album => <div className="new-album"><Link to={`/albums/${album.id}/images`}>{album.title}🐾</Link><button onClick={() => history.push(`/edit-album/${album.id}`)}>Edit</button><button onClick={() => dispatch(deleteAlbum(album))}>Delete</button></div>)}
         </div>
     );
 }

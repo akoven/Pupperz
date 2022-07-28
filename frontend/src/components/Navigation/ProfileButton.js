@@ -37,13 +37,13 @@ const ProfileButton = ({user}) =>{
             <i class="fa-solid fa-user" />
           </button>
           {showMenu && (
-            <ul className="profile-dropdown">
-              <li>{user.username}</li>
-              <li>{user.email}</li>
-              <li>
+            <div className="profile-dropdown">
+              <div>{user.username}</div>
+              <div>{user.email}</div>
+              <div>
                 <button onClick={logout}>Log Out</button>
-              </li>
-            </ul>
+              </div>
+            </div>
           )}
         </>
       );

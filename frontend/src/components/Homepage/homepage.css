@@ -19,5 +19,14 @@ header{
 }
 
 #images{
-    padding-left: 50px;
+    padding-left: 70px;
+    /* display: flex; */
+    /* flex-direction: row; */
+
+}
+
+.photos{
+    border-radius: 20%;
+    padding: 15px;
+
 }
