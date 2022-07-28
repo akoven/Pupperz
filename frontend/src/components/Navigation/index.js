@@ -33,6 +33,7 @@ const Navigation = ({isLoaded}) =>{
                 {/* <NavLink to='/signup'><button className="nav-button">Sign Up!</button></NavLink> */}
                 <span id="nav-button"><LoginFormModal /><SignUpModal /></span>
                 <SplashPage />
+                <footer className="footer"><span><NavLink to={'/info/about-me'}>About Me</NavLink></span><span><NavLink to ='/jobs'>Jobs</NavLink></span><span><NavLink to='/blog'>Blog</NavLink></span><span><NavLink to='/developers'>Developers</NavLink></span><span><NavLink to='/guidelines'>Guidelines</NavLink></span><span><NavLink to='/privacy'>Privacy</NavLink></span><span><NavLink to='/terms'>Terms</NavLink></span><span><NavLink to='/help'>Help</NavLink></span><span><NavLink to='/language'>English</NavLink></span></footer>
             </>
         )
 

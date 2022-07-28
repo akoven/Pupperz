@@ -2,8 +2,7 @@
     flex-direction: column;
     display:flex;
     align-content: center;
-    border: solid none;
-    border-width: 1px;
+    border: none;
     padding-left: 600px;
 }
 
@@ -32,6 +31,7 @@ button:hover{
     text-decoration: none;
 }
 
-
-    /* display: flex;
-    flex-direction: row; */
+.footer{
+    background-color: rgba(0, 0, 0, 0.733);
+    height: 30px;
+}

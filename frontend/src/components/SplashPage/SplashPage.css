@@ -4,12 +4,16 @@
     /* background-size: 2000px 800px;*/
     background-size: cover;
     background-repeat: no-repeat;
+    transition:all;
+
     /* background-color: aliceblue; */
     /* width: 1039px; */
 }
 
 .content{
+    /* padding-top: 10px; */
     height: 700px;
+    /* width: 1000px; */
 }
 
 .welcome{
