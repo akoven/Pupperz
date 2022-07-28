@@ -35,7 +35,7 @@ const SignupFormPage = () =>{
                 <ul>
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
-                <label>
+                <label className='email'>
                     Email
                     <input
                     type="text"
@@ -44,7 +44,7 @@ const SignupFormPage = () =>{
                     required
                     />
                 </label>
-                <label>
+                <label className='username'>
                     Username
                     <input
                     type="text"
@@ -53,7 +53,7 @@ const SignupFormPage = () =>{
                     required
                     />
                 </label>
-                <label>
+                <label className='password'>
                     Password
                     <input
                     type="password"
@@ -62,7 +62,7 @@ const SignupFormPage = () =>{
                     required
                     />
                 </label>
-                <label>
+                <label className='confirmation'>
                     Confirm Password
                     <input
                     type="password"

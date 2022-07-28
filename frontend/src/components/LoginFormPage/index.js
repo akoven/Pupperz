@@ -52,17 +52,17 @@ function LoginFormPage() {
                 required
                 />
             </label>
-            <span>
-            <span className='login-button'>
-              <button type="submit">Log In</button>
-            </span>
-            <span>
-              <button onClick={() =>{
-                  setCredential('Demo-lition')
-                  setPassword('password')
-              }}>Demo User</button>
-            </span>
-            </span>
+            <div>
+              <div className='login-button'>
+                <button type="submit">Log In</button>
+              </div>
+              <div className='demo-button'>
+                <button onClick={() =>{
+                    setCredential('Demo-lition')
+                    setPassword('password')
+                }}>Demo User</button>
+              </div>
+            </div>
         </form>
     </div>
 

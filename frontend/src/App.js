@@ -72,7 +72,7 @@ function App() {
           {/* <Route path='/user/:userId/my-faves'>
             <Favorites />
           </Route> */}
-          <Route path='/info/about-me' exact>
+          <Route path='/about-me' exact>
             <AboutMePage />
           </Route>
           <Route path='/jobs' exact>
