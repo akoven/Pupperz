@@ -74,7 +74,7 @@ const ImagesPage = () =>{
 
     return(
         <div className="imagePage">
-            <div><NavLink to={`/user/${sessionUser.id}/albums`}>{'<< Back to your albums'}</NavLink></div>
+            <div className="nav-to-albums"><NavLink to={`/user/${sessionUser.id}/albums`}>{'<< Back to your albums'}</NavLink></div>
             <h1>Let's upload some images!</h1>
             <form onSubmit={handleSubmit}>
                 <ul>

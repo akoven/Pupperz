@@ -4,7 +4,7 @@ import { useParams, useHistory,Link,NavLink } from "react-router-dom";
 import * as imageEvents from '../../store/userImage';
 import { displayAllImagesUserPage } from "../../store/userImage";
 import {deleteUserImage} from '../../store/userImage';
-import '../ImagesPage/images.css';
+import './AllUserImages.css';
 
 const AllUserImages = () =>{
 
@@ -37,7 +37,7 @@ const AllUserImages = () =>{
                 userId: sessionUser.id,
                 // favoritesId,
                 imageUrl,
-                liked: false
+                // liked: false
             };
             setImageUrl('');
             // setContent('');
@@ -101,7 +101,7 @@ const AllUserImages = () =>{
                 </label> */}
                 <button type='submit'>Upload That!</button>
             </form>
-            {imageArr.map(image =><div key={image.id}><img src={image.imageUrl} alt='image here'/><button onClick={() => dispatch(deleteUserImage(image))}>Delete</button></div>)}
+            {imageArr.map(image =><div key={image.id}><img className='allImages' src={image.imageUrl} alt='image here'/><div className = 'delete-button'><button onClick={() => dispatch(deleteUserImage(image))}>Delete</button></div></div>)}
             {/*
             <div className="contentBox">{image.content}</div>
             <button onClick={() => history.push(`/`)}>Edit</button> */}

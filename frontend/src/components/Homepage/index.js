@@ -65,7 +65,7 @@ const Homepage = () =>{
             <h3 className="intro-message">Welcome back {userSession.username}!</h3>
             <span><NavLink to={`/user/${userSession.id}/albums`} className='albums'>See your albums</NavLink><NavLink to={`/user/${userSession.id}/all-images`} className='images'>See your images</NavLink></span>
             {/* {albumArr.map(album => <div><Link to={`/albums/${album.id}/images`}>{album.title}</Link><button onClick={() => history.push(`/edit-album/${album.id}`)}>Edit</button><button onClick={() => dispatch(deleteAlbum(album))}>Delete</button></div>)} */}
-            {/* <div>
+            {/* <span>
                 <img src="https://media.nature.com/lw800/magazine-assets/d41586-020-01443-0/d41586-020-01443-0_17985512.jpg" alt=''/>
                 <img src="https://images.dog.ceo/breeds/pyrenees/n02111500_5812.jpg" alt=''/>
                 <img src="https://chico.ca.us/sites/main/files/imagecache/lightbox/main-images/dog_license.jpg" alt=''/>
@@ -80,9 +80,10 @@ const Homepage = () =>{
                 <img src="https://images.dog.ceo/breeds/pekinese/n02086079_11089.jpg" alt=''/>
                 <img src="https://images.dog.ceo/breeds/pembroke/n02113023_187.jpg" alt=''/>
                 <img src="https://images.dog.ceo/breeds/mastiff-tibetan/n02108551_1240.jpg" alt=''/>
-            </div> */}
+            </span> */}
 
-            {imageArr.map(image =><div className="images" key={image.id}><img src={image.imageUrl} alt='image-here'/></div>)}
+            {imageArr.map(image =><div id="images" key={image.id}><img className = 'photos' src={image.imageUrl} alt='image-here'/></div>)}
+
         </div>
 
     )

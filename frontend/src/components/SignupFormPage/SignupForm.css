@@ -1,0 +1,16 @@
+.username{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.password,.confirmation{
+    padding-bottom: 10px;
+    padding-right: 15px;
+}
+
+.button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 10px;
+}

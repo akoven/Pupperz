@@ -1,16 +1,17 @@
-.background{
+/* .background{
     background-color: aliceblue;
     padding-top: 60px;
     padding-bottom: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 
-.password-input{
+/* .password-input{
     padding-bottom: 15px;
     padding-top: 5px;
-}
+    padding-left: 5px;
+} */
 
 button{
     border-radius: 25%;
@@ -22,5 +23,26 @@ button{
 
 .credential-input, .password-input{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color:blueviolet;
+    color:black;
+}
+
+.login-button{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 10px
+}
+
+.demo-button{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 10px;
+    /* padding-left: 20px; */
+}
+
+#credentials{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-right: 10px;
 }

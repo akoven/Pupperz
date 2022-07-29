@@ -99,8 +99,6 @@ function App() {
           <Route path='/language' exact>
             <LanguagePage />
           </Route>
-
-
         </Switch>
       )}
     </>

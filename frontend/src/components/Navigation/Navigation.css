@@ -2,12 +2,11 @@
     flex-direction: column;
     display:flex;
     align-content: center;
-    border: solid aliceblue;
-    border-width: 1px;
+    border: none;
     padding-left: 600px;
 }
 
-.title, .active{
+.title, .active, .albumSpan{
     font-family: 'Titan One', cursive;
     text-decoration: none;
     padding-bottom: 10px;
@@ -32,6 +31,8 @@ button:hover{
     text-decoration: none;
 }
 
-
-    /* display: flex;
-    flex-direction: row; */
+.footer{
+    background-color: rgba(0, 0, 0, 0.733);
+    height: 30px;
+    /* color: purple; */
+}

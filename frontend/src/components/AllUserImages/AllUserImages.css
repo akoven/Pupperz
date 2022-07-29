@@ -1,0 +1,18 @@
+.userImagePage{
+    background-color: linear-gradient(100deg,aliceblue,rgb(84, 84, 218));
+}
+
+.allImages{
+    border-radius: 20%;
+    padding-top: 20px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-betweens;
+}
+
+.delete-button{
+    display: flex;
+    padding-left: 450px;
+    padding-top: 5px;
+}
