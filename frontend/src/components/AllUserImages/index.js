@@ -101,7 +101,7 @@ const AllUserImages = () =>{
                 </label> */}
                 <button type='submit'>Upload That!</button>
             </form>
-            {imageArr.map(image =><div key={image.id}><img className='allImages' src={image.imageUrl} alt='image here'/><div className = 'delete-button'><button onClick={() => dispatch(deleteUserImage(image))}>Delete</button></div></div>)}
+            {imageArr.map(image =><span className="allUserImages" key={image.id}><div><img className='allImages' src={image.imageUrl} alt='image here'/></div><div className = 'delete-button'><button className="delete-btn" onClick={() => dispatch(deleteUserImage(image))}>Delete</button></div></span>)}
             {/*
             <div className="contentBox">{image.content}</div>
             <button onClick={() => history.push(`/`)}>Edit</button> */}

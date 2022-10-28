@@ -22,7 +22,7 @@ const EditAlbumForm = () =>{
             ...album,
             title
         };
-        console.log(album);
+        // console.log(album);
 
         const editedAlbum = await dispatch(editAlbum(payload,{userId:sessionUser.id}));
         if (title.length > 20){
@@ -41,21 +41,23 @@ const EditAlbumForm = () =>{
     };
 
     return(
+
         <form onSubmit={handleSubmit}>
             <ul>
                 {errorValidation.map((error,id) => <li key={id}>{error}</li>)}
             </ul>
             <label>
                 Album Title:
-                <input
+            </label>
+            <input
                 type='string'
                 value={title}
                 onChange={e => setTitle(e.target.value)}
                 required/>
-            </label>
             <button type='submit' disabled={errorValidation.length > 0}>Submit Changes</button>
             <button onClick={() => history.push(`/user/${sessionUser.id}/albums`)}>Cancel</button>
         </form>
+
     );
 };
 

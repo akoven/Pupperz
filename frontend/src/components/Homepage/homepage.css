@@ -18,15 +18,17 @@ header{
     text-decoration: none;
 }
 
-#images{
-    padding-left: 70px;
-    /* display: flex; */
-    /* flex-direction: row; */
-
-}
 
 .photos{
-    border-radius: 20%;
-    padding: 15px;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-top: 10px;
+    width: 500px;
+    height: 350px;
+    /* border: yellow 2px solid; */
 
 }

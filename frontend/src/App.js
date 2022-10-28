@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import LoginFormPage from './components/LoginFormPage';
+// import LoginFormPage from './components/LoginFormPage';
+import SplashPage from './components/SplashPage';
 import SignupFormPage from './components/SignupFormPage';
 import Homepage from './components/Homepage';
 import AlbumsPage from './components/AlbumsPage';
@@ -12,6 +13,7 @@ import ImagesPage from './components/ImagesPage';
 import AllUserImages from './components/AllUserImages';
 import EditImageForm from './components/ImagesPage/EditImageForm';
 // import Favorites from './components/Favorites';
+// import Footer from './components/Footer';
 import AboutMePage from './components/AboutMePage';
 import JobsPage from './components/JobsPage';
 import BlogPage from './components/BlogPage';
@@ -37,11 +39,9 @@ function App() {
     // for logged-in try /logged-in/:userId
     <>
       <Navigation isLoaded={isLoaded}/>
+      {/* <Footer /> */}
       {isLoaded && (
         <Switch>
-          <Route path="/login">
-            <LoginFormPage />
-          </Route>
           <Route path='/logged-in/:userId'>
             <Homepage />
           </Route>
@@ -98,6 +98,9 @@ function App() {
           </Route>
           <Route path='/language' exact>
             <LanguagePage />
+          </Route>
+          <Route path="/" exact>
+            <SplashPage />
           </Route>
         </Switch>
       )}

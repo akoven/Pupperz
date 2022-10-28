@@ -6,21 +6,35 @@
     padding-left: 600px;
 }
 
-.title, .active, .albumSpan{
+.title, .albumSpan{
     font-family: 'Titan One', cursive;
     text-decoration: none;
-    padding-bottom: 10px;
+    font-size: 30px;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    /* padding-bottom: 10px; */
+}
+
+.active{
+    font-size: 18px;
+    text-decoration: none;
+    font-family: 'Titan One', cursive;
 }
 
 .nav-button{
     border-radius: 25%;
     color: blue;
-    border-color: blue;
+    border-color: rgb(197, 30, 197);
 
+}
+
+.create-album-label{
+    text-decoration: none;
 }
 
 button:hover{
     background-color: white;
+    font-weight: bold;
 }
 
 #nav-button{

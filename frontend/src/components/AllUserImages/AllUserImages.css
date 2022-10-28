@@ -3,16 +3,36 @@
 }
 
 .allImages{
-    border-radius: 20%;
+    border-radius: 8%;
     padding-top: 20px;
     padding-left: 15px;
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
-    justify-content: space-betweens;
+    flex-wrap: wrap;
+    height: 350px;
+    width: 500px;
+    /* justify-content: space-between; */
 }
 
 .delete-button{
     display: flex;
     padding-left: 450px;
     padding-top: 5px;
+}
+
+.delete-btn{
+    border-radius: 10px;
+    border-color: blueviolet;
+    color: blue
+}
+
+.delete-btn:hover{
+    font-weight: bold;
+}
+
+.allUserImages{
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* border: red 2px solid; */
 }

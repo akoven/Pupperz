@@ -82,7 +82,7 @@ const Homepage = () =>{
                 <img src="https://images.dog.ceo/breeds/mastiff-tibetan/n02108551_1240.jpg" alt=''/>
             </span> */}
 
-            {imageArr.map(image =><div id="images" key={image.id}><img className = 'photos' src={image.imageUrl} alt='image-here'/></div>)}
+            <div>{imageArr.map(image =><span id="images" key={image.id}><img className = 'photos' src={image.imageUrl} alt='image-here'/></span>)}</div>
 
         </div>
 
