@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Image.belongsTo(models.User,{foreignKey:'userId'})
     Image.belongsTo(models.Album,{foreignKey:'albumId'})
+    Image.hasMany(models.Favorite, {foreignKey:'imageId'})
   };
   return Image;
 };

@@ -19,7 +19,7 @@ const Homepage = () =>{
     const imageArr = Object.values(images||{});
 
     // console.log('imageArr for homepage: ', imageArr);
-    // const [liked, setLiked] = useState(false);
+    const [liked, setLiked] = useState(false);
 
 
 
@@ -42,12 +42,15 @@ const Homepage = () =>{
         // dispatch(displayAllAlbums(userSession.id));
     };
 
-    // const handleLike = () =>{
-    //     const payload ={
-    //         userId: userSession.id,
-    //         images,
-    //         liked
-    //     };
+    const handleLike = (imageId) =>{
+        setLiked(!liked)
+        const payload ={
+            userId: userSession.id,
+            imageId: imageId,
+            liked
+        };
+    }
+
 
     //     dispatch(createLikedImage(payload));
 
@@ -82,7 +85,7 @@ const Homepage = () =>{
                 <img src="https://images.dog.ceo/breeds/mastiff-tibetan/n02108551_1240.jpg" alt=''/>
             </span> */}
 
-            <div>{imageArr.map(image =><span id="images" key={image.id}><img className = 'photos' src={image.imageUrl} alt='image-here'/></span>)}</div>
+            <div>{imageArr.map(image =><span id="images" key={image.id}><img className = 'photos' src={image.imageUrl} alt='image-here'/><button className='like-button' onClick={() => handleLike(image.id)}>{liked ? <i class='fa-solid fa-heart'/>:<i class='fa-regular fa-heart' />}</button></span>)}</div>
 
         </div>
 

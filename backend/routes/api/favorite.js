@@ -5,9 +5,9 @@ const {Favorite} = require('../../db/models');
 const router = express.Router();
 
 router.post('/', asyncHandler(async(req,res) =>{
-    const {userId, title} = req.body;
-    const newFile = await Favorite.create({userId,title});
-    return res.json(newFile);
+    const {userId, imageId} = req.body;
+    const newFaveImg = await Favorite.create({userId,imageId});
+    return res.json(newFaveImg);
 }));
 
 router.get('/', asyncHandler(async(req,res) =>{
