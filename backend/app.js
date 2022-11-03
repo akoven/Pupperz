@@ -19,7 +19,10 @@ if (!isProduction) {
     // enable cors only in development
     app.use(cors());
 }
-
+// else{
+//   require('dotenv').config();
+//   console.log('APP.JS FILE IN BACKEND')
+// }
 // helmet helps set a variety of headers to better secure your app
 app.use(
     helmet.crossOriginResourcePolicy({

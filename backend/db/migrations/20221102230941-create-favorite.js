@@ -20,6 +20,10 @@ module.exports = {
           model:'Images'
         }
       },
+      liked: {
+        type: Sequelize.BOOLEAN,
+        default:false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -29,6 +33,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn('now')
+
       }
     });
   },
