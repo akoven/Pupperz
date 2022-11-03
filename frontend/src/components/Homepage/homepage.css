@@ -1,11 +1,15 @@
-.albums, .images{
+.albums, .images, .favorites{
     padding: 15px;
     font-size: 30px;
     font-family: 'Titan One', cursive;
     text-decoration: none;
     border-radius: 20%;
+    display: inline-flex;
 }
 
+.favorites, .images{
+    padding-left: 300px;
+}
 h3{
     /* text-decoration: none; */
     color: blue;
@@ -31,4 +35,17 @@ header{
     height: 350px;
     /* border: yellow 2px solid; */
 
+}
+
+.like-button{
+    position:absolute;
+    width:20px;
+    height: 15px;
+    border: none;
+    background-color: transparent;
+    /* padding-right: 30px; */
+    padding-top: 8px;
+}
+.like-button:hover{
+    background-color: transparent;
 }

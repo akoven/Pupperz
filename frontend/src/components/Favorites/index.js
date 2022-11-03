@@ -7,8 +7,10 @@ const Favorites = () =>{
 
     const {userId} = useParams();
     const userSession = useSelector(state => state.session.user);
-    const favorite = useSelector(state => state.favorites);
-    const favoriteArr = Object.values(favorite||{});
+    const images = useSelector(state => state.images);
+    const favorites = useSelector(state => state.favorites);
+    const favoriteArr = Object.values(favorites||{});
+    const imageArr = Object.values(images || {});
 
     const payload={
           userId: userSession.id,
@@ -30,8 +32,9 @@ const Favorites = () =>{
       <div>
         <NavLink to={`/logged-in/${userId}`}>{'<< Back to Home'}</NavLink>
         {/* {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/><button>Unlike</button></div>)} */}
-        <button onClick={() => dispatch(createFavoritesFolder(payload))}>{'Create New Favorites Folder'}</button>
-        {favoriteArr.map(item => <div><NavLink to={`/user/${userSession.id}/my-faves/${item.id}`}>Favorites ❤️</NavLink></div>)}
+        {/* <button onClick={() => dispatch(createFavoritesFolder(payload))}>{'Create New Favorites Folder'}</button> */}
+        {/* {favoriteArr.map(item => <div><NavLink to={`/user/${userSession.id}/my-faves/${item.id}`}>Favorites ❤️</NavLink></div>)} */}
+        <h1>Favorites ❤️</h1>
 
       </div>
     );

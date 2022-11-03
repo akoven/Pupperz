@@ -30,6 +30,11 @@
 
 .create-album-label{
     text-decoration: none;
+    font-size: 18pt;
+}
+
+.title{
+    font-size: 30px;
 }
 
 button:hover{

@@ -1,7 +1,7 @@
 import { csrfFetch } from "./csrf";
 
 const CREATE = 'favorite/CREATE';
-export const createFolder = payload =>({
+export const createFaveImg = payload =>({
     type: CREATE,
     payload
 });
@@ -12,22 +12,25 @@ export const loadFavoritesFolder = images =>({
     images
 })
 
-export const createFavoritesFolder = payload => async dispatch =>{
+export const addFavoriteImage = (payload) => async dispatch =>{
+    console.log('PAYLOAD FROM FRONTEND: ',payload)
     const response = await csrfFetch(`/api/favorites`, {
         method: 'POST',
         body: JSON.stringify(payload)
     });
 
+    console.log("RESPONSE FROM ADDFAVIMG: ",response)
+
     if(response.ok){
-        const newFolder = await response.json();
-        dispatch(createFolder(newFolder));
-        return newFolder
+        const newImage = await response.json();
+        dispatch(createFaveImg(newImage));
+        return newImage
     }
     return null;
 };
 
-export const loadFavorites = () => async dispatch =>{
-    const response = await csrfFetch('/api/favorites');
+export const loadFavorites = (userId) => async dispatch =>{
+    const response = await csrfFetch(`/api/favorites/${userId}`);
     if(response.ok){
         const folder = await response.json();
         dispatch(loadFavoritesFolder(folder));
