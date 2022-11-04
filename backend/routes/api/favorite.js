@@ -17,7 +17,7 @@ router.get('/:userId', asyncHandler(async(req,res) =>{
 
     // const getUserFaves = await Favorite.findAll({where: {userId}});
     //try $and: if && doesn't work
-    // console.log('!!!!!!!!!!!!!!!!!!!!!!!User Faves!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', getFaveImages)
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!User Faves!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', getFaveImages)
     return res.json(getFaveImages);
 }));
 //make a get request that takes in a user id
