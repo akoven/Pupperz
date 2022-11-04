@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch } from "react-redux";
-import { addFavoriteImage } from "../../store/favorite";
+import { addFavoriteImage, deleteLikedImage } from "../../store/favorite";
 import './index.css';
 
 const ImageItem = (props) =>{
@@ -24,6 +24,8 @@ const ImageItem = (props) =>{
         console.log('liked?? ',liked);
         if(liked){
             dispatch(addFavoriteImage(payload));
+        }else{
+            dispatch(deleteLikedImage(userSession.id,imageId));
         }
 
     }

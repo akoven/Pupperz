@@ -17,7 +17,7 @@ module.exports = {
       imageId: {
         type: Sequelize.INTEGER,
         references:{
-          model:'Images'
+          model:'UserImages'
         }
       },
       liked: {
