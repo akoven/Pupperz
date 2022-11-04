@@ -43,17 +43,17 @@ const Homepage = () =>{
         // dispatch(displayAllAlbums(userSession.id));
     };
 
-    const handleLike = (imageId) =>{
-        setLiked(!liked)
-        const payload ={
-            userId: userSession.id,
-            imageId: imageId,
-            liked
-        };
-        if(liked){
-            dispatch(addFavoriteImage(payload));
-        }
-    }
+    // const handleLike = (imageId) =>{
+    //     setLiked(!liked)
+    //     const payload ={
+    //         userId: userSession.id,
+    //         imageId: imageId,
+    //         liked
+    //     };
+    //     if(liked){
+    //         dispatch(addFavoriteImage(payload));
+    //     }
+    // }
 
 
 

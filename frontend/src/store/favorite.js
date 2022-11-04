@@ -7,14 +7,14 @@ export const createFaveImg = payload =>({
 });
 
 const READ ='favorite/READ';
-export const loadFavoritesFolder = images =>({
+export const loadUserFavorites = images =>({
     type: READ,
     images
 })
 
 export const addFavoriteImage = (payload) => async dispatch =>{
     console.log('PAYLOAD FROM FRONTEND: ',payload)
-    const response = await csrfFetch(`/api/favorites`, {
+    const response = await csrfFetch('/api/favorites', {
         method: 'POST',
         body: JSON.stringify(payload)
     });
@@ -32,9 +32,9 @@ export const addFavoriteImage = (payload) => async dispatch =>{
 export const loadFavorites = (userId) => async dispatch =>{
     const response = await csrfFetch(`/api/favorites/${userId}`);
     if(response.ok){
-        const folder = await response.json();
-        dispatch(loadFavoritesFolder(folder));
-        return folder;
+        const images = await response.json();
+        dispatch(loadUserFavorites(images));
+        return images;
     }
 }
 

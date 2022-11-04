@@ -21,7 +21,7 @@ const ImageItem = (props) =>{
         // }else{
         //     setLiked(true);
         // };
-        console.log(liked);
+        console.log('liked?? ',liked);
         if(liked){
             dispatch(addFavoriteImage(payload));
         }
