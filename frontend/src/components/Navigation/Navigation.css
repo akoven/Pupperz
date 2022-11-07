@@ -1,9 +1,16 @@
 .profile-dropdown{
-    flex-direction: column;
-    display:flex;
+    /* flex-direction: column;
+    display:flex; */
+    position: absolute;
     align-content: center;
-    border: none;
-    padding-left: 600px;
+    border: white solid 1px;
+    background-color: white;
+    border-radius: 8px;
+    width:120px;
+    margin-left: 570px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    /* padding-left: 600px; */
 }
 
 .title, .albumSpan{
@@ -32,9 +39,21 @@
     text-decoration: none;
 }
 
-button:hover{
+/* button:hover{
     background-color: white;
     font-weight: bold;
+} */
+
+.user-profile-btn{
+    background-color: rgba(72, 72, 228, 0.241);
+}
+.user-profile-btn:hover{
+    background-color: rgba(72, 72, 228, 0.541);
+
+}
+
+.logout-btn-nav-bar:hover{
+    background-color: rgba(72, 72, 228, 0.541);
 }
 
 #nav-button{
