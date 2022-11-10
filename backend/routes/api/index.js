@@ -6,12 +6,14 @@ const imageRouter = require('./image.js');
 const userImageRouter = require('./userImage.js');
 const favoriteRouter = require('./favorite.js');
 
+
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/albums', albumRouter);
 router.use('/images', imageRouter);
 router.use('/userImages', userImageRouter);
 router.use('/favorites', favoriteRouter);
+
 
 router.post('/test', function(req, res) {
     res.json({ requestBody: req.body });
