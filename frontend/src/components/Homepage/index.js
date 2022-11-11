@@ -5,7 +5,8 @@ import ProfileButton from "../Navigation/ProfileButton";
 // import Navigation from "../Navigation";
 // import { displayAllAlbums } from "../../store/album";
 import { displayAllImagesHomePage } from "../../store/userImage";
-// import { createLikedImage } from "../../store/favorite";
+import { addFavoriteImage } from "../../store/favorite";
+import ImageItem from "../ImageItem";
 import './homepage.css';
 
 const Homepage = () =>{
@@ -19,7 +20,7 @@ const Homepage = () =>{
     const imageArr = Object.values(images||{});
 
     // console.log('imageArr for homepage: ', imageArr);
-    // const [liked, setLiked] = useState(false);
+    const [liked, setLiked] = useState(false);
 
 
 
@@ -42,14 +43,18 @@ const Homepage = () =>{
         // dispatch(displayAllAlbums(userSession.id));
     };
 
-    // const handleLike = () =>{
+    // const handleLike = (imageId) =>{
+    //     setLiked(!liked)
     //     const payload ={
     //         userId: userSession.id,
-    //         images,
+    //         imageId: imageId,
     //         liked
     //     };
+    //     if(liked){
+    //         dispatch(addFavoriteImage(payload));
+    //     }
+    // }
 
-    //     dispatch(createLikedImage(payload));
 
 
     // }
@@ -63,7 +68,7 @@ const Homepage = () =>{
             {/* <NavLink to={`/create-album/${userSession.id}`}>Create an Album</NavLink> */}
             {/* <NavLink to={`/`}></NavLink> */}
             <h3 className="intro-message">Welcome back {userSession.username}!</h3>
-            <span><NavLink to={`/user/${userSession.id}/albums`} className='albums'>See your albums</NavLink><NavLink to={`/user/${userSession.id}/all-images`} className='images'>See your images</NavLink></span>
+            <span><NavLink to={`/user/${userSession.id}/albums`} className='albums'>See your albums</NavLink><NavLink to={`/user/${userSession.id}/all-images`} className='images'>See your images</NavLink><NavLink className='favorites' to={`/user/${userSession.id}/my-faves`}>See your favorites</NavLink></span>
             {/* {albumArr.map(album => <div><Link to={`/albums/${album.id}/images`}>{album.title}</Link><button onClick={() => history.push(`/edit-album/${album.id}`)}>Edit</button><button onClick={() => dispatch(deleteAlbum(album))}>Delete</button></div>)} */}
             {/* <span>
                 <img src="https://media.nature.com/lw800/magazine-assets/d41586-020-01443-0/d41586-020-01443-0_17985512.jpg" alt=''/>
@@ -82,8 +87,10 @@ const Homepage = () =>{
                 <img src="https://images.dog.ceo/breeds/mastiff-tibetan/n02108551_1240.jpg" alt=''/>
             </span> */}
 
-            <div>{imageArr.map(image =><span id="images" key={image.id}><img className = 'photos' src={image.imageUrl} alt='image-here'/></span>)}</div>
-
+            {/* <div>{imageArr.map(image =><span id="images" key={image.id}><img className = 'photos' src={image.imageUrl} alt='image-here'/><button className='like-button' onClick={() => handleLike(image.id)}>{liked ? <i class='fa-solid fa-heart'/>:<i class='fa-regular fa-heart' />}</button></span>)}</div> */}
+            {
+                imageArr.map(image => <ImageItem image={image} userSession={userSession}/>)
+            }
         </div>
 
     )

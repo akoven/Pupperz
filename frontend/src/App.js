@@ -12,7 +12,7 @@ import EditAlbumForm from './components/CreateAlbumForm/EditAlbumForm';
 import ImagesPage from './components/ImagesPage';
 import AllUserImages from './components/AllUserImages';
 import EditImageForm from './components/ImagesPage/EditImageForm';
-// import Favorites from './components/Favorites';
+import Favorites from './components/Favorites';
 // import Footer from './components/Footer';
 import AboutMePage from './components/AboutMePage';
 import JobsPage from './components/JobsPage';
@@ -69,9 +69,9 @@ function App() {
           <Route path='/edit-image/:albumId/:imageId'>
             <EditImageForm />
           </Route>
-          {/* <Route path='/user/:userId/my-faves'>
+          <Route path='/user/:userId/my-faves'>
             <Favorites />
-          </Route> */}
+          </Route>
           <Route path='/about-me' exact>
             <AboutMePage />
           </Route>
