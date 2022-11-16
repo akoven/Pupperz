@@ -39,8 +39,9 @@ export const loadFavorites = (userId) => async dispatch =>{
     const response = await csrfFetch(`/api/favorites/${userId}`);
     if(response.ok){
         const images = await response.json();
-        dispatch(loadUserFavorites(images));
-        return images;
+        console.log('images from favorite store: ',Object.values(images))
+        dispatch(loadUserFavorites(Object.values(images)));
+        return Object.values(images);
     }
 };
 
@@ -62,7 +63,7 @@ const favoritesReducer = (state = {},action)=>{
             newState[action.payload.id] = action.payload;
             return newState;
         case READ:
-            newState = Object.assign({},state);
+            newState = {};
             action.images.forEach(image => newState[image.id] = image);
             return newState;
         case DELETE:

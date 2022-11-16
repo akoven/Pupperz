@@ -7,6 +7,7 @@ import ProfileButton from "../Navigation/ProfileButton";
 import { displayAllImagesHomePage } from "../../store/userImage";
 import { addFavoriteImage } from "../../store/favorite";
 import ImageItem from "../ImageItem";
+import { seeLikes } from "../../store/likesOnly";
 import './homepage.css';
 
 const Homepage = () =>{
@@ -20,7 +21,6 @@ const Homepage = () =>{
     const imageArr = Object.values(images||{});
 
     // console.log('imageArr for homepage: ', imageArr);
-    const [liked, setLiked] = useState(false);
 
 
 
@@ -37,6 +37,7 @@ const Homepage = () =>{
             dispatch(displayAllImagesHomePage(images))
         };
     },[dispatch])
+
 
     if(userSession){
         <ProfileButton user={userSession}/>
@@ -89,7 +90,7 @@ const Homepage = () =>{
 
             {/* <div>{imageArr.map(image =><span id="images" key={image.id}><img className = 'photos' src={image.imageUrl} alt='image-here'/><button className='like-button' onClick={() => handleLike(image.id)}>{liked ? <i class='fa-solid fa-heart'/>:<i class='fa-regular fa-heart' />}</button></span>)}</div> */}
             {
-                imageArr.map(image => <ImageItem image={image} userSession={userSession}/>)
+                imageArr.map(image => <ImageItem image={image} userSession={userSession} />)
             }
         </div>
 

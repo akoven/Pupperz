@@ -1,4 +1,10 @@
 'use strict';
+
+let options = {};
+if(process.env.NODE_ENV === 'production'){
+  options.schema = process.env.SCHEMA;
+}
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Favorites', {
@@ -35,9 +41,9 @@ module.exports = {
         defaultValue: Sequelize.fn('now')
 
       }
-    });
+    }, options);
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Favorites');
+    return queryInterface.dropTable('Favorites', options);
   }
 };

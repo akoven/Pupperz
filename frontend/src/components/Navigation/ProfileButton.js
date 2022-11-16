@@ -33,7 +33,7 @@ const ProfileButton = ({user}) =>{
 
       return (
         <>
-          <button onClick={openMenu}>
+          <button className='user-profile-btn' onClick={openMenu}>
             <i class="fa-solid fa-user" />
           </button>
           {showMenu && (
@@ -41,7 +41,7 @@ const ProfileButton = ({user}) =>{
               <div>{user.username}</div>
               <div>{user.email}</div>
               <div>
-                <button onClick={logout}>Log Out</button>
+                <button className='logout-btn-nav-bar' onClick={logout}>Log Out</button>
               </div>
             </div>
           )}

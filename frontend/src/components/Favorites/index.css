@@ -1,0 +1,13 @@
+.fave-image{
+    border-radius: 10px;
+    padding-right: 5px;
+}
+
+.fave-img-div{
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.user-homepage{
+    text-decoration: none;
+}

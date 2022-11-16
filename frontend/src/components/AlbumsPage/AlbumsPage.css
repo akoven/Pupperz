@@ -1,11 +1,27 @@
-.home-nav{
+/* .home-nav{
     font-family: 'Titan One', cursive;
     text-decoration: none;
     padding-top: 10px;
-}
+} */
 
 .new-album{
-    text-decoration: none;
     font-family: 'Permanent Marker', cursive;
-    font-size: 18px;
+    font-size: 20px;
+}
+
+.album-title{
+    text-decoration: none;
+}
+
+.edit-album-btn:hover, .delete-album-btn:hover{
+    font-weight: bold;
+    background-color: white;
+}
+
+.edit-album-btn, .delete-album-btn{
+    border-color: rgb(248, 63, 248);
+    border-radius: 35%;
+}
+.edit-album-btn{
+    margin-right: 10px;
 }
