@@ -29,9 +29,9 @@ const AlbumsPage = () =>{
 
     return(
         <div>
-            {<div className="home-nav"><NavLink to={`/logged-in/${userSession.id}`}>{'<< Back To Home'}</NavLink></div>}
+            {/* {<div className="home-nav"><NavLink to={`/logged-in/${userSession.id}`}>{'<< Back To Home'}</NavLink></div>} */}
             <h3>{userSession.username}'s Albums</h3>
-            {albumArr?.map(album => <div className="new-album"><Link to={`/albums/${album.id}/images`}>{album.title}🐾</Link><button onClick={() => history.push(`/edit-album/${album.id}`)}>Edit</button><button onClick={() => dispatch(deleteAlbum(album))}>Delete</button></div>)}
+            {albumArr?.map(album => <div className="new-album"><Link className='album-title' to={`/albums/${album.id}/images`}>{album.title}🐾</Link><button className='edit-album-btn' onClick={() => history.push(`/edit-album/${album.id}`)}>Edit</button><button className='delete-album-btn' onClick={() => dispatch(deleteAlbum(album))}>Delete</button></div>)}
         </div>
     );
 }

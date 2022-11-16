@@ -5,13 +5,15 @@ import albumReducer from "./album";
 import imageReducer from "./image";
 import allImagesReducer from "./userImage";
 import favoritesReducer from "./favorite";
+import likesOnlyReducer from "./likesOnly";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   albums: albumReducer,
   images: imageReducer,
   userImages: allImagesReducer,
-  favorites: favoritesReducer
+  favorites: favoritesReducer,
+  likesOnly: likesOnlyReducer
 });
 
 let enhancer;
