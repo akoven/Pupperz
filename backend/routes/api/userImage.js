@@ -11,17 +11,17 @@ router.post('/', asyncHandler(async(req,res) =>{
 }));
 
 router.get('/:userId', asyncHandler(async(req,res) =>{
-    console.log('get route for displaying logged in user images!!!');
+    // console.log('get route for displaying logged in user images!!!');
     const userId = parseInt(req.params.userId, 10);
-    console.log('user id from backend: ', userId);
+    // console.log('user id from backend: ', userId);
     const getImages = await UserImage.findAll({where:{userId}});
-    console.log('images from api route!!! ', getImages);
+    // console.log('images from api route!!! ', getImages);
     return res.json(getImages);
 }));
 
 router.get('/', asyncHandler(async(req,res) =>{
     const getAllImages = await UserImage.findAll();
-    console.log('images from api route!!! ', getAllImages);
+    // console.log('images from api route!!! ', getAllImages);
     return res.json(getAllImages);
 }))
 

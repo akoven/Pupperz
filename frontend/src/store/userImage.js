@@ -38,12 +38,12 @@ export const createNewImageOnly = (image) => async dispatch =>{
 };
 
 export const displayAllImagesUserPage = (userId) => async dispatch =>{
-    console.log('made it to displayAllImagesUserPage thunk');
+    // console.log('made it to displayAllImagesUserPage thunk');
     const response = await csrfFetch(`/api/userImages/${userId}`);
-    console.log(response);
+    // console.log(response);
     if(response.ok){
         const images = await response.json();
-        console.log('images from images page thunk ',images);
+        // console.log('images from images page thunk ',images);
         dispatch(displayAllImagesAction(images));
         return images;
     }
@@ -51,12 +51,12 @@ export const displayAllImagesUserPage = (userId) => async dispatch =>{
 };
 
 export const displayAllImagesHomePage = () => async dispatch =>{
-    console.log('made it to displayAllImagesUserPage thunk');
+    // console.log('made it to displayAllImagesUserPage thunk');
     const response = await csrfFetch(`/api/userImages`);
-    console.log(response);
+    // console.log(response);
     if(response.ok){
         const images = await response.json();
-        console.log('images from homepage thunk ',images);
+        // console.log('images from homepage thunk ',images);
         dispatch(displayAllUsersImages(images));
         return images;
     }
@@ -81,14 +81,14 @@ const allImagesReducer = (state = initialState,action) =>{
         case READ:
             newState = {};
             action.images.forEach(userImage => newState[userImage.id] = userImage);
-            console.log('made it to the imageReducer');
-            console.log(newState);
+            // console.log('made it to the imageReducer');
+            // console.log(newState);
             return newState;
         case READ_ALL:
             newState = {};
             action.images.forEach(userImage => newState[userImage.id] = userImage);
-            console.log('made it to read_all imageReducer');
-            console.log(newState);
+            // console.log('made it to read_all imageReducer');
+            // console.log(newState);
             return newState;
         case DELETE:
             newState = Object.assign({},state);

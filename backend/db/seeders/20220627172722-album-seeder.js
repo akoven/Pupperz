@@ -1,8 +1,14 @@
 'use strict';
 
+let options = {};
+if (process.env.NODE_ENV === 'production'){
+  options.schema = process.env.SCHEMA;
+}
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Albums',[
+    options.tableName = 'Albums';
+    return queryInterface.bulkInsert(options,[
       {
         userId: 1,
         title:'test-album'
@@ -21,6 +27,7 @@ module.exports = {
 
   down: (queryInterface, Sequelize) => {
     const Op = Sequelize.Op;
-    return queryInterface.bulkDelete('Albums', null, {});
+    options.tableName = 'Albums';
+    return queryInterface.bulkDelete(options, null, {});
   }
 };

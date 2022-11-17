@@ -6,11 +6,11 @@ const {UserImage} = require('../../db/models');
 const router = express.Router();
 
 router.post('/', asyncHandler(async(req,res) =>{
-    console.log('MADE IT TO POST ROUTE IN BACKEND!!!!!!!!!!!!!!!')
-    console.log(req.body)
+    // console.log('MADE IT TO POST ROUTE IN BACKEND!!!!!!!!!!!!!!!')
+    // console.log(req.body)
     const {userId, imageId, liked} = req.body;
     const newFaveImg = await Favorite.create({userId,imageId,liked});
-    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~',newFaveImg);
+    // console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~',newFaveImg);
     return res.json(newFaveImg);
 }));
 
@@ -30,7 +30,7 @@ router.get('/:userId', asyncHandler(async(req,res) =>{
     // const getUserFaves = await Favorite.findAll({where: {userId}});
     //try $and: if && doesn't work
     // console.log('!!!!!!!!!!!!!!!!!!!!!!!User Faves!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!',json(getFaveImageIndex))
-    console.log('******************',images);
+    // console.log('******************',images);
     return res.json(images);
 }));
 

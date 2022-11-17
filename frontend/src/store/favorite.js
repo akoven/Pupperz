@@ -19,13 +19,13 @@ export const deleteFaveImgAction = imageId =>({
 })
 
 export const addFavoriteImage = (payload) => async dispatch =>{
-    console.log('PAYLOAD FROM FRONTEND: ',payload)
+    // console.log('PAYLOAD FROM FRONTEND: ',payload)
     const response = await csrfFetch('/api/favorites', {
         method: 'POST',
         body: JSON.stringify(payload)
     });
 
-    console.log("RESPONSE FROM ADDFAVIMG: ",response)
+    // console.log("RESPONSE FROM ADDFAVIMG: ",response)
 
     if(response.ok){
         const newImage = await response.json();
@@ -39,7 +39,7 @@ export const loadFavorites = (userId) => async dispatch =>{
     const response = await csrfFetch(`/api/favorites/${userId}`);
     if(response.ok){
         const images = await response.json();
-        console.log('images from favorite store: ',Object.values(images))
+        // console.log('images from favorite store: ',Object.values(images))
         dispatch(loadUserFavorites(Object.values(images)));
         return Object.values(images);
     }
