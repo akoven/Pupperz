@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { addFavoriteImage, deleteLikedImage } from "../../store/favorite";
 import { csrfFetch } from "../../store/csrf";
 import './index.css';
@@ -11,7 +12,8 @@ const ImageItem = (props) =>{
     // const likes = props.liked;
     const image = props.image;
     const userSession = props.userSession;
-    const currentFaves = useSelector(state => state.favorites);
+    const history = useHistory();
+    // const currentFaves = useSelector(state => state.favorites);
     // const allLikes = useSelector(state => state.likesOnly);
 
     // useEffect(() =>{
@@ -78,7 +80,7 @@ const ImageItem = (props) =>{
 
     return(
         <span className="fave-image" key={image.id}>
-            <img className='photos' src={image.imageUrl} alt='image-here'/>
+            <img className='photos' src={image.imageUrl} alt='image-here' onClick={() => history.push(`/comments/${userSession.id}/${image.id}`)}/>
             <button className='like-button' onClick={() => {
                 handleLike(image.id)
                 {setLiked(!liked)}

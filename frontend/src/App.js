@@ -23,6 +23,7 @@ import PrivacyPage from './components/PrivacyPage';
 import TermsPage from './components/TermsPage';
 import HelpPage from './components/HelpPage';
 import LanguagePage from './components/LanguagePage';
+import CommentsPage from './components/CommentsPage';
 
 
 import * as sessionActions from './store/session';
@@ -72,6 +73,9 @@ function App() {
           <Route path='/user/:userId/my-faves'>
             <Favorites />
           </Route>
+          {/* <Route path='/comments/:userId/:imageId'>
+            <CommentsPage />
+          </Route> */}
           <Route path='/about-me' exact>
             <AboutMePage />
           </Route>
