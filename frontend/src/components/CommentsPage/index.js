@@ -24,7 +24,7 @@ const CommentsPage = () => {
         console.log('current user id: ', userId);
 
         dispatch(commentEvents.getComments(imageId));
-    },[dispatch, imageId]);
+    },[dispatch, imageId, userId]);
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
@@ -49,6 +49,7 @@ const CommentsPage = () => {
                 style={{width: "450px"}}
                 />
                 <button type="submit">Submit</button>
+                <button onClick={() => history.push(`/logged-in/${userId}`)}>Cancel</button>
 
                 {allComments.map(comment => <div>{comment.content}</div>)}
 
