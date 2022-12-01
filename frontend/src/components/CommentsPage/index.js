@@ -7,7 +7,8 @@ import './index.css';
 const CommentsPage = () => {
 
     const {imageId, userId} = useParams();
-    const imageIdNum = +imageId
+    const userSession = useSelector(state => state.session.user);
+    const imageIdNum = +imageId;
     const imageArr = useSelector(state => state.userImages);
     const images = Object.values(imageArr || {})
     const commentsArr = useSelector(state => state.comments);
@@ -20,15 +21,22 @@ const CommentsPage = () => {
 
     useEffect(() =>{
         console.log('images: ', imageArr[imageIdNum])
-        console.log(selectedImg);
-        console.log('current user id: ', userId);
+        // console.log(selectedImg);
+        // console.log('image id type',typeof(imageId))
+        // console.log('user id type',typeof(userId))
+        // console.log('current user id: ', userId);
 
         dispatch(commentEvents.getComments(imageId));
     },[dispatch, imageId, userId]);
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
-        const newComment = await dispatch(commentEvents.submitComment(userId, imageId, content));
+        const payload ={
+            userId: +userId,
+            imageId: +imageId,
+            comment: content
+        };
+        const newComment = await dispatch(commentEvents.submitComment(payload));
         if(newComment){
             alert('new comment posted!');
             history.push(`/comments/${userId}/${imageId}`)
@@ -51,7 +59,7 @@ const CommentsPage = () => {
                 <button type="submit">Submit</button>
                 <button onClick={() => history.push(`/logged-in/${userId}`)}>Cancel</button>
 
-                {allComments.map(comment => <div>{comment.content}</div>)}
+                {allComments.map(comment => <div>{comment.comment}</div>)}
 
             </form>
 

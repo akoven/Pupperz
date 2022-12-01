@@ -25,10 +25,10 @@ export const deleteComment = comment =>({
     comment
 });
 
-export const submitComment = (content,userId,imageId) => async dispatch =>{
-    const response = await csrfFetch(`/api/comments/${userId}/${imageId}`, {
+export const submitComment = (payload) => async dispatch =>{
+    const response = await csrfFetch(`/api/comments`, {
         method: 'POST',
-        body: JSON.stringify(content)
+        body: JSON.stringify(payload)
     });
 
     if(response.ok){

@@ -4,9 +4,9 @@ const {Comment} = require('../../db/models');
 
 const router = express.Router();
 
-router.post('/:userId/:imageId', asyncHandler(async(req,res) =>{
-    const {userId, imageId, content} = req.body;
-    const newComment = await Comment.create({userId, imageId, content});
+router.post('/', asyncHandler(async(req,res) =>{
+    const {userId, imageId, comment} = req.body;
+    const newComment = await Comment.create({userId, imageId, comment});
     return res.json(newComment);
 }));
 
