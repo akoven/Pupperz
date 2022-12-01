@@ -5,6 +5,7 @@ const albumRouter = require('./album.js');
 const imageRouter = require('./image.js');
 const userImageRouter = require('./userImage.js');
 const favoriteRouter = require('./favorite.js');
+const commentsRouter = require('./comment.js');
 
 
 router.use('/session', sessionRouter);
@@ -13,6 +14,7 @@ router.use('/albums', albumRouter);
 router.use('/images', imageRouter);
 router.use('/userImages', userImageRouter);
 router.use('/favorites', favoriteRouter);
+router.use('/comments', commentsRouter);
 
 
 router.post('/test', function(req, res) {

@@ -73,9 +73,9 @@ function App() {
           <Route path='/user/:userId/my-faves'>
             <Favorites />
           </Route>
-          {/* <Route path='/comments/:userId/:imageId'>
+          <Route path='/comments/:userId/:imageId'>
             <CommentsPage />
-          </Route> */}
+          </Route>
           <Route path='/about-me' exact>
             <AboutMePage />
           </Route>
