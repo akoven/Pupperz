@@ -8,6 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     UserImage.belongsTo(models.User,{foreignKey:'userId'})
     UserImage.hasMany(models.Comment,{foreignKey:'imageId'})
+    UserImage.hasMany(models.Comment, {foreignKey:'imageId'})
+
   };
   return UserImage;
 };

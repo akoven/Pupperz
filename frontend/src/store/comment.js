@@ -49,6 +49,16 @@ export const getComments = (imageId) => async dispatch =>{
     return null
 };
 
+export const deleteCommentThunk = (comment) => async dispatch =>{
+    const response = await csrfFetch(`/api/comments/${comment.id}`,{
+        method: 'DELETE'
+    });
+    console.log('made it to delete thunk for comments')
+    dispatch(deleteComment(comment));
+    console.log(response)
+    return response;
+}
+
 
 const commentReducer = (state = {}, action) =>{
     let newState;
@@ -60,6 +70,10 @@ const commentReducer = (state = {}, action) =>{
         case READ:
             newState = {};
             action.comments.forEach(comment => newState[comment.id] = comment);
+            return newState;
+        case DELETE:
+            newState = Object.assign({},state);
+            delete newState[action.comment.id];
             return newState;
         default:
             return state;

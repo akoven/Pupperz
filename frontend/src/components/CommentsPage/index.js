@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
+import CommentModal from "./CommentModal";
 import * as commentEvents from "../../store/comment";
 import './index.css';
 
@@ -10,9 +11,9 @@ const CommentsPage = () => {
     const userSession = useSelector(state => state.session.user);
     const imageIdNum = +imageId;
     const imageArr = useSelector(state => state.userImages);
-    const images = Object.values(imageArr || {})
-    const commentsArr = useSelector(state => state.comments);
-    const allComments = Object.values(commentsArr || {});
+    const images = Object.values(imageArr || {});
+    const comments = useSelector(state => state.comments);
+    const commentsArr = Object.values(comments || {});
     const dispatch = useDispatch();
     const history = useHistory();
     const [content, setContent] = useState('');
@@ -20,12 +21,11 @@ const CommentsPage = () => {
     const selectedImg = images.find(image => image.id === imageIdNum);
 
     useEffect(() =>{
-        console.log('images: ', imageArr[imageIdNum])
+        // console.log('images: ', imageArr[imageIdNum])
         // console.log(selectedImg);
         // console.log('image id type',typeof(imageId))
         // console.log('user id type',typeof(userId))
         // console.log('current user id: ', userId);
-
         dispatch(commentEvents.getComments(imageId));
     },[dispatch, imageId, userId]);
 
@@ -58,10 +58,8 @@ const CommentsPage = () => {
                 />
                 <button type="submit">Submit</button>
                 <button onClick={() => history.push(`/logged-in/${userId}`)}>Cancel</button>
-
-                {allComments.map(comment => <div>{comment.comment}</div>)}
-
             </form>
+            {commentsArr.map(comment => <div>{userSession.username} says: <div>{comment.comment} {userId == userSession.id ? <CommentModal userId={userId} imageId={imageId} comment={comment}/>:null}</div></div>)}
 
         </div>
     )

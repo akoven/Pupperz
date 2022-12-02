@@ -16,4 +16,11 @@ router.get('/:imageId', asyncHandler(async(req,res) =>{
     return res.json(getComments);
 }));
 
+router.delete('/:id', asyncHandler(async(req, res) =>{
+    const commentId = parseInt(req.params.id, 10);
+    const deletedComment = await Comment.findByPk(commentId);
+    await deletedComment.destroy();
+    res.status(204).end();
+}));
+
 module.exports = router;
