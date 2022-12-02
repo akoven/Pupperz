@@ -33,7 +33,7 @@ const CommentsPage = () => {
         e.preventDefault();
         const payload ={
             userId: +userId,
-            imageId: +imageId,
+            userImageId: +imageId,
             comment: content
         };
         const newComment = await dispatch(commentEvents.submitComment(payload));
