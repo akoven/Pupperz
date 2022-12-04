@@ -49,15 +49,30 @@ export const getComments = (imageId) => async dispatch =>{
     return null
 };
 
+export const editCommentThunk = (comment) => async dispatch =>{
+    // console.log('comment passed into editCommentThunk: ', comment.id);
+    const response = await csrfFetch(`/api/comments/${comment.id}`,{
+        method: 'PUT',
+        body: JSON.stringify(comment)
+    });
+    console.log('from comment store, edit method: ',comment.id)
+    if(response.ok){
+        const editedComment = await response.json();
+        dispatch(editComment(editedComment));
+        return editedComment;
+    }
+};
+
 export const deleteCommentThunk = (comment) => async dispatch =>{
+    console.log('comment passed into deleteCommentThunk: ', comment.id);
     const response = await csrfFetch(`/api/comments/${comment.id}`,{
         method: 'DELETE'
     });
-    console.log('made it to delete thunk for comments')
+    // console.log('made it to delete thunk for comments')
     dispatch(deleteComment(comment));
     console.log(response)
     return response;
-}
+};
 
 
 const commentReducer = (state = {}, action) =>{
@@ -70,6 +85,10 @@ const commentReducer = (state = {}, action) =>{
         case READ:
             newState = {};
             action.comments.forEach(comment => newState[comment.id] = comment);
+            return newState;
+        case EDIT:
+            newState = Object.assign({}, state);
+            newState[action.comment.id] = action.comment;
             return newState;
         case DELETE:
             newState = Object.assign({},state);

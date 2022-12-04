@@ -36,7 +36,6 @@ const CommentModal = ({userId, imageId, comment}) =>{
                     <div onClick={() => history.push(`/comments/edit/${userId}/${imageId}/${comment.id}`)}>Edit</div>
                     <div onClick={() => dispatch(deleteCommentThunk(comment))}>Delete</div>
                     {/* <div onClick={() => alert(comment)}>Delete</div> */}
-
                 </div>
             )}
 

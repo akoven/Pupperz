@@ -59,7 +59,7 @@ const CommentsPage = () => {
                 <button type="submit">Submit</button>
                 <button onClick={() => history.push(`/logged-in/${userId}`)}>Cancel</button>
             </form>
-            {commentsArr.map(comment => <div>{userSession.username} says: <div>{comment.comment} {userId == userSession.id ? <CommentModal userId={userId} imageId={imageId} comment={comment}/>:null}</div></div>)}
+            {commentsArr.map(comment => <div>{userSession.username} says: <div>{comment.comment} {comment.userId == userId ? <CommentModal userId={userId} imageId={imageId} comment={comment}/>:null}</div></div>)}
 
         </div>
     )

@@ -16,6 +16,13 @@ router.get('/:imageId', asyncHandler(async(req,res) =>{
     return res.json(getComments);
 }));
 
+router.put('/:id', asyncHandler(async(req,res) =>{
+    const commentId = parseInt(req.params.id, 10);
+    const editComment = await Comment.findByPk(commentId);
+    await editComment.update({comment: req.body.comment});
+    return res.json(editComment);
+}));
+
 router.delete('/:id', asyncHandler(async(req, res) =>{
     const commentId = parseInt(req.params.id, 10);
     // const deletedComment = await Comment.findByPk(commentId);
