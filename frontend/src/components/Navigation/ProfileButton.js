@@ -43,7 +43,7 @@ const ProfileButton = ({user}) =>{
           </button>
           {showMenu && (
             <div className="profile-dropdown">
-              <button onClick={() => setShowMenu(false)}>X</button>
+              <button onClick={() => setShowMenu(false)}>x</button>
               <div>{user.username}</div>
               <div>{user.email}</div>
               <div>

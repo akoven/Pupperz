@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { editCommentThunk } from "../../store/comment";
+import './editComment.css';
 
 const EditComment = () =>{
     const {userId, imageId, commentId} = useParams();

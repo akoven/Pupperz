@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import { Modal } from '../../context/Modal';
+// import { Modal } from '../../context/Modal';
+import './index.css';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteCommentThunk } from '../../store/comment';
@@ -31,10 +32,10 @@ const CommentModal = ({userId, imageId, comment}) =>{
         <>
             <button onClick={openMenu}><i class="fa-solid fa-pen" /></button>
             {showModal && (
-                <div>
-                    <button onClick={() => setShowModal(false)}>X</button>
-                    <div onClick={() => history.push(`/comments/edit/${userId}/${imageId}/${comment.id}`)}>Edit</div>
-                    <div onClick={() => dispatch(deleteCommentThunk(comment))}>Delete</div>
+                <div className='modalWindow'>
+                    <button onClick={() => setShowModal(false)} className='close-menu'>x</button>
+                    <div><button className='comment-edit-btn' onClick={() => history.push(`/comments/edit/${userId}/${imageId}/${comment.id}`)}>Edit</button></div>
+                    <div><button className='comment-delete-btn' onClick={() => dispatch(deleteCommentThunk(comment))}>Delete</button></div>
                     {/* <div onClick={() => alert(comment)}>Delete</div> */}
                 </div>
             )}

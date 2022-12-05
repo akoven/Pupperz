@@ -2,3 +2,29 @@
     border: black 2pt solid;
     margin-bottom: 50px;
 }
+
+.modalWindow{
+    border: 1px white solid;
+    width: 60px;
+    background-color: white;
+    margin-left: 75px;
+    margin-top: 5px;
+    border-radius: 10%;
+
+}
+
+.close-menu{
+    background-color: red;
+    border: 1px red solid;
+    margin-left: 40px;
+    border-radius: 8px;
+}
+
+.comment-edit-btn, .comment-delete-btn{
+    border: none;
+    background-color: white;
+}
+
+.comment-edit-btn:hover, .comment-delete-btn:hover{
+    color: blue
+}
