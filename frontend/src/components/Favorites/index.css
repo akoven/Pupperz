@@ -1,6 +1,8 @@
 .fave-image{
     border-radius: 10px;
     padding-right: 5px;
+    width: 500px;
+    height: 350px;
 }
 
 .fave-img-div{
@@ -10,4 +12,12 @@
 
 .user-homepage{
     text-decoration: none;
+}
+
+.faves-pg-background{
+    height: 1000px;
+}
+
+.favorites-header{
+    color: blue;
 }

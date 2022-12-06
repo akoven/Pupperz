@@ -1,0 +1,38 @@
+.edit-album-img{
+    height: 350px;
+    width: 500px;
+    margin-top: 20px;
+}
+
+.edit-album-img-pg{
+    height: 1000px;
+}
+
+.edit-album-img-label, .edit-album-content-label{
+    font-weight: bold;
+}
+
+.edit-album-img-input{
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.edit-album-content-input{
+    margin-left: 5px;
+    margin-right: 15px;
+}
+
+.submit-changes-btn, .edit-album-img-cancel-btn{
+    color: blue;
+    border-color: rgb(197, 30, 197);
+    border-radius: 10px;
+}
+
+.edit-album-img-cancel-btn{
+    margin-left: 5px;
+}
+
+.submit-changes-btn:hover, .edit-album-img-cancel-btn:hover{
+    font-weight: bold;
+    background-color: white;
+}

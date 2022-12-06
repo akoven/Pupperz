@@ -9,21 +9,26 @@ const ProfileButton = ({user}) =>{
     const dispatch = useDispatch();
     const history = useHistory();
     const [showMenu, setShowMenu] = useState(false);
-    // const faveImages = useSelector(state => state.Favorite);
+
 
     const openMenu = () =>{
+        console.log('SHOW MENU: ',showMenu)
         if(showMenu) return;
         setShowMenu(true);
+        console.log('SET TO TRUE? ',showMenu)
     };
 
-    useEffect(() =>{
-        if(!showMenu) return;
-        const closeMenu = () =>{
-            setShowMenu(false)
-        }
-        document.addEventListener('click', closeMenu);
-        return () => document.removeEventListener("click", closeMenu);
-    }, [showMenu]);
+    // useEffect(() =>{
+    //     console.log('use effect before set show menu command: ',showMenu)
+    //     debugger
+    //     if(!showMenu) return;
+    //     const closeMenu = () =>{
+    //         console.log('within closeMenu function: ',showMenu)
+    //         setShowMenu(false)
+    //     }
+    //     document.addEventListener('click', closeMenu);
+    //     return () => document.removeEventListener("click", closeMenu);
+    // }, [showMenu]);
 
     const logout = (e) => {
         e.preventDefault();
@@ -38,6 +43,7 @@ const ProfileButton = ({user}) =>{
           </button>
           {showMenu && (
             <div className="profile-dropdown">
+              <button onClick={() => setShowMenu(false)} className='close-profile-menu'>x</button>
               <div>{user.username}</div>
               <div>{user.email}</div>
               <div>

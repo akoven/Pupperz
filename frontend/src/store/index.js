@@ -1,11 +1,12 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+// import {configureStore} from '@reduxjs/toolkit';
 import thunk from "redux-thunk";
 import sessionReducer from "./session";
 import albumReducer from "./album";
 import imageReducer from "./image";
 import allImagesReducer from "./userImage";
 import favoritesReducer from "./favorite";
-import likesOnlyReducer from "./likesOnly";
+import commentReducer from "./comment";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -13,7 +14,7 @@ const rootReducer = combineReducers({
   images: imageReducer,
   userImages: allImagesReducer,
   favorites: favoritesReducer,
-  likesOnly: likesOnlyReducer
+  comments: commentReducer,
 });
 
 let enhancer;

@@ -1,0 +1,23 @@
+.album-title-label{
+    font-weight: bold;
+}
+
+.album-title-input{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.submit-album-changes, .cancel-album-changes{
+    color: blue;
+    border-color: rgb(197, 30, 197);
+    border-radius: 10px;
+}
+
+.cancel-album-changes{
+    margin-left: 5px;
+}
+
+.submit-album-changes:hover, .cancel-album-changes:hover{
+    background-color: white;
+    font-weight: bold;
+}

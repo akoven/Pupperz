@@ -15,14 +15,76 @@
     border: solid;
     border-color: black;
 
-    width: 600px;
+    width: 500px;
     height: 100px;
     color: black;
     background-color: blueviolet;
-
 }
 
 .nav-to-albums{
     font-family: 'Titan One', cursive;
     text-decoration: none;
+    margin-top: 10px;
+    margin-left: 45px;
+}
+
+.back-to-albums{
+    text-decoration: none;
+}
+
+.album-img-label, .album-img-content-label{
+    font-weight: bold;
+}
+
+.album-img-input, .album-img-content-input{
+    margin-left: 10px
+}
+
+.album-img-content-label{
+    margin-left: 10px;
+}
+
+.album-img-submit{
+    margin-left: 10px;
+    border-radius: 10px;
+    color: blue;
+    border-color: rgb(197, 30, 197);
+}
+
+.album-img-submit:hover{
+    background: white;
+    font-weight: bold;
+}
+
+.album-img-header{
+    color: blue;
+}
+
+.nav-to-albums{
+    text-decoration: none;
+}
+
+.album-img{
+    width: 500px;
+    height: 350px;
+}
+
+.album-img-div{
+    margin-top: 20px;
+}
+
+.album-img-edit-btn, .album-img-delete-btn{
+    border-color: rgb(248, 63, 248);
+    color: blue;
+    border-radius: 25px;
+    margin-top: 10px;
+}
+
+.album-img-delete-btn{
+    margin-left: 5px;
+}
+
+.album-img-edit-btn:hover, .album-img-delete-btn:hover{
+    font-weight: bold;
+    background-color: white;
 }
