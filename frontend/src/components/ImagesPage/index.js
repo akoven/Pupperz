@@ -103,7 +103,7 @@ const ImagesPage = () =>{
                 </label>
                 <button type='submit' className="album-img-submit">Upload That!</button>
             </form>
-            {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/><div className="contentBox">{image.content}</div><button onClick={() => history.push(`/edit-image/${albumId}/${image.id}`)}>Edit</button><button onClick={() => dispatch(deleteImage(image))}>Delete</button></div>)}
+            {imageArr.map(image =><div className="album-img-div"><img className='album-img' src={image.imageUrl} alt='image here'/><div className="contentBox">{image.content}</div><button className = 'album-img-edit-btn' onClick={() => history.push(`/edit-image/${albumId}/${image.id}`)}>Edit</button><button className = 'album-img-delete-btn' onClick={() => dispatch(deleteImage(image))}>Delete</button></div>)}
         </div>
     )
 }

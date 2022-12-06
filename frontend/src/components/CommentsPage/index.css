@@ -43,7 +43,7 @@
 }
 
 .comment-submit, .comment-cancel{
-    border-radius: 25%;
+    border-radius: 25px;
     color: blue;
     border-color: rgb(197, 30, 197);
 }

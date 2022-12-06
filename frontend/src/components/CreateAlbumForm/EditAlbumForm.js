@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {useParams, useHistory} from 'react-router-dom';
 import { editAlbum } from "../../store/album";
+import './editAlbum.css';
 
 const EditAlbumForm = () =>{
     const history = useHistory();
@@ -46,16 +47,17 @@ const EditAlbumForm = () =>{
             <ul>
                 {errorValidation.map((error,id) => <li key={id}>{error}</li>)}
             </ul>
-            <label>
-                Album Title:
+            <label className="album-title-label">
+                Album Title
             </label>
             <input
                 type='string'
+                className="album-title-input"
                 value={title}
                 onChange={e => setTitle(e.target.value)}
                 required/>
-            <button type='submit' disabled={errorValidation.length > 0}>Submit Changes</button>
-            <button onClick={() => history.push(`/user/${sessionUser.id}/albums`)}>Cancel</button>
+            <button type='submit' className='submit-album-changes' disabled={errorValidation.length > 0}>Submit Changes</button>
+            <button className='cancel-album-changes' onClick={() => history.push(`/user/${sessionUser.id}/albums`)}>Cancel</button>
         </form>
 
     );

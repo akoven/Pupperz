@@ -41,7 +41,7 @@ const CommentsPage = () => {
             alert('new comment posted!');
             history.push(`/comments/${userId}/${imageId}`)
         }
-    }
+    };
 
     return(
         <div className="comments-pg">
@@ -56,7 +56,8 @@ const CommentsPage = () => {
                 rows='5'
                 style={{width: "300px"}}
                 />
-                <button type="submit" className="comment-submit">Submit</button>
+                {content.length}/50 characters used
+                <button type="submit" className="comment-submit" disabled={content.length > 50}>Submit</button>
                 <button className="comment-cancel" onClick={() => history.push(`/logged-in/${userId}`)}>Cancel</button>
             </form>
             {commentsArr.map(comment => <div className="user-comment">{userSession.username} says: <div>{comment.comment} {comment.userId == userId ? <CommentModal userId={userId} imageId={imageId} comment={comment}/>:null}</div></div>)}

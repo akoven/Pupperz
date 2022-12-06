@@ -2,6 +2,7 @@ import { useHistory, useParams} from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
 import { useState } from "react";
 import { editImage } from "../../store/image";
+import './editImg.css';
 
 const EditImageForm = () =>{
     const history = useHistory();
@@ -46,32 +47,34 @@ const EditImageForm = () =>{
     };
 
     return(
-        <>
+        <div className="edit-album-img-pg">
             <form onSubmit={handleSubmit}>
                 <ul>
                     {errorValidation.map((error,id) => <li key={id}>{error}</li>)}
                 </ul>
-                <label>
-                    Image Url:
+                <label className="edit-album-img-label">
+                    Image Url
                     <input
+                    className="edit-album-img-input"
                     type='text'
                     value={imageUrl}
                     onChange={e => setImageUrl(e.target.value)}
                     required
                     />
                 </label>
-                <label>
-                    Content:
+                <label className="edit-album-content-label">
+                    Content
                     <textarea
+                    className="edit-album-content-input"
                     type='text'
                     value={content}
                     onChange={e => setContent(e.target.value)}></textarea>
                 </label>
-                <button type="submit">Submit Changes</button>
-                <button onClick={() => history.push(`/albums/${albumId}/images`)}>Cancel</button>
+                <button className='submit-changes-btn' type="submit">Submit Changes</button>
+                <button className='edit-album-img-cancel-btn' onClick={() => history.push(`/albums/${albumId}/images`)}>Cancel</button>
             </form>
-            <img src={imageUrl} alt='image here'/>
-        </>
+            <img src={imageUrl} alt='image here' className="edit-album-img"/>
+        </div>
     )
 };
 

@@ -1,0 +1,23 @@
+.create-album-btn, .cancel-create-album{
+    color: blue;
+    border-color: rgb(197, 30, 197);
+    border-radius: 10px;
+}
+
+.create-album-btn:hover, .cancel-create-album:hover{
+    font-weight: bold;
+    background-color: white;
+}
+
+.create-album-btn{
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.album-name-label{
+    font-weight: bold;
+}
+
+.album-name-input{
+    margin-left: 8px;
+}

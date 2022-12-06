@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 // import { createAlbum } from '../../store/album';
 import * as albumEvents from '../../store/album';
+import './index.css'
 
 const CreateAlbumForm = () =>{
  const dispatch = useDispatch();
@@ -37,16 +38,17 @@ const CreateAlbumForm = () =>{
             <ul>
                 {errorValidation.map((error,id) => <li key={id}>{error}</li>)}
             </ul>
-            <label>
-                Album Name:
+            <label className='album-name-label'>
+                Album Name
                 <input
+                className='album-name-input'
                 type='string'
                 value ={title}
                 onChange={e=>setTitle(e.target.value)}
                 required/>
             </label>
-            <button type='submit'>Submit</button>
-            <button onClick={() => history.push(`/user/${userId}/albums`)}>Cancel</button>
+            <button className='create-album-btn' type='submit'>Submit</button>
+            <button className='cancel-create-album' onClick={() => history.push(`/user/${userId}/albums`)}>Cancel</button>
         </form>
      )
  }
