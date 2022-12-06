@@ -43,8 +43,8 @@ const EditComment = () =>{
                 value={content}
                 onChange={e => setContent(e.target.value)}
                 placeholder='500 characters or less'
-                rows='10'
-                style={{width: "450px"}}
+                rows='5'
+                style={{width: "300px"}}
                 />
                 <button type="submit">Submit</button>
                 <button onClick={() => history.push(`/comments/${userId}/${imageId}`)}>Cancel</button>

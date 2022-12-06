@@ -74,15 +74,16 @@ const AllUserImages = () =>{
             <img src="https://images.dog.ceo/breeds/beagle/n02088364_12440.jpg" alt=''/> */}
 
 
-            <h1>{sessionUser.username}'s Photos</h1>
-            <h2>Let's upload some images!</h2>
+            <h1 className="user-image-header">{sessionUser.username}'s Photos</h1>
+            <h2 className="user-image-subheader">Let's upload some images!</h2>
             <form onSubmit={handleSubmit}>
                 <ul>
                     {errorValidation.map((error,id) => <li key={id}>{error}</li>)}
                 </ul>
-                <label>
+                <label className="imgUrl-label">
                     Image Url
                     <input
+                    className="img-input"
                     type='text'
                     value={imageUrl}
                     onChange={e => setImageUrl(e.target.value)}
@@ -99,7 +100,7 @@ const AllUserImages = () =>{
                     rows='3'
                     ></textarea>
                 </label> */}
-                <button type='submit'>Upload That!</button>
+                <button type='submit' className="upload-user-img">Upload That!</button>
             </form>
             {imageArr.map(image =><span className="allUserImages" key={image.id}><div><img className='allImages' src={image.imageUrl} alt='image here'/></div><div className = 'delete-button'><button className="delete-btn" onClick={() => dispatch(deleteUserImage(image))}>Delete</button></div></span>)}
             {/*

@@ -74,24 +74,26 @@ const ImagesPage = () =>{
 
     return(
         <div className="imagePage">
-            <div className="nav-to-albums"><NavLink to={`/user/${sessionUser.id}/albums`}>{'<< Back to your albums'}</NavLink></div>
-            <h1>Let's upload some images!</h1>
+            <div className="nav-to-albums"><NavLink className='back-to-albums' to={`/user/${sessionUser.id}/albums`}>{'<< Back to your albums'}</NavLink></div>
+            <h1 className="album-img-header">Let's upload some images!</h1>
             <form onSubmit={handleSubmit}>
                 <ul>
                     {errorValidation.map((error,id) => <li key={id}>{error}</li>)}
                 </ul>
-                <label>
+                <label className="album-img-label">
                     Image Url
                     <input
+                    className="album-img-input"
                     type='text'
                     value={imageUrl}
                     onChange={e => setImageUrl(e.target.value)}
                     required
                     />
                 </label>
-                <label>
+                <label className="album-img-content-label">
                     Content
                     <textarea
+                    className="album-img-content-input"
                     type='text'
                     value={content}
                     onChange={e => setContent(e.target.value)}
@@ -99,7 +101,7 @@ const ImagesPage = () =>{
                     rows='3'
                     ></textarea>
                 </label>
-                <button type='submit'>Upload That!</button>
+                <button type='submit' className="album-img-submit">Upload That!</button>
             </form>
             {imageArr.map(image =><div><img src={image.imageUrl} alt='image here'/><div className="contentBox">{image.content}</div><button onClick={() => history.push(`/edit-image/${albumId}/${image.id}`)}>Edit</button><button onClick={() => dispatch(deleteImage(image))}>Delete</button></div>)}
         </div>

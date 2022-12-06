@@ -20,7 +20,8 @@
 
 .edit-album-btn, .delete-album-btn{
     border-color: rgb(248, 63, 248);
-    border-radius: 35%;
+    color: blue;
+    border-radius: 25px;
 }
 .edit-album-btn{
     margin-right: 10px;

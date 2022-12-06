@@ -14,6 +14,31 @@
     /* justify-content: space-between; */
 }
 
+.user-image-header, .user-image-subheader{
+    color: blue;
+}
+
+.upload-user-img{
+    margin-left: 5px;
+    border-radius: 10px;
+    color: blue;
+    border-color: rgb(197, 30, 197);
+}
+
+.upload-user-img:hover{
+    background-color: white;
+    font-weight: bold;
+}
+
+.img-input{
+    margin-left: 5px;
+}
+
+.imgUrl-label{
+    font-weight: bold;
+    font-size: 16pt;
+}
+
 .delete-button{
     display: flex;
     padding-left: 450px;

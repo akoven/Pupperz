@@ -45,21 +45,21 @@ const CommentsPage = () => {
 
     return(
         <div className="comments-pg">
-            <h1>Comments Page</h1>
+            <h3>Comments Page</h3>
             <img className='selected-img-for-comment' src={selectedImg.imageUrl} alt='image here'/>
             <form onSubmit={handleSubmit}>
                 <textarea
                 type="text"
                 value={content}
                 onChange={e => setContent(e.target.value)}
-                placeholder='500 characters or less'
-                rows='10'
-                style={{width: "450px"}}
+                placeholder='50 characters or less'
+                rows='5'
+                style={{width: "300px"}}
                 />
-                <button type="submit">Submit</button>
-                <button onClick={() => history.push(`/logged-in/${userId}`)}>Cancel</button>
+                <button type="submit" className="comment-submit">Submit</button>
+                <button className="comment-cancel" onClick={() => history.push(`/logged-in/${userId}`)}>Cancel</button>
             </form>
-            {commentsArr.map(comment => <div>{userSession.username} says: <div>{comment.comment} {comment.userId == userId ? <CommentModal userId={userId} imageId={imageId} comment={comment}/>:null}</div></div>)}
+            {commentsArr.map(comment => <div className="user-comment">{userSession.username} says: <div>{comment.comment} {comment.userId == userId ? <CommentModal userId={userId} imageId={imageId} comment={comment}/>:null}</div></div>)}
 
         </div>
     )

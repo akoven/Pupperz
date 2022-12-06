@@ -35,15 +35,27 @@
 
 }
 
+.nav-button:hover{
+    font-weight: bold;
+    background-color: white;
+}
+
 .create-album-label{
     text-decoration: none;
     font-size: 18pt;
 }
 
-/* button:hover{
-    background-color: white;
+.close-profile-menu{
+    background-color: red;
+    border: none;
     font-weight: bold;
-} */
+    margin-left: 100px;
+    border-radius: 8px;
+}
+
+.close-profile-menu:hover{
+    background-color: crimson;
+}
 
 .user-profile-btn{
     background-color: rgba(72, 72, 228, 0.241);

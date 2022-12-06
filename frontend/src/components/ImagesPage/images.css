@@ -25,4 +25,42 @@
 .nav-to-albums{
     font-family: 'Titan One', cursive;
     text-decoration: none;
+    margin-top: 10px;
+    margin-left: 45px;
+}
+
+.back-to-albums{
+    text-decoration: none;
+}
+
+.album-img-label, .album-img-content-label{
+    font-weight: bold;
+}
+
+.album-img-input, .album-img-content-input{
+    margin-left: 10px
+}
+
+.album-img-content-label{
+    margin-left: 10px;
+}
+
+.album-img-submit{
+    margin-left: 10px;
+    border-radius: 10px;
+    color: blue;
+    border-color: rgb(197, 30, 197);
+}
+
+.album-img-submit:hover{
+    background: white;
+    font-weight: bold;
+}
+
+.album-img-header{
+    color: blue;
+}
+
+.nav-to-albums{
+    text-decoration: none;
 }

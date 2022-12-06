@@ -1,5 +1,5 @@
 .selected-img-for-comment{
-    border: black 2pt solid;
+    border: black 5pt solid;
     margin-bottom: 50px;
 }
 
@@ -10,14 +10,27 @@
     margin-left: 75px;
     margin-top: 5px;
     border-radius: 10%;
+}
 
+.comments-pg{
+    height: 1000px;
+}
+
+.user-comment{
+    margin-bottom: 10px;
 }
 
 .close-menu{
     background-color: red;
-    border: 1px red solid;
+    border: none;
     margin-left: 40px;
     border-radius: 8px;
+    font-weight: bold;
+}
+
+
+.close-menu:hover{
+    background-color: crimson;
 }
 
 .comment-edit-btn, .comment-delete-btn{
@@ -27,4 +40,20 @@
 
 .comment-edit-btn:hover, .comment-delete-btn:hover{
     color: blue
+}
+
+.comment-submit, .comment-cancel{
+    border-radius: 25%;
+    color: blue;
+    border-color: rgb(197, 30, 197);
+}
+
+.comment-submit:hover, .comment-cancel:hover{
+    font-weight: bold;
+    background-color: white;
+}
+
+.comment-submit{
+    margin-right: 5px;
+    margin-left: 5px;
 }
