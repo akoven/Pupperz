@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
+import './LoginForm.css';
 // import { Redirect } from 'react-router-dom';
 
 
@@ -37,6 +38,7 @@ function LoginForm(){
             <label className="credential-input">
               Username or Email
               <input
+                className="credential-field"
                 type="text"
                 value={credential}
                 onChange={(e) => setCredential(e.target.value)}
@@ -48,6 +50,7 @@ function LoginForm(){
             <label className="password-input">
               Password
               <input
+                className="password-field"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -57,10 +60,10 @@ function LoginForm(){
           </div>
           <span>
             <div className='login-button'>
-              <button type="submit">Log In</button>
+              <button className="login-btn" type="submit">Log In</button>
             </div>
             <div className="demo-button">
-              <button onClick={() =>{
+              <button className='demo-user-btn' onClick={() =>{
                   setCredential('Demo-lition')
                   setPassword('password')
               }}>Demo User</button>

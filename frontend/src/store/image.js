@@ -59,7 +59,7 @@ export const createNewImage = (image) => async dispatch =>{
 
 export const displayAllImages = (albumId) => async dispatch =>{
     const response = await csrfFetch(`/api/images/${albumId}`);
-    console.log(response);
+    // console.log(response);
     if(response.ok){
         const images = await response.json();
         dispatch(displayImages(images));

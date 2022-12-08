@@ -1,0 +1,22 @@
+.demo-user-btn, .login-btn{
+    border-radius: 25px;
+    border-color: rgb(221, 165, 223);
+    color: purple;
+    font-weight: bold;
+}
+
+.demo-user-btn{
+    margin-top: 5px;
+}
+
+.credential-input, .password-input{
+    font-weight: bold;
+}
+
+.password-field, .credential-field{
+    margin-left: 5px
+}
+
+#credentials{
+    margin-bottom: 5px;
+}

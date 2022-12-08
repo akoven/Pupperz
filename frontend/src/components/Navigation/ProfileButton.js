@@ -12,10 +12,10 @@ const ProfileButton = ({user}) =>{
 
 
     const openMenu = () =>{
-        console.log('SHOW MENU: ',showMenu)
+        // console.log('SHOW MENU: ',showMenu)
         if(showMenu) return;
         setShowMenu(true);
-        console.log('SET TO TRUE? ',showMenu)
+        // console.log('SET TO TRUE? ',showMenu)
     };
 
     // useEffect(() =>{

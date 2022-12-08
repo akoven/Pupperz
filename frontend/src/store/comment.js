@@ -55,7 +55,7 @@ export const editCommentThunk = (comment) => async dispatch =>{
         method: 'PUT',
         body: JSON.stringify(comment)
     });
-    console.log('from comment store, edit method: ',comment.id)
+    // console.log('from comment store, edit method: ',comment.id)
     if(response.ok){
         const editedComment = await response.json();
         dispatch(editComment(editedComment));
@@ -64,13 +64,13 @@ export const editCommentThunk = (comment) => async dispatch =>{
 };
 
 export const deleteCommentThunk = (comment) => async dispatch =>{
-    console.log('comment passed into deleteCommentThunk: ', comment.id);
+    // console.log('comment passed into deleteCommentThunk: ', comment.id);
     const response = await csrfFetch(`/api/comments/${comment.id}`,{
         method: 'DELETE'
     });
     // console.log('made it to delete thunk for comments')
     dispatch(deleteComment(comment));
-    console.log(response)
+    // console.log(response)
     return response;
 };
 
