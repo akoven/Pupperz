@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
+import './SignUpModal.css';
 
 const SignUpForm = () =>{
     const dispatch = useDispatch();
@@ -35,9 +36,10 @@ const SignUpForm = () =>{
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
                 <div className='email'>
-                    <label>
+                    <label className='email-label'>
                         Email
                         <input
+                        className='email-field'
                         type="text"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -46,9 +48,10 @@ const SignUpForm = () =>{
                     </label>
                 </div>
                 <div className='username'>
-                    <label>
+                    <label className='username-label'>
                         Username
                         <input
+                        className='username-field'
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
@@ -57,9 +60,10 @@ const SignUpForm = () =>{
                     </label>
                 </div>
                 <div className='password'>
-                    <label>
+                    <label className='password-label'>
                         Password
                         <input
+                        className='password-field'
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -68,9 +72,10 @@ const SignUpForm = () =>{
                     </label>
                 </div>
                 <div className='confirmation'>
-                    <label>
+                    <label className='confirm-label'>
                         Confirm Password
                         <input
+                        className='confirm-password-field'
                         type="password"
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
@@ -79,7 +84,7 @@ const SignUpForm = () =>{
                     </label>
                 </div>
                 <div className='button'>
-                    <button type="submit">Sign Up</button>
+                    <button className='sign-up-btn' type="submit">Sign Up</button>
                 </div>
             </form>
         </div>

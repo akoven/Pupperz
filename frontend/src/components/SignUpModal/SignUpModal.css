@@ -1,0 +1,14 @@
+.email-field, .username-field, .password-field, .confirm-password-field{
+    margin-left: 5px;
+}
+
+.password-label, .email-label, .username-label, .confirm-label{
+    font-weight: bold;
+}
+
+.sign-up-btn{
+    border-radius: 25px;
+    border-color: rgb(221, 165, 223);
+    color: purple;
+    font-weight: bold;
+}
